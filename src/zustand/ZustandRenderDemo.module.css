@@ -33,6 +33,7 @@
 
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 16rem minmax(0, 1fr);
+    align-items: start;
   }
 }
