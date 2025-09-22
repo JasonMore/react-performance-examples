@@ -1,18 +1,26 @@
-import { create } from 'zustand'
+import { create } from "zustand";
+
+type World = {
+  id: string;
+  name: string;
+};
 
 interface Store {
   editId: string;
-  hello: { world: string[] };
+  hello: { worlds: World[] };
   setEditId: (id: string) => void;
-  setWorld: (world: string[]) => void;
+  addWorld: (world: World) => void;
 }
 
 export const useStore = create<Store>((set) => ({
-  editId: 'def456',
-  hello: { world: ['abc', '123'] },
+  editId: "def456",
+  hello: {
+    worlds: [
+      { id: "abc123", name: "earth" },
+      { id: "def123", name: "mars" },
+    ],
+  },
   setEditId: (id) => set({ editId: id }),
-  // IMPORTANT: update hello.world by reusing the same object reference
-  // when we want to demonstrate stability across editId changes.
-  setWorld: (world) =>
-    set(() => ({ hello: { world } })), // replaces reference intentionally when called
-}))
+  addWorld: (world) =>
+    set((state) => ({ hello: { worlds: [...state.hello.worlds, world] } })),
+}));

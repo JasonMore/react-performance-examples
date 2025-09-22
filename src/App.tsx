@@ -1,10 +1,5 @@
-import {ZustandRenderDemo} from "./zustand/ZustandRenderDemo"
-
+import { ZustandRenderDemo } from "./zustand/ZustandRenderDemo";
 
 export default function App() {
-  
-  return (
-    <ZustandRenderDemo/>
-
-  );
+  return <ZustandRenderDemo />;
 }
