@@ -1,3 +1,8 @@
 .world {
     margin-left: 0.25rem;
 }
+
+.selected {
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(255, 0, 0);
+}

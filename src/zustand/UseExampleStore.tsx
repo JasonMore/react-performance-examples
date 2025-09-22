@@ -11,6 +11,7 @@ interface Store {
   setEditId: (id: string) => void;
   addWorld: (world: World) => void;
   getWorldById: (id: string) => World | undefined;
+  isSelectedWorld(id: string): boolean;
 }
 
 export const useExampleStore = create<Store>((set, get) => ({
@@ -18,7 +19,7 @@ export const useExampleStore = create<Store>((set, get) => ({
   hello: {
     worlds: [
       { id: "abc123", name: "earth" },
-      { id: "def123", name: "mars" },
+      { id: "def456", name: "mars" },
     ],
   },
   setEditId: (id) => set({ editId: id }),
@@ -29,5 +30,9 @@ export const useExampleStore = create<Store>((set, get) => ({
     const state = get();
     return state.hello.worlds.find((w) => w.id === id);
   },
-}));
 
+  isSelectedWorld: (id: string) => {
+    const state = get();
+    return state.editId === id;
+  },
+}));

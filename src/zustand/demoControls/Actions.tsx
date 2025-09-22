@@ -1,27 +1,20 @@
 import styles from "./Actions.module.css";
 import { useExampleStore } from "../UseExampleStore.tsx";
-import { useMemo } from "react";
 import { getRandomWorldName } from "../solarSystemWorlds.ts";
+import { WorldIdItem } from "./WorldIdItem.tsx";
 
 export function Actions() {
-  const setEditId = useExampleStore((s) => s.setEditId);
   const addWorld = useExampleStore((s) => s.addWorld);
-  const editId = useExampleStore((s) => s.editId);
-
-  // next id to set, just for the demo
-  const nextId = useMemo(
-    () => (editId === "def456" ? "ytch789" : "def456"),
-    [editId],
-  );
+  const worlds = useExampleStore((s) => s.hello.worlds);
 
   return (
     <div className={styles.actions}>
-      <button
-        className={styles.primaryButton}
-        onClick={() => setEditId(nextId)}
-      >
-        Update editId → {nextId}
-      </button>
+      {/* Vertical list of world ids. Clicking one sets the editId for that world */}
+      <ul className={styles.worldList}>
+        {worlds.map((w) => (
+          <WorldIdItem key={w.id} id={w.id} />
+        ))}
+      </ul>
 
       <button
         className={styles.secondaryButton}
@@ -32,7 +25,7 @@ export function Actions() {
           })
         }
       >
-        Update world
+        Add world
       </button>
     </div>
   );
