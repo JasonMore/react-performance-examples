@@ -1,7 +1,4 @@
-// -------------------------------
-// Components
-// -------------------------------
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { useStore } from '../UseStore.tsx'
 import styles from '../ZustandRenderDemo.module.css'
 import { RenderToken } from '../RenderToken.tsx'

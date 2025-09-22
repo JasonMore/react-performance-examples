@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import styles from '../ZustandRenderDemo.module.css'
 import { Bar } from './Bar.tsx'
 import { RenderToken } from '../RenderToken.tsx'
