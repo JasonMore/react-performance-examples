@@ -1,12 +1,11 @@
 import { memo } from "react";
-import { useStore } from "../UseStore.tsx";
+import { useExampleStore } from "../UseExampleStore.tsx";
 import sharedStyles from "./shared.module.css";
 import styles from "./IdToEdit.module.css";
 import { RenderToken } from "../RenderToken.tsx";
 
 export const IdToEdit = memo(() => {
-  const editId = useStore((s) => s.editId);
-  console.count("IdToEdit render");
+  const editId = useExampleStore((s) => s.editId);
   return (
     <div className={sharedStyles.card}>
       <div className={sharedStyles.cardTitle}>IdToEdit</div>

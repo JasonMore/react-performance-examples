@@ -24,8 +24,7 @@ export function ZustandRenderDemo() {
         The
         <code>hello.world</code> array reference stays the same. You should see
         <strong> IdToEdit</strong> render, while <strong>Foo</strong> and{" "}
-        <strong>Bar</strong> do not. Open the console to view{" "}
-        <code>console.count</code> logs.
+        <strong>Bar</strong> do not.
       </p>
 
       <Actions />

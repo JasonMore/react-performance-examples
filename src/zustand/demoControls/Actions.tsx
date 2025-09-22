@@ -1,11 +1,11 @@
 import styles from "./Actions.module.css";
-import { useStore } from "../UseStore.tsx";
+import { useExampleStore } from "../UseExampleStore.tsx";
 import { useMemo } from "react";
 
 export function Actions() {
-  const setEditId = useStore((s) => s.setEditId);
-  const addWorld = useStore((s) => s.addWorld);
-  const editId = useStore((s) => s.editId);
+  const setEditId = useExampleStore((s) => s.setEditId);
+  const addWorld = useExampleStore((s) => s.addWorld);
+  const editId = useExampleStore((s) => s.editId);
 
   // next id to set, just for the demo
   const nextId = useMemo(
