@@ -17,4 +17,9 @@ body {
 
 code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: #e01e5a;
+  background-color: #fcfcfc;
+  border: 1px solid #bebebe;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.2rem;
 }

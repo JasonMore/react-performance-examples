@@ -25,7 +25,7 @@ export function Actions() {
         className={styles.secondaryButton}
         onClick={() => setWorld([...world, Math.random().toString(36).slice(2, 5)])}
       >
-        Update world (changes reference)
+        Update world
       </button>
     </div>
   )
