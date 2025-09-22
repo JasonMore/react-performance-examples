@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import styles from '../ZustandRenderDemo.module.css'
+import styles from './Foo.module.css'
 import { Bar } from './Bar.tsx'
 import { RenderToken } from '../RenderToken.tsx'
 

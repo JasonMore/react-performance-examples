@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useStore } from '../UseStore.tsx'
-import styles from '../ZustandRenderDemo.module.css'
+import styles from './Bar.module.css'
 import { RenderToken } from '../RenderToken.tsx'
 
 export const Bar = memo(() => {

@@ -1,4 +1,4 @@
-import styles from '../ZustandRenderDemo.module.css'
+import styles from './DebugInfo.module.css'
 import { useStore } from '../UseStore.tsx'
 
 export function DebugInfo() {

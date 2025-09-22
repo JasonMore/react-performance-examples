@@ -1,4 +1,4 @@
-import styles from '../ZustandRenderDemo.module.css'
+import styles from './Actions.module.css'
 import { useStore } from '../UseStore.tsx'
 import { useMemo } from 'react'
 

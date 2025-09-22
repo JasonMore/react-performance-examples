@@ -1,126 +1,38 @@
 .app {
-    min-height: 100vh;
-    background-color: #f1f5f9; /* slate-100 */
-    padding: 1.5rem; /* p-6 */
-  }
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  padding: 1.5rem;
+}
 
-  .app > * {
-    max-width: 48rem; /* max-w-3xl */
-    margin-left: auto;
-    margin-right: auto;
-  }
+.app > * {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .app > * + * {
-    margin-top: 1rem; /* space-y-4 */
-  }
-  
-  .title {
-    font-size: 1.5rem; /* text-2xl */
-    line-height: 2rem;
-    font-weight: 700; /* font-bold */
-  }
-  
-  .description {
-    font-size: 0.875rem; /* text-sm */
-    line-height: 1.25rem;
-    color: #334155; /* text-slate-700 */
-  }
-  
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem; /* gap-2 */
-  }
-  
-  .primaryButton {
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    border-radius: 0.75rem; /* rounded-xl */
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .secondaryButton {
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    border-radius: 0.75rem; /* rounded-xl */
-    background-color: #fff;
-    color: inherit;
-    border: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-    cursor: pointer;
-  }
-  
-  .card {
-    padding: 0.75rem; /* p-3 */
-    border-radius: 1rem; /* rounded-2xl */
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  }
-  
-  .cardTitle {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 600;
-  }
-  
-  .textSm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-  
-  .renderToken {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    opacity: 0.6;
-  }
-  
-  .bar {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    background-color: #f9fafb; /* gray-50 */
-  }
-  
-  .textXsBold {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 600;
-  }
-  
-  .textXs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-  
+.app > * + * {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #334155;
+}
+
+.grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
   .grid {
-    display: grid;
-    gap: 0.75rem; /* gap-3 */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  
-  .snapshot {
-    margin-top: 1rem; /* mt-4 */
-    padding: 0.75rem; /* p-3 */
-    font-size: 0.75rem; /* text-xs */
-    line-height: 1rem;
-    color: #475569; /* text-slate-600 */
-    background-color: #fff;
-    border-radius: 1rem; /* rounded-2xl */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  }
-  
-  .snapshotTitle {
-    font-weight: 600;
-    margin-bottom: 0.25rem; /* mb-1 */
-  }
-  
-  .pre {
-    white-space: pre-wrap;
-  }
+}
