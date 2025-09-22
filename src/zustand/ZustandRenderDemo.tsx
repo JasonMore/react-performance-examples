@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./ZustandRenderDemo.module.css";
 import tokenStyle from "./RenderToken.module.css";
 import { Foo } from "./exampleComponents/Foo.tsx";
@@ -8,6 +9,9 @@ import { DebugInfo } from "./demoControls/DebugInfo.tsx";
 export function ZustandRenderDemo() {
   return (
     <div className={styles.app}>
+      <nav className={styles.nav}>
+        <Link to="/" className={styles.homeLink}>← Back to Home</Link>
+      </nav>
       <h1 className={styles.title}>Zustand Render Demo</h1>
       <p className={styles.description}>
         This demo shows you can share state without using prop drilling. The{" "}

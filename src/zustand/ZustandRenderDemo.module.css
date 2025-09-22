@@ -14,6 +14,23 @@
   margin-top: 1rem;
 }
 
+.nav {
+  margin-bottom: 1rem;
+}
+
+.homeLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.homeLink:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
 .title {
   font-size: 1.5rem;
   line-height: 2rem;

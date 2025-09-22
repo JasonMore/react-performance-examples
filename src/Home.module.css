@@ -1,0 +1,81 @@
+.home {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  padding: 1.5rem;
+}
+
+.home > * {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home > * + * {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #475569;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.demoGrid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .demoGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.demoCard {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.demoCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.demoTitle {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.demoDescription {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.demoLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #3b82f6;
+}
