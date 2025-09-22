@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { useMemo } from "react";
 
 type World = {
   id: string;
@@ -11,9 +10,10 @@ interface Store {
   hello: { worlds: World[] };
   setEditId: (id: string) => void;
   addWorld: (world: World) => void;
+  getWorldById: (id: string) => World | undefined;
 }
 
-export const useExampleStore = create<Store>((set) => ({
+export const useExampleStore = create<Store>((set, get) => ({
   editId: "def456",
   hello: {
     worlds: [
@@ -24,13 +24,9 @@ export const useExampleStore = create<Store>((set) => ({
   setEditId: (id) => set({ editId: id }),
   addWorld: (world) =>
     set((state) => ({ hello: { worlds: [...state.hello.worlds, world] } })),
-}));
 
-export const useGetWorldById = (id: string) => {
-  const worlds = useExampleStore((store) => store.hello.worlds);
-  const worldsHash = useMemo(
-    () => Object.fromEntries(worlds.map((world) => [world.id, world])),
-    [worlds],
-  );
-  return worldsHash[id];
-};
+  getWorldById: (id) => {
+    const state = get();
+    return state.hello.worlds.find((w) => w.id === id);
+  },
+}));
