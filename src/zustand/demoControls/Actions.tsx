@@ -1,6 +1,7 @@
 import styles from "./Actions.module.css";
 import { useExampleStore } from "../UseExampleStore.tsx";
 import { useMemo } from "react";
+import { getRandomWorldName } from "../solarSystemWorlds.ts";
 
 export function Actions() {
   const setEditId = useExampleStore((s) => s.setEditId);
@@ -27,7 +28,7 @@ export function Actions() {
         onClick={() =>
           addWorld({
             id: Math.random().toString(36).slice(2, 7),
-            name: "new world",
+            name: getRandomWorldName(),
           })
         }
       >
