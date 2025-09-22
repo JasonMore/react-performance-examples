@@ -2,7 +2,7 @@ import css from "./DebugInfo.module.css";
 import { useExampleStore } from "../UseExampleStore.tsx";
 
 export function DebugInfo() {
-  const editId = useExampleStore((s) => s.editId);
+  const editId = useExampleStore((s) => s.selectedWorldId);
   const world = useExampleStore((s) => s.hello.worlds);
 
   return (

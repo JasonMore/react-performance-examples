@@ -6,23 +6,24 @@ type World = {
 };
 
 interface Store {
-  editId: string;
+  selectedWorldId: string;
   hello: { worlds: World[] };
-  setEditId: (id: string) => void;
+  setWorldId: (id: string) => void;
   addWorld: (world: World) => void;
   getWorldById: (id: string) => World | undefined;
   isSelectedWorld(id: string): boolean;
 }
 
 export const useExampleStore = create<Store>((set, get) => ({
-  editId: "def456",
+  selectedWorldId: "def456",
   hello: {
     worlds: [
-      { id: "abc123", name: "earth" },
-      { id: "def456", name: "mars" },
+      { id: "abc123", name: "mercury" },
+      { id: "def456", name: "venus" },
+      { id: "ghi789", name: "earth" },
     ],
   },
-  setEditId: (id) => set({ editId: id }),
+  setWorldId: (id) => set({ selectedWorldId: id }),
   addWorld: (world) =>
     set((state) => ({ hello: { worlds: [...state.hello.worlds, world] } })),
 
@@ -33,6 +34,6 @@ export const useExampleStore = create<Store>((set, get) => ({
 
   isSelectedWorld: (id: string) => {
     const state = get();
-    return state.editId === id;
+    return state.selectedWorldId === id;
   },
 }));

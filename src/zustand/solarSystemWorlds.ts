@@ -1,10 +1,8 @@
-// List of solar system world (planet/dwarf planet / notable body) names excluding earth and mars.
-// Feel free to expand this list if you demo larger datasets.
 export const SOLAR_SYSTEM_WORLD_NAMES: string[] = [
-  "mercury",
-  "venus",
+  // "mercury",
+  // "venus",
   // "earth", already set in demo
-  // "mars",
+  "mars",
   "jupiter",
   "saturn",
   "uranus",
