@@ -12,3 +12,5 @@ export const Foo = memo(() => {
     </div>
   );
 });
+
+Foo.displayName = "Foo";

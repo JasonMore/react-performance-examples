@@ -14,10 +14,14 @@ export const Bar = memo(() => {
       </div>
       <ul>
         {worlds.map(({ id }) => (
-          <li key={id}><World id={id} /></li>
+          <li key={id}>
+            <World id={id} />
+          </li>
         ))}
       </ul>
       <RenderToken />
     </div>
   );
 });
+
+Bar.displayName = "Bar";

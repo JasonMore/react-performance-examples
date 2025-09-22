@@ -16,3 +16,5 @@ export const IdToEdit = memo(() => {
     </div>
   );
 });
+
+IdToEdit.displayName = "IdToEdit";

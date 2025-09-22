@@ -24,7 +24,12 @@ export function Actions() {
 
       <button
         className={styles.secondaryButton}
-        onClick={() => addWorld({ id: crypto.randomUUID(), name: "new world" })}
+        onClick={() =>
+          addWorld({
+            id: Math.random().toString(36).slice(2, 7),
+            name: "new world",
+          })
+        }
       >
         Update world
       </button>

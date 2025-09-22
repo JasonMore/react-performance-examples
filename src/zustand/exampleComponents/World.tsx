@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { useGetWorldById } from "../UseExampleStore.tsx";
 import { RenderToken } from "../RenderToken.tsx";
 
 type Props = { id: string };
 
-export function World({ id }: Props) {
+export const World = memo(({ id }: Props) => {
   const world = useGetWorldById(id);
 
   return (
@@ -14,4 +15,6 @@ export function World({ id }: Props) {
       <RenderToken />
     </>
   );
-}
+});
+
+World.displayName = "World";
