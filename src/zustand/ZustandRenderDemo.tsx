@@ -8,24 +8,22 @@ export function ZustandRenderDemo() {
 
   return (
     <div className={styles.app}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Zustand Render Demo</h1>
-        <p className={styles.description}>
-          Click <strong>Update editId</strong> to change only <code>editId</code>. The
-          <code>hello.world</code> array reference stays the same. You should see
-          <strong> IdToEdit</strong> render, while <strong>Foo</strong> and <strong>Bar</strong> do not.
-          Open the console to view <code>console.count</code> logs.
-        </p>
+      <h1 className={styles.title}>Zustand Render Demo</h1>
+      <p className={styles.description}>
+        Click <strong>Update editId</strong> to change only <code>editId</code>. The
+        <code>hello.world</code> array reference stays the same. You should see
+        <strong> IdToEdit</strong> render, while <strong>Foo</strong> and <strong>Bar</strong> do not.
+        Open the console to view <code>console.count</code> logs.
+      </p>
 
-        <Actions/>
+      <Actions/>
 
-        <div className={styles.grid}>
-          <IdToEdit />
-          <Foo />
-        </div>
-
-        <DebugInfo/>
+      <div className={styles.grid}>
+        <IdToEdit />
+        <Foo />
       </div>
+
+      <DebugInfo/>
     </div>
   );
 }

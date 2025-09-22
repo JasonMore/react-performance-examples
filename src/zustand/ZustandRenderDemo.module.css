@@ -3,13 +3,14 @@
     background-color: #f1f5f9; /* slate-100 */
     padding: 1.5rem; /* p-6 */
   }
-  
-  .content {
+
+  .app > * {
     max-width: 48rem; /* max-w-3xl */
-    margin: 0 auto; /* mx-auto */
+    margin-left: auto;
+    margin-right: auto;
   }
-  
-  .content > * + * {
+
+  .app > * + * {
     margin-top: 1rem; /* space-y-4 */
   }
   
