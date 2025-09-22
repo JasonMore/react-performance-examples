@@ -1,5 +1,6 @@
 import React, { useMemo, useRef } from "react";
 import { create } from "zustand";
+import styles from "./App.module.css";
 
 // -------------------------------
 // Zustand store
@@ -18,13 +19,13 @@ const useStore = create<Store>((set) => ({
   // IMPORTANT: update hello.world by reusing the same object reference
   // when we want to demonstrate stability across editId changes.
   setWorld: (world) =>
-    set((s) => ({ hello: { world } })), // replaces reference intentionally when called
+    set(() => ({ hello: { world } })), // replaces reference intentionally when called
 }));
 
 // Small helper to give each render a unique visual token
 const RenderToken: React.FC = React.memo(() => {
   const tokenRef = useRef(Math.random().toString(36).slice(2, 7));
-  return <span className="font-mono text-xs opacity-60">#{tokenRef.current}</span>;
+  return <span className={styles.renderToken}>#{tokenRef.current}</span>;
 });
 
 // -------------------------------
@@ -34,9 +35,9 @@ const IdToEdit: React.FC = React.memo(() => {
   const editId = useStore((s) => s.editId);
   console.count("IdToEdit render");
   return (
-    <div className="p-3 rounded-2xl shadow bg-white">
-      <div className="text-sm font-semibold">IdToEdit</div>
-      <div className="text-sm">editId: <code>{editId}</code></div>
+    <div className={styles.card}>
+      <div className={styles.cardTitle}>IdToEdit</div>
+      <div className={styles.textSm}>editId: <code>{editId}</code></div>
       <div><RenderToken /></div>
     </div>
   );
@@ -45,8 +46,8 @@ const IdToEdit: React.FC = React.memo(() => {
 const Foo: React.FC = React.memo(() => {
   console.count("Foo render");
   return (
-    <div className="p-3 rounded-2xl shadow bg-white">
-      <div className="text-sm font-semibold">Foo</div>
+    <div className={styles.card}>
+      <div className={styles.cardTitle}>Foo</div>
       <Bar />
       <div><RenderToken /></div>
     </div>
@@ -58,9 +59,9 @@ const Bar: React.FC = React.memo(() => {
   const world = useStore((s) => s.hello.world);
   console.count("Bar render");
   return (
-    <div className="mt-2 p-2 rounded-xl bg-gray-50">
-      <div className="text-xs font-semibold">Bar</div>
-      <div className="text-xs">world length: <code>{world.length}</code></div>
+    <div className={styles.bar}>
+      <div className={styles.textXsBold}>Bar</div>
+      <div className={styles.textXs}>world length: <code>{world.length}</code></div>
       <div><RenderToken /></div>
     </div>
   );
@@ -79,40 +80,40 @@ export default function App() {
   const nextId = useMemo(() => (editId === "def456" ? "ytch789" : "def456"), [editId]);
 
   return (
-    <div className="min-h-screen bg-slate-100 p-6">
-      <div className="max-w-3xl mx-auto space-y-4">
-        <h1 className="text-2xl font-bold">Zustand Render Demo</h1>
-        <p className="text-sm text-slate-700">
+    <div className={styles.app}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>Zustand Render Demo</h1>
+        <p className={styles.description}>
           Click <strong>Update editId</strong> to change only <code>editId</code>. The
           <code>hello.world</code> array reference stays the same. You should see
           <strong> IdToEdit</strong> render, while <strong>Foo</strong> and <strong>Bar</strong> do not.
           Open the console to view <code>console.count</code> logs.
         </p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className={styles.actions}>
           <button
-            className="px-3 py-2 rounded-xl bg-black text-white"
+            className={styles.primaryButton}
             onClick={() => setEditId(nextId)}
           >
             Update editId → {nextId}
           </button>
 
           <button
-            className="px-3 py-2 rounded-xl bg-white shadow"
+            className={styles.secondaryButton}
             onClick={() => setWorld([...world, Math.random().toString(36).slice(2, 5)])}
           >
             Update world (changes reference)
           </button>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-3">
+        <div className={styles.grid}>
           <IdToEdit />
           <Foo />
         </div>
 
-        <div className="mt-4 p-3 text-xs text-slate-600 bg-white rounded-2xl shadow">
-          <div className="font-semibold mb-1">Store snapshot</div>
-          <pre className="whitespace-pre-wrap">{JSON.stringify({ editId, hello: { world } }, null, 2)}</pre>
+        <div className={styles.snapshot}>
+          <div className={styles.snapshotTitle}>Store snapshot</div>
+          <pre className={styles.pre}>{JSON.stringify({ editId, hello: { world } }, null, 2)}</pre>
         </div>
       </div>
     </div>
