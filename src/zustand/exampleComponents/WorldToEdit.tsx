@@ -1,11 +1,11 @@
 import { memo } from "react";
 import { useExampleStore } from "../UseExampleStore.tsx";
-import styles from "./IdToEdit.module.css";
+import styles from "./WorldToEdit.module.css";
 import { RenderToken } from "../RenderToken.tsx";
 import { WorldIdItem } from "./WorldIdItem.tsx";
 import sharedStyles from "./shared.module.css";
 
-export const IdToEdit = memo(() => {
+export const WorldToEdit = memo(() => {
   const worlds = useExampleStore((s) => s.hello.worlds);
 
   return (
@@ -22,4 +22,4 @@ export const IdToEdit = memo(() => {
   );
 });
 
-IdToEdit.displayName = "IdToEdit";
+WorldToEdit.displayName = "IdToEdit";

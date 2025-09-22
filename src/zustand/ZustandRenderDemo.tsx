@@ -1,7 +1,7 @@
 import styles from "./ZustandRenderDemo.module.css";
 import tokenStyle from "./RenderToken.module.css";
 import { Foo } from "./exampleComponents/Foo.tsx";
-import { IdToEdit } from "./exampleComponents/IdToEdit.tsx";
+import { WorldToEdit } from "./exampleComponents/WorldToEdit.tsx";
 import { Actions } from "./demoControls/Actions.tsx";
 import { DebugInfo } from "./demoControls/DebugInfo.tsx";
 
@@ -30,7 +30,7 @@ export function ZustandRenderDemo() {
       <Actions />
 
       <div className={styles.grid}>
-        <IdToEdit />
+        <WorldToEdit />
         <Foo />
       </div>
 
