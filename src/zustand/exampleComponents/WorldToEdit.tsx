@@ -10,7 +10,7 @@ export const WorldToEdit = memo(() => {
 
   return (
     <div className={sharedStyles.card}>
-      <div className={sharedStyles.cardTitle}>IdToEdit</div>
+      <div className={sharedStyles.cardTitle}>World To Edit</div>
 
       <ul className={styles.worldList}>
         {worlds.map((w) => (

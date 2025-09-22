@@ -11,6 +11,7 @@ export const Bar = memo(() => {
       <div className={css.textXsBold}>Bar</div>
       <div className={css.textXs}>
         world length: <code>{worlds.length}</code>
+        <RenderToken />
       </div>
       <ul>
         {worlds.map(({ id }) => (
@@ -19,7 +20,6 @@ export const Bar = memo(() => {
           </li>
         ))}
       </ul>
-      <RenderToken />
     </div>
   );
 });

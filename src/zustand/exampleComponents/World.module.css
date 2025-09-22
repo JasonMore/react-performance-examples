@@ -1,8 +1,16 @@
 .world {
-    margin-left: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  margin-left: 0.25rem;
+}
+
+.world-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
 }
 
 .selected {
-    background-color: rgb(241, 241, 241);
-    border-color: rgb(255, 0, 0);
+  background-color: rgb(241, 241, 241);
+  border-color: rgb(255, 0, 0);
 }

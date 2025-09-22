@@ -15,10 +15,13 @@ export const World = memo(({ id }: Props) => {
 
   return (
     <>
-      <span className={`${css.world} ${selected ? css.selected : ""}`}>
-        🌍 <code>{world.id}</code> {world.name}
-      </span>
-      <RenderToken />
+      <div className={`${css.world} ${selected ? css.selected : ""}`}>
+        <div>🌍</div>
+        <div className={css.worldInfo}>
+          <span>{world.id}</span> <span>{world.name}</span>
+          <RenderToken />
+        </div>
+      </div>
     </>
   );
 });
