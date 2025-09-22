@@ -1,7 +1,7 @@
-// Small child component so only the clicked / selected world re-renders
 import { memo } from "react";
 import { useExampleStore } from "../UseExampleStore.tsx";
 import css from "./WorldIdItem.module.css";
+import { RenderToken } from "../RenderToken.tsx";
 
 export const WorldIdItem = memo(function WorldIdItem({ id }: { id: string }) {
   const isSelected = useExampleStore((s) => s.isSelectedWorld(id));
@@ -14,6 +14,7 @@ export const WorldIdItem = memo(function WorldIdItem({ id }: { id: string }) {
         onClick={() => setEditId(id)}
       >
         {id}
+        <RenderToken />
       </button>
     </li>
   );

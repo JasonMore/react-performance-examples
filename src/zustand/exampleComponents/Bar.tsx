@@ -1,15 +1,15 @@
 import { memo } from "react";
 import { useExampleStore } from "../UseExampleStore.tsx";
-import styles from "./Bar.module.css";
+import css from "./Bar.module.css";
 import { RenderToken } from "../RenderToken.tsx";
 import { World } from "./World.tsx";
 
 export const Bar = memo(() => {
   const worlds = useExampleStore((s) => s.hello.worlds);
   return (
-    <div className={styles.bar}>
-      <div className={styles.textXsBold}>Bar</div>
-      <div className={styles.textXs}>
+    <div className={css.bar}>
+      <div className={css.textXsBold}>Bar</div>
+      <div className={css.textXs}>
         world length: <code>{worlds.length}</code>
       </div>
       <ul>

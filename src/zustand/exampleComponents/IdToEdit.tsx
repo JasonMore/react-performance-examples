@@ -1,17 +1,22 @@
 import { memo } from "react";
 import { useExampleStore } from "../UseExampleStore.tsx";
-import sharedStyles from "./shared.module.css";
 import styles from "./IdToEdit.module.css";
 import { RenderToken } from "../RenderToken.tsx";
+import { WorldIdItem } from "./WorldIdItem.tsx";
+import sharedStyles from "./shared.module.css";
 
 export const IdToEdit = memo(() => {
-  const editId = useExampleStore((s) => s.editId);
+  const worlds = useExampleStore((s) => s.hello.worlds);
+
   return (
     <div className={sharedStyles.card}>
       <div className={sharedStyles.cardTitle}>IdToEdit</div>
-      <div className={styles.textSm}>
-        editId: <code>{editId}</code>
-      </div>
+
+      <ul className={styles.worldList}>
+        {worlds.map((w) => (
+          <WorldIdItem key={w.id} id={w.id} />
+        ))}
+      </ul>
       <RenderToken />
     </div>
   );

@@ -1,12 +1,12 @@
 import { memo } from "react";
-import styles from "./Foo.module.css";
+import css from "./Foo.module.css";
 import { Bar } from "./Bar.tsx";
 import { RenderToken } from "../RenderToken.tsx";
 
 export const Foo = memo(() => {
   return (
-    <div className={styles.card}>
-      <div className={styles.cardTitle}>Foo</div>
+    <div className={css.card}>
+      <div className={css.cardTitle}>Foo</div>
       <Bar />
       <RenderToken />
     </div>
