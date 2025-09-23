@@ -1,9 +1,9 @@
 import css from "./DebugInfo.module.css";
-import { useExampleStore } from "../UseExampleStore.tsx";
+import { useWorldStore } from "../WorldStore.tsx";
 
 export function DebugInfo() {
-  const editId = useExampleStore((s) => s.selectedWorldId);
-  const world = useExampleStore((s) => s.hello.worlds);
+  const editId = useWorldStore((s) => s.selectedWorldId);
+  const world = useWorldStore((s) => s.hello.worlds);
 
   return (
     <div className={css.snapshot}>

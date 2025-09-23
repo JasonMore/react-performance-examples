@@ -1,14 +1,14 @@
 import css from "./Actions.module.css";
-import { useExampleStore } from "../UseExampleStore.tsx";
+import { useWorldStore } from "../WorldStore.tsx";
 import { getRandomWorldData } from "../solarSystemWorlds.ts";
 
 export function Actions() {
-  const addWorld = useExampleStore((s) => s.addWorld);
+  const addWorld = useWorldStore((s) => s.addWorld);
 
   return (
     <div className={css.actions}>
       <button
-        className={css.secondaryButton}
+        className={css.primaryButton}
         onClick={() => {
           const worldData = getRandomWorldData();
           if (worldData) {

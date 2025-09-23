@@ -1,13 +1,13 @@
 import { memo } from "react";
-import { useExampleStore } from "../UseExampleStore.tsx";
-import { RenderToken } from "../RenderToken.tsx";
+import { useWorldStore } from "../../WorldStore.tsx";
+import { RenderToken } from "../../RenderToken.tsx";
 import css from "./World.module.css";
 
 type Props = { id: string };
 
 export const World = memo(({ id }: Props) => {
-  const world = useExampleStore((s) => s.getWorldById(id));
-  const selected = useExampleStore((s) => s.isSelectedWorld(id));
+  const world = useWorldStore((s) => s.getWorldById(id));
+  const selected = useWorldStore((s) => s.isSelectedWorld(id));
 
   if (!world) {
     return null;
