@@ -1,9 +1,8 @@
 import styles from "./ZustandRenderDemo.module.css";
-import { WorldsViewer } from "./exampleComponents/worldsViewer/WorldsViewer";
-import { WorldsSelector } from "./exampleComponents/worldSelector/WorldsSelector";
 import { Actions } from "./demoControls/Actions";
 import { DebugInfo } from "./demoControls/DebugInfo";
 import { RenderToken } from "./RenderToken";
+import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 
 export function ZustandRenderDemo() {
   return (
@@ -29,12 +28,7 @@ export function ZustandRenderDemo() {
       </p>
 
       <Actions />
-
-      <div className={styles.grid}>
-        <WorldsSelector />
-        <WorldsViewer />
-      </div>
-
+      <WorldApp />
       <DebugInfo />
     </div>
   );

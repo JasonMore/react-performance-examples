@@ -10,31 +10,3 @@
   margin-right: auto;
 }
 
-.grid {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  /* Night sky (top) -> upper atmosphere -> mid atmosphere -> lower atmosphere glow -> earth horizon (bottom) */
-  background: linear-gradient(
-    to bottom,
-    #05070a 0%,
-    /* near-black night */ #071726 15%,
-    /* deep space blue */ #0c2d45 32%,
-    /* upper atmosphere */ #134563 50%,
-    /* mid atmosphere */ #1d6284 65%,
-    /* thinning to lighter blue */ #2e7fa0 78%,
-    /* denser scattering */ #3c91a3 86%,
-    /* transition toward horizon */ #4b896d 94%,
-    /* earth tint emerging */ #4f7f52 100% /* earth horizon */
-  );
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
-  padding: 1rem;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: 16rem minmax(0, 1fr);
-    align-items: start;
-  }
-}
