@@ -1,4 +1,4 @@
-import type { World } from "./types.ts";
+import type { World } from "./types";
 
 export const SOLAR_SYSTEM_WORLDS: World[] = [
   {
@@ -109,7 +109,14 @@ export const SOLAR_SYSTEM_WORLDS: World[] = [
 
 export const getNextWorld = () => {
   if (!SOLAR_SYSTEM_WORLDS.length) {
-    return { id: Math.random().toString(36).slice(2, 7), name: "new world" };
+    return {
+      id: Math.random().toString(36).slice(2, 7),
+      name: "new world",
+      distanceFromSun: "unknown",
+      diameter: "unknown",
+      orbitalPeriod: "unknown",
+      type: "dwarf planet",
+    };
   }
 
   const world = SOLAR_SYSTEM_WORLDS[0];

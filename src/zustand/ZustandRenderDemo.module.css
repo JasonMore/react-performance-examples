@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background-color: var(--color-bg);
   padding: 1.5rem;
 }
 
@@ -27,7 +27,7 @@
     /* transition toward horizon */ #4b896d 94%,
     /* earth tint emerging */ #4f7f52 100% /* earth horizon */
   );
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   padding: 1rem;
 }

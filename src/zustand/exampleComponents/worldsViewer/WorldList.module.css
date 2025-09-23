@@ -1,8 +1,8 @@
 .worldList {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.75rem;
-  background-color: #f9fafb;
+  margin-top: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-muted);
 }
 
 .textXsBold {

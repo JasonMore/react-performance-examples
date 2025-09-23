@@ -1,7 +1,0 @@
-.card {
-  composes: card from "../shared.module.css";
-}
-
-.cardTitle {
-  composes: cardTitle from "../shared.module.css";
-}

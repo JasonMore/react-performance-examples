@@ -17,7 +17,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
   font-size: 0.875rem;
-  margin-top: 0.5rem;
+  margin-top: var(--space-2);
 }
 
 .factItem {
@@ -29,19 +29,12 @@
 .factLabel {
   font-weight: 600;
   font-size: 0.75rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .factValue {
   font-size: 0.875rem;
-  color: #0f172a;
-}
-
-@media (min-width: 768px) {
-  .world {
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-  }
+  color: var(--color-text-primary);
 }

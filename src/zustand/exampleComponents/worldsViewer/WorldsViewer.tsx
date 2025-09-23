@@ -1,12 +1,12 @@
 import { memo } from "react";
-import css from "./WorldsViewer.module.css";
-import { WorldList } from "./WorldList.tsx";
-import { RenderToken } from "../../RenderToken.tsx";
+import { WorldList } from "./WorldList";
+import { RenderToken } from "../../RenderToken";
+import sharedStyles from "../shared.module.css";
 
 export const WorldsViewer = memo(() => {
   return (
-    <div className={css.card}>
-      <div className={css.cardTitle}>
+    <div className={sharedStyles.card}>
+      <div className={sharedStyles.cardTitle}>
         Worlds Viewer <RenderToken />
       </div>
       <WorldList />

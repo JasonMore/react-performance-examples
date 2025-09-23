@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { getNextWorld } from "./solarSystemWorlds.ts";
-import type { World } from "./types.ts";
+import { getNextWorld } from "./solarSystemWorlds";
+import type { World } from "./types";
 
 interface Store {
   selectedWorldId: string;

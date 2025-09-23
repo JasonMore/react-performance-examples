@@ -1,6 +1,6 @@
-import { useWorldStore } from "../../data/WorldStore.tsx";
+import { useWorldStore } from "../../data/WorldStore";
 import { memo } from "react";
-import { RenderToken } from "../../RenderToken.tsx";
+import { RenderToken } from "../../RenderToken";
 import css from "./WorldInfo.module.css";
 
 type Props = { id: string };

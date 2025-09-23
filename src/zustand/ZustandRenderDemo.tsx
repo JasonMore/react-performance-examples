@@ -1,9 +1,9 @@
 import styles from "./ZustandRenderDemo.module.css";
-import { WorldsViewer } from "./exampleComponents/worldsViewer/WorldsViewer.tsx";
-import { WorldsSelector } from "./exampleComponents/worldSelector/WorldsSelector.tsx";
-import { Actions } from "./demoControls/Actions.tsx";
-import { DebugInfo } from "./demoControls/DebugInfo.tsx";
-import { RenderToken } from "./RenderToken.tsx";
+import { WorldsViewer } from "./exampleComponents/worldsViewer/WorldsViewer";
+import { WorldsSelector } from "./exampleComponents/worldSelector/WorldsSelector";
+import { Actions } from "./demoControls/Actions";
+import { DebugInfo } from "./demoControls/DebugInfo";
+import { RenderToken } from "./RenderToken";
 
 export function ZustandRenderDemo() {
   return (
