@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { useWorldStore } from "../../WorldStore.tsx";
+import { useWorldStore } from "../../data/WorldStore.tsx";
 import { RenderToken } from "../../RenderToken.tsx";
 import css from "./World.module.css";
 
@@ -18,7 +18,8 @@ export const World = memo(({ id }: Props) => {
       <div className={`${css.world} ${selected ? css.selected : ""}`}>
         <div className={css.worldInfo}>
           <div>
-            <strong>{world.name}</strong> <span className={css.worldId}>({world.id})</span>
+            <strong>{world.name}</strong>{" "}
+            <span className={css.worldId}>({world.id})</span>
           </div>
           <div className={css.worldDetails}>
             <div className={css.factItem}>

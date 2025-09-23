@@ -1,6 +1,6 @@
 import css from "./Actions.module.css";
-import { useWorldStore } from "../WorldStore.tsx";
-import { getRandomWorldData } from "../solarSystemWorlds.ts";
+import { useWorldStore } from "../data/WorldStore.tsx";
+import { getNextWorld } from "../data/solarSystemWorlds.ts";
 
 export function Actions() {
   const addWorld = useWorldStore((s) => s.addWorld);
@@ -10,10 +10,9 @@ export function Actions() {
       <button
         className={css.primaryButton}
         onClick={() => {
-          const worldData = getRandomWorldData();
+          const worldData = getNextWorld();
           if (worldData) {
             addWorld({
-              id: Math.random().toString(36).slice(2, 7),
               ...worldData,
             });
           }

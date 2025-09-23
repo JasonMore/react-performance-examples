@@ -1,5 +1,5 @@
 import css from "./DebugInfo.module.css";
-import { useWorldStore } from "../WorldStore.tsx";
+import { useWorldStore } from "../data/WorldStore.tsx";
 
 export function DebugInfo() {
   const editId = useWorldStore((s) => s.selectedWorldId);

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { useWorldStore } from "../../WorldStore.tsx";
+import { useWorldStore } from "../../data/WorldStore.tsx";
 import css from "./WorldIdItem.module.css";
 import { RenderToken } from "../../RenderToken.tsx";
 
