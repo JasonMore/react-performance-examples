@@ -1,4 +1,4 @@
-import styles from "./ZustandRenderDemo.module.css";
+import css from "./ZustandRenderDemo.module.css";
 import { Actions } from "./demoControls/Actions";
 import { DebugInfo } from "./demoControls/DebugInfo";
 import { RenderToken } from "./RenderToken";
@@ -6,7 +6,7 @@ import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 
 export function ZustandRenderDemo() {
   return (
-    <div className={styles.app}>
+    <div className={css.app}>
       <h1>Zustand Render Demo</h1>
       <p>
         This demo shows you can prevent re-rendering without using prop

@@ -1,4 +1,4 @@
-import styles from "./RenderToken.module.css";
+import css from "./RenderToken.module.css";
 import { useId } from "react";
 
 type Props = { className?: string };
@@ -33,7 +33,7 @@ export const RenderToken = ({ className }: Props) => {
     // key forces remount so the CSS animation runs every time the shared token changes
     <span
       key={`${token}:${instanceId}`}
-      className={`${styles.renderToken} ${className || ""}`}
+      className={`${css.renderToken} ${className || ""}`}
     >
       {token}
     </span>

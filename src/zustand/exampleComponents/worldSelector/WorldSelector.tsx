@@ -1,11 +1,11 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore";
-import styles from "./WorldsSelector.module.css";
+import css from "./WorldSelector.module.css";
 import { RenderToken } from "../../RenderToken";
 import { WorldIdButton } from "./WorldIdButton";
 import sharedStyles from "../shared.module.css";
 
-export const WorldsSelector = memo(() => {
+export const WorldSelector = memo(() => {
   const worlds = useWorldStore((s) => s.hello.worlds);
 
   return (
@@ -14,7 +14,7 @@ export const WorldsSelector = memo(() => {
         World Selector <RenderToken />
       </div>
 
-      <ul className={styles.worldList}>
+      <ul className={css.worldList}>
         {worlds.map((w) => (
           <WorldIdButton key={w.id} id={w.id} />
         ))}
@@ -23,4 +23,4 @@ export const WorldsSelector = memo(() => {
   );
 });
 
-WorldsSelector.displayName = "WorldsSelector";
+WorldSelector.displayName = "WorldsSelector";
