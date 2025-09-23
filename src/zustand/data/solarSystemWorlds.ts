@@ -2,30 +2,6 @@ import type { World } from "./types.ts";
 
 export const SOLAR_SYSTEM_WORLDS: World[] = [
   {
-    id: "abc123",
-    name: "mercury",
-    distanceFromSun: "58 million km",
-    diameter: "4,879 km",
-    orbitalPeriod: "88 days",
-    type: "terrestrial planet",
-  },
-  {
-    id: "def456",
-    name: "venus",
-    distanceFromSun: "108 million km",
-    diameter: "12,104 km",
-    orbitalPeriod: "225 days",
-    type: "terrestrial planet",
-  },
-  {
-    id: "ghi789",
-    name: "earth",
-    distanceFromSun: "150 million km",
-    diameter: "12,756 km",
-    orbitalPeriod: "365 days",
-    type: "terrestrial planet",
-  },
-  {
     id: "mer001",
     name: "mercury",
     distanceFromSun: "58 million km",
@@ -136,8 +112,7 @@ export const getNextWorld = () => {
     return { id: Math.random().toString(36).slice(2, 7), name: "new world" };
   }
 
-  const idx = Math.floor(Math.random() * SOLAR_SYSTEM_WORLDS.length);
-  const world = SOLAR_SYSTEM_WORLDS[idx];
-  SOLAR_SYSTEM_WORLDS.splice(idx, 1);
+  const world = SOLAR_SYSTEM_WORLDS[0];
+  SOLAR_SYSTEM_WORLDS.splice(0, 1);
   return world;
 };
