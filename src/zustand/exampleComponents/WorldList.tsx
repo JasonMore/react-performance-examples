@@ -1,17 +1,18 @@
 import { memo } from "react";
 import { useWorldStore } from "../WorldStore.tsx";
-import css from "./Bar.module.css";
+import css from "./WorldList.module.css";
 import { RenderToken } from "../RenderToken.tsx";
 import { World } from "./World.tsx";
 
-export const Bar = memo(() => {
+export const WorldList = memo(() => {
   const worlds = useWorldStore((s) => s.hello.worlds);
   return (
-    <div className={css.bar}>
-      <div className={css.textXsBold}>Bar</div>
+    <div className={css.worldList}>
+      <div className={css.textXsBold}>
+        World List <RenderToken />
+      </div>
       <div className={css.textXs}>
         world length: <code>{worlds.length}</code>
-        <RenderToken />
       </div>
       <ul>
         {worlds.map(({ id }) => (
@@ -24,4 +25,4 @@ export const Bar = memo(() => {
   );
 });
 
-Bar.displayName = "Bar";
+WorldList.displayName = "WorldList";

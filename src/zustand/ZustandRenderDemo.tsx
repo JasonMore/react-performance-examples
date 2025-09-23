@@ -1,37 +1,38 @@
 import styles from "./ZustandRenderDemo.module.css";
-import tokenStyle from "./RenderToken.module.css";
-import { Foo } from "./exampleComponents/Foo.tsx";
+import { WorldsViewer } from "./exampleComponents/WorldsViewer.tsx";
 import { WorldsSelector } from "./exampleComponents/WorldsSelector.tsx";
 import { Actions } from "./demoControls/Actions.tsx";
 import { DebugInfo } from "./demoControls/DebugInfo.tsx";
+import { RenderToken } from "./RenderToken.tsx";
 
 export function ZustandRenderDemo() {
   return (
     <div className={styles.app}>
-      <h1 className={styles.title}>Zustand Render Demo</h1>
-      <p className={styles.description}>
-        This demo shows you can share state without using prop drilling. The
-        <code>WorldsSelector</code> and <code>WorldsViewer</code> components are
-        siblings. The <code>Bar</code> component is a child component of
-        <code>Foo</code>.
+      <h1>Zustand Render Demo</h1>
+      <p>
+        This demo shows you can prevent re-rendering without using prop
+        drilling. The <code>RenderToken</code> <RenderToken /> is a random
+        string generated on each render. When that value changes, the component
+        re-rendered.
       </p>
-      <p className={styles.description}>
-        The <span className={tokenStyle.renderToken}>#8c7yv</span> is a random
-        string generated on each render. That value only changes on render.
+      <p>
+        The <code>WorldsSelector</code> and <code>WorldsViewer</code> components
+        are siblings. The <code>WorldsViewer</code> component has a child
+        component <code>WorldList</code>.
       </p>
-      <p className={styles.description}>
-        Click <strong>Update editId</strong> to change only <code>editId</code>.
-        The
-        <code>hello.world</code> array reference stays the same. You should see
-        <strong> IdToEdit</strong> render, while <strong>Foo</strong> and{" "}
-        <strong>Bar</strong> do not.
+
+      <h2>Instructions:</h2>
+      <p>
+        Simulate API data changing by clicking <strong>Add world</strong>.
+        Simulate client state changing by clicking a different world in the{" "}
+        <strong>World Selector</strong>.
       </p>
 
       <Actions />
 
       <div className={styles.grid}>
         <WorldsSelector />
-        <Foo />
+        <WorldsViewer />
       </div>
 
       <DebugInfo />

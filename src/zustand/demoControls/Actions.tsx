@@ -8,7 +8,7 @@ export function Actions() {
   return (
     <div className={css.actions}>
       <button
-        className={css.secondaryButton}
+        className={css.primaryButton}
         onClick={() =>
           addWorld({
             id: Math.random().toString(36).slice(2, 7),
