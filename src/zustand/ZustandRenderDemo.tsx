@@ -9,8 +9,8 @@ export function ZustandRenderDemo() {
       <h1>Zustand Render Demo</h1>
       <p>
         This demo shows you can prevent re-rendering without using prop
-        drilling. The <code>RenderToken</code> <RenderToken /> is a random
-        string generated on each render. When that value changes, the component
+        drilling. The <code>RenderToken</code> <RenderToken /> is a counter
+        which counts each render. When that value increases, the component just
         re-rendered.
       </p>
       <p>
