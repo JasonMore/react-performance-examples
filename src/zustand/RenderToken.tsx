@@ -3,5 +3,10 @@ import styles from "./RenderToken.module.css";
 
 export const RenderToken = () => {
   const token = Math.random().toString(36).slice(2, 7);
-  return <span className={styles.renderToken}>#{token}</span>;
+  return (
+    // key forces remount so the CSS animation runs on every value change
+    <span key={token} className={styles.renderToken} aria-label="render token">
+      #{token}
+    </span>
+  );
 };

@@ -18,8 +18,9 @@ export const World = memo(({ id }: Props) => {
       <div className={`${css.world} ${selected ? css.selected : ""}`}>
         <div className={css.worldInfo}>
           <div>
-            <strong>{world.name}</strong>{" "}
+            <strong>{world.name}</strong>
             <span className={css.worldId}>({world.id})</span>
+            <RenderToken />
           </div>
           <div className={css.worldDetails}>
             <div className={css.factItem}>
@@ -39,7 +40,6 @@ export const World = memo(({ id }: Props) => {
               <div className={css.factValue}>{world.orbitalPeriod}</div>
             </div>
           </div>
-          <RenderToken />
         </div>
       </div>
     </>

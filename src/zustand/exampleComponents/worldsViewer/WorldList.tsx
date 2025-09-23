@@ -12,7 +12,7 @@ export const WorldList = memo(() => {
         World List <RenderToken />
       </div>
       <div className={css.textXs}>
-        world length: <code>{worlds.length}</code>
+        world length: <strong>{worlds.length}</strong>
       </div>
       <ul>
         {worlds.map(({ id }) => (
