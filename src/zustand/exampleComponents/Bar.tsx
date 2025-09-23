@@ -1,11 +1,11 @@
 import { memo } from "react";
-import { useExampleStore } from "../UseExampleStore.tsx";
+import { useWorldStore } from "../WorldStore.tsx";
 import css from "./Bar.module.css";
 import { RenderToken } from "../RenderToken.tsx";
 import { World } from "./World.tsx";
 
 export const Bar = memo(() => {
-  const worlds = useExampleStore((s) => s.hello.worlds);
+  const worlds = useWorldStore((s) => s.hello.worlds);
   return (
     <div className={css.bar}>
       <div className={css.textXsBold}>Bar</div>

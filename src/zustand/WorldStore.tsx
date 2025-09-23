@@ -14,7 +14,7 @@ interface Store {
   isSelectedWorld(id: string): boolean;
 }
 
-export const useExampleStore = create<Store>((set, get) => ({
+export const useWorldStore = create<Store>((set, get) => ({
   selectedWorldId: "def456",
   hello: {
     worlds: [

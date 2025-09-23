@@ -1,7 +1,7 @@
 import styles from "./ZustandRenderDemo.module.css";
 import tokenStyle from "./RenderToken.module.css";
 import { Foo } from "./exampleComponents/Foo.tsx";
-import { WorldToEdit } from "./exampleComponents/WorldToEdit.tsx";
+import { WorldsSelector } from "./exampleComponents/WorldsSelector.tsx";
 import { Actions } from "./demoControls/Actions.tsx";
 import { DebugInfo } from "./demoControls/DebugInfo.tsx";
 
@@ -10,9 +10,9 @@ export function ZustandRenderDemo() {
     <div className={styles.app}>
       <h1 className={styles.title}>Zustand Render Demo</h1>
       <p className={styles.description}>
-        This demo shows you can share state without using prop drilling. The{" "}
-        <code>IdToEdit</code> and <code>Foo</code> components are sibling
-        components. The <code>Bar</code> component is a child component of{" "}
+        This demo shows you can share state without using prop drilling. The
+        <code>WorldsSelector</code> and <code>WorldsViewer</code> components are
+        siblings. The <code>Bar</code> component is a child component of
         <code>Foo</code>.
       </p>
       <p className={styles.description}>
@@ -30,7 +30,7 @@ export function ZustandRenderDemo() {
       <Actions />
 
       <div className={styles.grid}>
-        <WorldToEdit />
+        <WorldsSelector />
         <Foo />
       </div>
 
