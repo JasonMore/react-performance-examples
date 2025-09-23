@@ -1,9 +1,33 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --color-text-primary: #213547;
+  --color-text-secondary: #475569;
+  --color-bg: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f9fafb;
+  --color-accent: #1e40af;
+  --color-accent-strong: #1d4ed8;
+  --color-accent-contrast: #ffffff;
+  --color-border: #e2e8f0;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 18px 36px -24px rgba(15, 23, 42, 0.75);
+  --shadow-elevated-strong: 0 28px 55px -30px rgba(79, 70, 229, 0.75);
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --transition-surface: 0.15s ease;
+
+  font-family: var(--font-family-sans);
   line-height: 1.5;
   font-weight: 400;
-  color: #213547;
-  background-color: #ffffff;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
 }
 
 * {
@@ -15,10 +39,23 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+p {
+  margin: 1rem;
+}
+
 code {
-  font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  font-family: var(--font-family-mono);
   color: #e01e5a;
   background-color: #fcfcfc;
   border: 1px solid #bebebe;

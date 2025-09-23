@@ -1,9 +1,30 @@
 .renderToken {
-  font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  font-size: 0.75rem;
+  align-self: center;
+  font-family: var(--font-family-mono);
+  font-size: 0.5rem;
   line-height: 1rem;
-  opacity: 0.6;
   padding: 0.25rem;
+  color: #ff4343;
+  font-weight: 500;
+  animation: tokenChange 500ms cubic-bezier(0.2, 0, 0, 1);
+  will-change: filter, text-shadow;
+}
+
+@keyframes tokenChange {
+  0% {
+    filter: blur(20px);
+    text-shadow: 0 0 3px rgba(255, 70, 70, 0.55);
+  }
+  100% {
+    filter: none;
+    text-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .renderToken {
+    animation: none;
+    filter: none;
+    text-shadow: none;
+  }
 }

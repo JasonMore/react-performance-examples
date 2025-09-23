@@ -1,43 +1,36 @@
 import { Link } from "react-router-dom";
-import styles from "./ZustandRenderDemo.module.css";
-import tokenStyle from "./RenderToken.module.css";
-import { Foo } from "./exampleComponents/Foo.tsx";
-import { WorldToEdit } from "./exampleComponents/WorldToEdit.tsx";
-import { Actions } from "./demoControls/Actions.tsx";
-import { DebugInfo } from "./demoControls/DebugInfo.tsx";
+import css from "./ZustandRenderDemo.module.css";
+import { DebugInfo } from "./demoControls/DebugInfo";
+import { RenderToken } from "./RenderToken";
+import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 
 export function ZustandRenderDemo() {
   return (
-    <div className={styles.app}>
-      <nav className={styles.nav}>
-        <Link to="/" className={styles.homeLink}>← Back to Home</Link>
+    <div className={css.app}>
+      <nav className={css.nav}>
+        <Link to="/" className={css.homeLink}>← Back to Home</Link>
       </nav>
-      <h1 className={styles.title}>Zustand Render Demo</h1>
-      <p className={styles.description}>
-        This demo shows you can share state without using prop drilling. The{" "}
-        <code>IdToEdit</code> and <code>Foo</code> components are sibling
-        components. The <code>Bar</code> component is a child component of{" "}
-        <code>Foo</code>.
+      <h1>Zustand Render Demo</h1>
+      <p>
+        This demo shows you can prevent re-rendering without using prop
+        drilling. The <code>RenderToken</code> <RenderToken /> is a counter
+        which counts each render. When that value increases, the component just
+        re-rendered.
       </p>
-      <p className={styles.description}>
-        The <span className={tokenStyle.renderToken}>#8c7yv</span> is a random
-        string generated on each render. That value only changes on render.
-      </p>
-      <p className={styles.description}>
-        Click <strong>Update editId</strong> to change only <code>editId</code>.
-        The
-        <code>hello.world</code> array reference stays the same. You should see
-        <strong> IdToEdit</strong> render, while <strong>Foo</strong> and{" "}
-        <strong>Bar</strong> do not.
+      <p>
+        The <code>WorldsSelector</code> and <code>WorldsViewer</code> components
+        are siblings. The <code>WorldsViewer</code> component has a child
+        component <code>WorldList</code>.
       </p>
 
-      <Actions />
+      <h2>Instructions:</h2>
+      <p>
+        Simulate API data changing by clicking <strong>Add world</strong>.
+        Simulate client state changing by clicking a different world in the{" "}
+        <strong>World Selector</strong>.
+      </p>
 
-      <div className={styles.grid}>
-        <WorldToEdit />
-        <Foo />
-      </div>
-
+      <WorldApp />
       <DebugInfo />
     </div>
   );

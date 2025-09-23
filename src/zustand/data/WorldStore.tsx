@@ -1,9 +1,6 @@
 import { create } from "zustand";
-
-type World = {
-  id: string;
-  name: string;
-};
+import { getNextWorld } from "./solarSystemWorlds";
+import type { World } from "./types";
 
 interface Store {
   selectedWorldId: string;
@@ -14,14 +11,10 @@ interface Store {
   isSelectedWorld(id: string): boolean;
 }
 
-export const useExampleStore = create<Store>((set, get) => ({
-  selectedWorldId: "def456",
+export const useWorldStore = create<Store>((set, get) => ({
+  selectedWorldId: "ven002",
   hello: {
-    worlds: [
-      { id: "abc123", name: "mercury" },
-      { id: "def456", name: "venus" },
-      { id: "ghi789", name: "earth" },
-    ],
+    worlds: [getNextWorld(), getNextWorld(), getNextWorld()],
   },
   setWorldId: (id) => set({ selectedWorldId: id }),
   addWorld: (world) =>

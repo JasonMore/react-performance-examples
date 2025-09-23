@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background-color: var(--color-bg);
   padding: 1.5rem;
 }
 
@@ -8,10 +8,6 @@
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-.app > * + * {
-  margin-top: 1rem;
 }
 
 .nav {
@@ -29,28 +25,4 @@
 .homeLink:hover {
   color: #1d4ed8;
   text-decoration: underline;
-}
-
-.title {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
-}
-
-.description {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #334155;
-}
-
-.grid {
-  display: grid;
-  gap: 0.75rem;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: 16rem minmax(0, 1fr);
-    align-items: start;
-  }
 }
