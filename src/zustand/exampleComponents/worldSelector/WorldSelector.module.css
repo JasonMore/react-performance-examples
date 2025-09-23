@@ -6,7 +6,6 @@
     100vh - var(--selector-top-offset, 1.5rem) -
       var(--selector-bottom-gap, 1.5rem)
   );
-  overflow: hidden;
 }
 
 .worldList {
