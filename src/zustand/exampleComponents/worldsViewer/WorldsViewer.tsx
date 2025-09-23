@@ -1,7 +1,7 @@
 import { memo } from "react";
 import css from "./WorldsViewer.module.css";
 import { WorldList } from "./WorldList.tsx";
-import { RenderToken } from "../RenderToken.tsx";
+import { RenderToken } from "../../RenderToken.tsx";
 
 export const WorldsViewer = memo(() => {
   return (

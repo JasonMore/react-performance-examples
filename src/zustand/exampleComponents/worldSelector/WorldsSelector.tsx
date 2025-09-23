@@ -1,9 +1,9 @@
 import { memo } from "react";
-import { useWorldStore } from "../WorldStore.tsx";
+import { useWorldStore } from "../../WorldStore.tsx";
 import styles from "./WorldsSelector.module.css";
-import { RenderToken } from "../RenderToken.tsx";
+import { RenderToken } from "../../RenderToken.tsx";
 import { WorldIdButton } from "./WorldIdButton.tsx";
-import sharedStyles from "./shared.module.css";
+import sharedStyles from "../shared.module.css";
 
 export const WorldsSelector = memo(() => {
   const worlds = useWorldStore((s) => s.hello.worlds);
