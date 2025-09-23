@@ -28,6 +28,6 @@
 
 .floatOnBoarder {
   position: absolute;
-  bottom: -0.25rem;
-  right: 0.25rem;
+  top: 0;
+  left: 0.25rem;
 }
