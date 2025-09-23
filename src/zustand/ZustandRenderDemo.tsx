@@ -1,5 +1,4 @@
 import css from "./ZustandRenderDemo.module.css";
-import { Actions } from "./demoControls/Actions";
 import { DebugInfo } from "./demoControls/DebugInfo";
 import { RenderToken } from "./RenderToken";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
@@ -27,7 +26,6 @@ export function ZustandRenderDemo() {
         <strong>World Selector</strong>.
       </p>
 
-      <Actions />
       <WorldApp />
       <DebugInfo />
     </div>
