@@ -10,14 +10,15 @@ export const WorldsSelector = memo(() => {
 
   return (
     <div className={sharedStyles.card}>
-      <div className={sharedStyles.cardTitle}>World Selector</div>
+      <div className={sharedStyles.cardTitle}>
+        World Selector <RenderToken />
+      </div>
 
       <ul className={styles.worldList}>
         {worlds.map((w) => (
           <WorldIdButton key={w.id} id={w.id} />
         ))}
       </ul>
-      <RenderToken />
     </div>
   );
 });
