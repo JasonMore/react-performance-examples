@@ -11,7 +11,9 @@
   color: var(--color-accent-contrast);
   border: none;
   font-weight: 600;
-  transition: background-color var(--transition-surface), transform 0.2s ease;
+  transition:
+    background-color var(--transition-surface),
+    transform 0.2s ease;
 }
 
 .primaryButton:hover,
