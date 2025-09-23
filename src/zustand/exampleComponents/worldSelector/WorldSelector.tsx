@@ -9,7 +9,7 @@ export const WorldSelector = memo(() => {
   const worlds = useWorldStore((s) => s.hello.worlds);
 
   return (
-    <div className={sharedStyles.card}>
+    <div className={`${sharedStyles.card} ${css.root}`}>
       <div className={sharedStyles.cardTitle}>
         World Selector <RenderToken />
       </div>

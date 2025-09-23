@@ -20,6 +20,14 @@
     padding: 1rem;
 }
 
+.selectorPane {
+    --selector-top-offset: clamp(1rem, 2vh, 1.5rem);
+    --selector-bottom-gap: clamp(0.75rem, 2vh, 1.5rem);
+    position: sticky;
+    top: var(--selector-top-offset);
+    align-self: start;
+}
+
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: 16rem minmax(0, 1fr);

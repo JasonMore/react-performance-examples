@@ -5,7 +5,9 @@ import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";
 export function WorldApp() {
   return (
     <div className={css.grid}>
-      <WorldSelector />
+      <div className={css.selectorPane}>
+        <WorldSelector />
+      </div>
       <WorldsViewer />
     </div>
   );
