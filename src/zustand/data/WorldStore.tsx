@@ -12,7 +12,7 @@ interface Store {
 }
 
 export const useWorldStore = create<Store>((set, get) => ({
-  selectedWorldId: "def456",
+  selectedWorldId: "ven002",
   hello: {
     worlds: [getNextWorld(), getNextWorld(), getNextWorld()],
   },
