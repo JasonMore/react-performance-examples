@@ -12,7 +12,7 @@ export const World = memo(({ id }: Props) => {
   return (
     <>
       <div className={`${css.world} ${selected ? css.selected : ""}`}>
-        <RenderToken />
+        <RenderToken className={css.floatOnBoarder} />
         <WorldInfo id={id} />
       </div>
     </>

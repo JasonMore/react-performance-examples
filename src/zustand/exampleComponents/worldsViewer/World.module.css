@@ -1,4 +1,5 @@
 .world {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,9 +19,15 @@
 }
 
 .selected {
-    border-color: rgba(79, 70, 229, 0.55);
-    background:
-            linear-gradient(140deg, rgba(79, 70, 229, 0.18), rgba(14, 165, 233, 0.12)),
-            linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.9));
-    box-shadow: 0 28px 55px -30px rgba(79, 70, 229, 0.75);
+  border-color: rgba(79, 70, 229, 0.55);
+  background:
+    linear-gradient(140deg, rgba(79, 70, 229, 0.18), rgba(14, 165, 233, 0.12)),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.9));
+  box-shadow: 0 28px 55px -30px rgba(79, 70, 229, 0.75);
+}
+
+.floatOnBoarder {
+  position: absolute;
+  bottom: -0.25rem;
+  right: 0.25rem;
 }
