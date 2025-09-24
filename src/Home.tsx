@@ -14,8 +14,8 @@ export function Home() {
         <Link to="/zustand" className={styles.demoCard}>
           <h2 className={styles.demoTitle}>Zustand Render Demo</h2>
           <p className={styles.demoDescription}>
-            Learn how Zustand can help you share state without prop drilling
-            and optimize renders using selective subscriptions.
+          This demo shows you can prevent re-rendering without using prop
+          drilling.
           </p>
           <span className={styles.demoLink}>View Demo →</span>
         </Link>
