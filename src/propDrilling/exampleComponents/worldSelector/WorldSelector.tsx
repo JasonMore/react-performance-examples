@@ -7,19 +7,6 @@ import { PropDrillingWorldIdButton } from "./WorldIdButton";
 
 type SelectorOption = {
   id: string;
-  label: string;
-  details: {
-    index: number;
-    upperName: string;
-    original: {
-      id: string;
-      name: string;
-      distanceFromSun: string;
-      diameter: string;
-      orbitalPeriod: string;
-      type: string;
-    };
-  };
 };
 
 type Props = {
@@ -31,18 +18,10 @@ type Props = {
 
 export const PropDrillingWorldSelector = memo(
   ({ activeWorld, worldOptions, chooseWorld, addWorld }: Props) => {
-    const hydratedOptions = worldOptions.map((option) => ({
-      ...option,
-      badges: [option.details.upperName, `#${option.details.index + 1}`],
-      isSelected: option.id === activeWorld,
-    }));
-
-    const listItems = hydratedOptions.map((option) => ({
+    const listItems = worldOptions.map((option) => ({
       button: {
         id: option.id,
-        label: option.label,
-        badges: option.badges,
-        isActive: option.isSelected,
+        isActive: option.id === activeWorld,
         onChoose: () => chooseWorld(`${option.id}`),
       },
     }));

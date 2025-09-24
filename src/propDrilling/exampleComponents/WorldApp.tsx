@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./WorldApp.module.css";
 import { PropDrillingWorldSelector } from "./worldSelector/WorldSelector";
 import { PropDrillingWorldsViewer } from "./worldsViewer/WorldsViewer";
@@ -29,14 +29,8 @@ export function PropDrillingWorldApp({ onSnapshotChange }: Props) {
     });
   }, [allWorlds, activeWorldId, onSnapshotChange]);
 
-  const worldOptions = allWorlds.map((world, index) => ({
-    id: world.id,
-    label: `${index + 1}. ${world.id}`,
-    details: {
-      index,
-      upperName: world.name.toUpperCase(),
-      original: { ...world },
-    },
+  const worldOptions = allWorlds.map((world) => ({
+    id: `${world.id}`,
   }));
 
   const worlds = allWorlds.map((world, index) => ({
