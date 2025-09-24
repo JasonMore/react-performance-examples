@@ -9,3 +9,20 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.nav {
+  margin-bottom: 1rem;
+}
+
+.homeLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.homeLink:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
