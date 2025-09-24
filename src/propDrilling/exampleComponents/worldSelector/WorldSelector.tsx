@@ -23,51 +23,49 @@ type SelectorOption = {
 };
 
 type Props = {
-  selectorData: {
-    active: { id: string };
-    options: SelectorOption[];
-  };
-  actions: {
-    chooseWorld: (id: string) => void;
-    addWorld: () => void;
-  };
+  activeWorld: string;
+  worldOptions: SelectorOption[];
+  chooseWorld: (id: string) => void;
+  addWorld: () => void;
 };
 
-export const PropDrillingWorldSelector = memo(({ selectorData, actions }: Props) => {
-  const hydratedOptions = selectorData.options.map((option) => ({
-    ...option,
-    badges: [option.details.upperName, `#${option.details.index + 1}`],
-    isSelected: option.id === selectorData.active.id,
-  }));
+export const PropDrillingWorldSelector = memo(
+  ({ activeWorld, worldOptions, chooseWorld, addWorld }: Props) => {
+    const hydratedOptions = worldOptions.map((option) => ({
+      ...option,
+      badges: [option.details.upperName, `#${option.details.index + 1}`],
+      isSelected: option.id === activeWorld,
+    }));
 
-  const listItems = hydratedOptions.map((option) => ({
-    button: {
-      id: option.id,
-      label: option.label,
-      badges: option.badges,
-      isActive: option.isSelected,
-      onChoose: () => actions.chooseWorld(option.id),
-    },
-  }));
+    const listItems = hydratedOptions.map((option) => ({
+      button: {
+        id: option.id,
+        label: option.label,
+        badges: option.badges,
+        isActive: option.isSelected,
+        onChoose: () => chooseWorld(`${option.id}`),
+      },
+    }));
 
-  return (
-    <div className={`${sharedStyles.card} ${css.root}`}>
-      <div className={sharedStyles.cardTitle}>
-        World Selector <RenderToken />
+    return (
+      <div className={`${sharedStyles.card} ${css.root}`}>
+        <div className={sharedStyles.cardTitle}>
+          World Selector <RenderToken />
+        </div>
+        <PropDrillingAddWorld
+          configuration={{
+            label: "Add world",
+            onAdd: () => addWorld(),
+          }}
+        />
+        <ul className={css.worldList}>
+          {listItems.map((item) => (
+            <PropDrillingWorldIdButton key={item.button.id} payload={item.button} />
+          ))}
+        </ul>
       </div>
-      <PropDrillingAddWorld
-        configuration={{
-          label: "Add world",
-          onAdd: () => actions.addWorld(),
-        }}
-      />
-      <ul className={css.worldList}>
-        {listItems.map((item) => (
-          <PropDrillingWorldIdButton key={item.button.id} payload={item.button} />
-        ))}
-      </ul>
-    </div>
-  );
-});
+    );
+  },
+);
 
 PropDrillingWorldSelector.displayName = "PropDrillingWorldSelector";

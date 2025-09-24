@@ -19,14 +19,11 @@ interface ViewerItem {
 }
 
 type Props = {
-  data: {
-    selectedId: string;
-    items: ViewerItem[];
-  };
+  worlds: ViewerItem[];
 };
 
-export const PropDrillingWorldsViewer = memo(({ data }: Props) => {
-  const listEnvelope = data.items.map((item) => ({
+export const PropDrillingWorldsViewer = memo(({ worlds }: Props) => {
+  const listEnvelope = worlds.map((item) => ({
     id: item.id,
     world: {
       ...item,
@@ -39,8 +36,10 @@ export const PropDrillingWorldsViewer = memo(({ data }: Props) => {
     {},
   );
 
+  const selectedId = worlds.find((item) => item.isCurrent)?.id ?? worlds[0]?.id ?? "";
+
   const worldListPayload = {
-    selectedId: data.selectedId,
+    selectedId,
     entries: listEnvelope.map((entry) => ({
       id: entry.id,
       world: lookup[entry.id],
