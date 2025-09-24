@@ -29,13 +29,7 @@ export const useWorldData = () => {
       // Return a context object with the snapshotted value
       return { previousWorlds };
     },
-    onSuccess: (newWorld) => {
-      // Update the cache with the new world
-      queryClient.setQueryData(["worlds"], (old: { worlds: World[] } | undefined) => ({
-        ...old,
-        worlds: [...(old?.worlds || []), newWorld],
-      }));
-    },
+
     onError: (_err, _newWorld, context) => {
       // If the mutation fails, use the context returned from onMutate to roll back
       if (context?.previousWorlds) {
