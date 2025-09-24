@@ -19,6 +19,15 @@ export function Home() {
           </p>
           <span className={styles.demoLink}>View Demo →</span>
         </Link>
+        
+        <Link to="/zustand-query" className={styles.demoCard}>
+          <h2 className={styles.demoTitle}>Zustand + Query Worlds Demo</h2>
+          <p className={styles.demoDescription}>
+            Same worlds demo, but worlds come from TanStack Query (with add-world mutation + loading states) 
+            while selection lives in a tiny Zustand store—shows how to cleanly bridge the two with a custom hook.
+          </p>
+          <span className={styles.demoLink}>View Demo →</span>
+        </Link>
       </div>
     </div>
   );
