@@ -2,6 +2,7 @@ import css from "./AddWorld.module.css";
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import { getNextWorld } from "../../data/solarSystemWorlds.ts";
 import { memo } from "react";
+import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 
 export const AddWorld = memo(() => {
   const addWorld = useWorldStore((s) => s.addWorld);
@@ -19,6 +20,7 @@ export const AddWorld = memo(() => {
       }}
     >
       Add world
+      <RenderToken />
     </button>
   );
 });

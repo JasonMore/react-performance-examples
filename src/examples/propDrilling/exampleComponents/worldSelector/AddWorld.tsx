@@ -1,16 +1,18 @@
 import { memo } from "react";
 import css from "./AddWorld.module.css";
+import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 
 type Props = {
-  onAdd: () => void;
+  onClick: () => void;
 };
 
-export const PropDrillingAddWorld = memo(({ onAdd }: Props) => {
+export const AddWorldButton = memo(({ onClick }: Props) => {
   return (
-    <button className={css.primaryButton} onClick={() => onAdd()}>
+    <button className={css.primaryButton} onClick={onClick}>
       Add World
+      <RenderToken />
     </button>
   );
 });
 
-PropDrillingAddWorld.displayName = "PropDrillingAddWorld";
+AddWorldButton.displayName = "PropDrillingAddWorld";

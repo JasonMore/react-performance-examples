@@ -3,22 +3,18 @@ import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import css from "./WorldIdButton.module.css";
 
 type Props = {
-  payload: {
-    id: string;
-    isActive: boolean;
-    onChoose: () => void;
-  };
+  id: string;
+  isActive: boolean;
+  onClick: (id: string) => void;
 };
 
-export const PropDrillingWorldIdButton = memo(({ payload }: Props) => {
-  const { id, isActive, onChoose } = payload;
-
+export const WorldIdButton = memo(({ id, isActive, onClick }: Props) => {
   return (
     <li>
       <button
         type="button"
         className={`${css.worldButton} ${isActive ? css.selected : ""}`}
-        onClick={() => onChoose()}
+        onClick={() => onClick(id)}
       >
         {id}
         <RenderToken />
@@ -27,4 +23,4 @@ export const PropDrillingWorldIdButton = memo(({ payload }: Props) => {
   );
 });
 
-PropDrillingWorldIdButton.displayName = "PropDrillingWorldIdButton";
+WorldIdButton.displayName = "WorldIdButton";
