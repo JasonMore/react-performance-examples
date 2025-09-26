@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore";
 import css from "./WorldIdButton.module.css";
-import { RenderToken } from "../../RenderToken";
+import { RenderToken } from "../../../shared/components/RenderToken";
 
 export const WorldIdButton = memo(function WorldIdItem({ id }: { id: string }) {
   const isSelected = useWorldStore((s) => s.isSelectedWorld(id));

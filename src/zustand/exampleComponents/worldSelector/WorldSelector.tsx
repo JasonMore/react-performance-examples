@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore";
 import css from "./WorldSelector.module.css";
-import { RenderToken } from "../../RenderToken";
+import { RenderToken } from "../../../shared/components/RenderToken";
 import { WorldIdButton } from "./WorldIdButton";
 import sharedStyles from "../shared.module.css";
 import { AddWorld } from "./AddWorld.tsx";

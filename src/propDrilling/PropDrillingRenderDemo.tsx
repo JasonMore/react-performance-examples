@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import css from "./PropDrillingRenderDemo.module.css";
-import { RenderToken } from "../zustand/RenderToken";
+import { RenderToken } from "../shared/components/RenderToken";
 import type { World } from "../zustand/data/types";
 import { PropDrillingWorldApp } from "./exampleComponents/WorldApp";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo";

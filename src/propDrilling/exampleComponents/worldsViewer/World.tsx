@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef } from "react";
-import { RenderToken } from "../../../zustand/RenderToken";
+import { RenderToken } from "../../../shared/components/RenderToken";
 import css from "./World.module.css";
 import { PropDrillingWorldInfo } from "./WorldInfo";
 

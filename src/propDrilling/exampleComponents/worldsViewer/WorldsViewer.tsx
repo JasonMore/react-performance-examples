@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { RenderToken } from "../../../zustand/RenderToken";
+import { RenderToken } from "../../../shared/components/RenderToken";
 import sharedStyles from "../shared.module.css";
 import { PropDrillingWorldList } from "./WorldList";
 
