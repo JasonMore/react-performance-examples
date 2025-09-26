@@ -13,13 +13,12 @@ type Props = {
   }) => void;
 };
 
+// components render twice in dev mode so pulling this out for consistency
+const starterWorlds = [getNextWorld(), getNextWorld(), getNextWorld()];
+
 // memo this component as it receives onSnapshotChange from the debug panel
 export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
-  const [allWorlds, setAllWorlds] = useState<World[]>([
-    getNextWorld(),
-    getNextWorld(),
-    getNextWorld(),
-  ]);
+  const [allWorlds, setAllWorlds] = useState<World[]>(starterWorlds);
   const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
 
   // used to update the debug window
@@ -63,5 +62,3 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
     </div>
   );
 });
-
-

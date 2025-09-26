@@ -120,6 +120,7 @@ export const getNextWorld = () => {
   }
 
   const world = SOLAR_SYSTEM_WORLDS[0];
+  console.log(">>> world", world);
   SOLAR_SYSTEM_WORLDS.splice(0, 1);
   return world;
 };
