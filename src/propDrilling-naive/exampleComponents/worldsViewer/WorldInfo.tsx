@@ -7,7 +7,7 @@ type Props = {
   world: WorldViewerItem;
 };
 
-export const PropDrillingWorldInfo = memo(({ world }: Props) => {
+export const WorldInfo = memo(({ world }: Props) => {
   const infoRows = [
     { label: "Type", value: world.type },
     { label: "Distance from Sun", value: world.distanceFromSun },
@@ -34,4 +34,4 @@ export const PropDrillingWorldInfo = memo(({ world }: Props) => {
   );
 });
 
-PropDrillingWorldInfo.displayName = "PropDrillingWorldInfo";
+WorldInfo.displayName = "WorldInfo";

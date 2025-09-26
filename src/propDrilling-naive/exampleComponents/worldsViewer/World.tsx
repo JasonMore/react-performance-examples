@@ -1,14 +1,14 @@
 import { memo, useEffect, useRef } from "react";
 import { RenderToken } from "../../../shared/components/RenderToken";
 import css from "./World.module.css";
-import { PropDrillingWorldInfo } from "./WorldInfo";
+import { WorldInfo } from "./WorldInfo";
 import type { WorldViewerItem } from "./WorldsViewer.tsx";
 
 type Props = {
   world: WorldViewerItem;
 };
 
-export const PropDrillingWorld = memo(({ world }: Props) => {
+export const World = memo(({ world }: Props) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -26,9 +26,9 @@ export const PropDrillingWorld = memo(({ world }: Props) => {
       className={`${css.world} ${world.isCurrent ? css.selected : ""}`}
     >
       <RenderToken className={css.floatOnBoarder} />
-      <PropDrillingWorldInfo world={world} />
+      <WorldInfo world={world} />
     </div>
   );
 });
 
-PropDrillingWorld.displayName = "PropDrillingWorld";
+World.displayName = "World";

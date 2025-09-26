@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { RenderToken } from "../../../shared/components/RenderToken";
 import sharedStyles from "../shared.module.css";
-import { PropDrillingWorldList } from "./WorldList";
+import { WorldList } from "./WorldList";
 
 export interface WorldViewerItem {
   id: string;
@@ -18,15 +18,15 @@ type Props = {
   worlds: WorldViewerItem[];
 };
 
-export const PropDrillingWorldsViewer = memo(({ worlds }: Props) => {
+export const WorldsViewer = memo(({ worlds }: Props) => {
   return (
     <div className={sharedStyles.card}>
       <div className={sharedStyles.cardTitle}>
         Worlds Viewer <RenderToken />
       </div>
-      <PropDrillingWorldList worlds={worlds} />
+      <WorldList worlds={worlds} />
     </div>
   );
 });
 
-PropDrillingWorldsViewer.displayName = "PropDrillingWorldsViewer";
+WorldsViewer.displayName = "WorldsViewer";

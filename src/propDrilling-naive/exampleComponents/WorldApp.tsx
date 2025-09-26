@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import css from "./WorldApp.module.css";
 import { PropDrillingWorldSelector } from "./worldSelector/WorldSelector";
-import { PropDrillingWorldsViewer } from "./worldsViewer/WorldsViewer";
+import { WorldsViewer } from "./worldsViewer/WorldsViewer";
 import { getNextWorld } from "../data/solarSystemWorlds";
 import type { World } from "../data/types";
 import { memo } from "react";
@@ -31,7 +31,7 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
   }, [allWorlds, activeWorldId, onSnapshotChange]);
 
   const worldOptions = allWorlds.map((world) => ({
-    id: `${world.id}`,
+    id: world.id,
   }));
 
   const worlds = allWorlds.map((world, index) => ({
@@ -54,7 +54,7 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
           }}
         />
       </div>
-      <PropDrillingWorldsViewer worlds={worlds} />
+      <WorldsViewer worlds={worlds} />
     </div>
   );
 });
