@@ -24,7 +24,7 @@ export function PropDrillingRenderDemo() {
       <h1>Prop Drilling Render Demo</h1>
       <p>
         This intentionally clumsy demo recreates the Zustand example, but keeps all
-        state at the top level and threads it through deeply nested props. The
+        state at the top level and threads it through deeply nested props. The 
         <code>RenderToken</code> <RenderToken /> still shows render counts, but the
         extra prop transformations make those numbers spike.
       </p>

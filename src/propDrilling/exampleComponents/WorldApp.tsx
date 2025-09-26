@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import css from "./WorldApp.module.css";
 import { PropDrillingWorldSelector } from "./worldSelector/WorldSelector";
 import { PropDrillingWorldsViewer } from "./worldsViewer/WorldsViewer";
-import { getNextWorld } from "../../zustand/data/solarSystemWorlds";
-import type { World } from "../../zustand/data/types";
+import { getNextWorld } from "../data/solarSystemWorlds";
+import type { World } from "../data/types";
+import { memo } from "react";
 
 type Props = {
   onSnapshotChange?: (snapshot: {
@@ -12,7 +13,8 @@ type Props = {
   }) => void;
 };
 
-export function PropDrillingWorldApp({ onSnapshotChange }: Props) {
+// memo this component as it receives onSnapshotChange from the debug panel
+export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
   const [allWorlds, setAllWorlds] = useState<World[]>([
     getNextWorld(),
     getNextWorld(),
@@ -60,4 +62,6 @@ export function PropDrillingWorldApp({ onSnapshotChange }: Props) {
       <PropDrillingWorldsViewer worlds={worlds} />
     </div>
   );
-}
+});
+
+

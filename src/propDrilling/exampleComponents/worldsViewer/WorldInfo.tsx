@@ -18,7 +18,6 @@ type Props = {
 };
 
 export const PropDrillingWorldInfo = memo(({ data }: Props) => {
-  const highlight = data.selectionMeta.isSelected ? "(selected)" : "";
   const infoRows = [
     { label: "Type", value: data.type },
     { label: "Distance from Sun", value: data.distanceFromSun },
@@ -31,7 +30,7 @@ export const PropDrillingWorldInfo = memo(({ data }: Props) => {
       <div>
         <strong>{data.name}</strong>
         <span className={css.worldId}>
-          ({data.id}) {highlight}
+          ({data.id})
         </span>
         <RenderToken />
       </div>
