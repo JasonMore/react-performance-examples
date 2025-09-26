@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Home";
-import { PropDrillingRenderDemo } from "./propDrilling-naive/PropDrillingRenderDemo";
+import { PropDrillingNaiveRenderDemo } from "./propDrillingNaive/PropDrillingNaiveRenderDemo.tsx";
 import { ZustandRenderDemo } from "./zustand/ZustandRenderDemo";
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/zustand" element={<ZustandRenderDemo />} />
-      <Route path="/prop-drilling" element={<PropDrillingRenderDemo />} />
+      <Route path="/prop-drilling" element={<PropDrillingNaiveRenderDemo />} />
     </Routes>
   );
 }
