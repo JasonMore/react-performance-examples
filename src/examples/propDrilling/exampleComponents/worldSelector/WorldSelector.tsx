@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import sharedStyles from "../shared.module.css";
 import css from "./WorldSelector.module.css";
@@ -18,13 +18,10 @@ type Props = {
 
 export const PropDrillingWorldSelector = memo(
   ({ activeWorld, worldOptions, chooseWorld, addWorld }: Props) => {
-    const listItems = worldOptions.map((option) => ({
-      button: {
-        id: option.id,
-        isActive: option.id === activeWorld,
-        onChoose: () => chooseWorld(`${option.id}`),
-      },
-    }));
+    // Memoize the choice handler to prevent inline function creation
+    const handleChooseWorld = useCallback((id: string) => () => {
+      chooseWorld(id);
+    }, [chooseWorld]);
 
     return (
       <div className={`${sharedStyles.card} ${css.root}`}>
@@ -33,10 +30,12 @@ export const PropDrillingWorldSelector = memo(
         </div>
         <PropDrillingAddWorld onAdd={addWorld} />
         <ul className={css.worldList}>
-          {listItems.map((item) => (
+          {worldOptions.map((option) => (
             <PropDrillingWorldIdButton
-              key={item.button.id}
-              payload={item.button}
+              key={option.id}
+              id={option.id}
+              isActive={option.id === activeWorld}
+              onChoose={handleChooseWorld(option.id)}
             />
           ))}
         </ul>

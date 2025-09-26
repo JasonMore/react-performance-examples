@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import css from "./PropDrillingNaiveRenderDemo.module.css";
+import css from "./PropDrillingRenderDemo.module.css";
 import { RenderToken } from "../../shared/components/RenderToken.tsx";
 import type { World } from "../zustand/data/types.ts";
 import { PropDrillingWorldApp } from "./exampleComponents/WorldApp.tsx";
@@ -11,7 +11,7 @@ type Snapshot = {
   hello: { worlds: World[] };
 };
 
-export function PropDrillingNaiveRenderDemo() {
+export function PropDrillingRenderDemo() {
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
 
   return (
@@ -21,18 +21,19 @@ export function PropDrillingNaiveRenderDemo() {
           ← Back to Home
         </Link>
       </nav>
-      <h1>Prop Drilling Render Demo</h1>
+      <h1>Optimized Prop Drilling Demo</h1>
       <p>
-        This intentionally clumsy demo recreates the Zustand example, but keeps
-        all state at the top level and threads it through deeply nested props.
-        The
-        <code>RenderToken</code> <RenderToken /> still shows render counts, but
-        the extra prop transformations make those numbers spike.
+        This demo shows an optimized version of prop drilling with proper React
+        performance patterns. State is still kept at the top level and threaded
+        through props, but now uses <code>useMemo</code>,{" "}
+        <code>useCallback</code>, and proper memoization to prevent unnecessary
+        re-renders.
       </p>
       <p>
-        Props are constantly reshaped and cloned as they flow through the tree.
-        That means even memoized components receive brand new objects every
-        render, forcing them to re-render anyway.
+        The <code>RenderToken</code> <RenderToken /> shows significantly reduced
+        render counts compared to the naive version, demonstrating how proper
+        optimization techniques can make prop drilling performant when used
+        correctly.
       </p>
 
       <h2>Instructions:</h2>

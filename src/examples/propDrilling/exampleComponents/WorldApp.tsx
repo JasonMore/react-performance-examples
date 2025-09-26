@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import css from "./WorldApp.module.css";
 import { PropDrillingWorldSelector } from "./worldSelector/WorldSelector.tsx";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";
@@ -21,24 +21,51 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
   const [allWorlds, setAllWorlds] = useState<World[]>(starterWorlds);
   const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
 
+  // Use ref to stabilize onSnapshotChange callback and prevent unnecessary effect runs
+  const onSnapshotChangeRef = useRef(onSnapshotChange);
+  onSnapshotChangeRef.current = onSnapshotChange;
+
+  const stableOnSnapshotChange = useCallback((snapshot: {
+    selectedWorldId: string;
+    hello: { worlds: World[] };
+  }) => {
+    onSnapshotChangeRef.current?.(snapshot);
+  }, []);
+
+  // Memoize event handlers to provide stable references
+  const handleChooseWorld = useCallback((id: string) => {
+    setActiveWorldId(id);
+  }, []);
+
+  const handleAddWorld = useCallback(() => {
+    setAllWorlds(prev => [...prev, getNextWorld()]);
+  }, []);
+
   // used to update the debug window
   useEffect(() => {
-    if (!onSnapshotChange) return;
-    onSnapshotChange({
+    if (!onSnapshotChangeRef.current) return;
+    stableOnSnapshotChange({
       selectedWorldId: activeWorldId,
       hello: { worlds: allWorlds },
     });
-  }, [allWorlds, activeWorldId, onSnapshotChange]);
+  }, [allWorlds, activeWorldId, stableOnSnapshotChange]);
 
-  const worldOptions = allWorlds.map((world) => ({
-    id: world.id,
-  }));
+  // Memoize derived data to prevent object recreation on every render
+  const worldOptions = useMemo(() => 
+    allWorlds.map((world) => ({
+      id: world.id,
+    })), 
+    [allWorlds]
+  );
 
-  const worlds = allWorlds.map((world, index) => ({
-    ...world,
-    listIndex: index,
-    isCurrent: world.id === activeWorldId,
-  }));
+  const worlds = useMemo(() => 
+    allWorlds.map((world, index) => ({
+      ...world,
+      listIndex: index,
+      isCurrent: world.id === activeWorldId,
+    })), 
+    [allWorlds, activeWorldId]
+  );
 
   return (
     <div className={css.grid}>
@@ -46,12 +73,8 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
         <PropDrillingWorldSelector
           activeWorld={activeWorldId}
           worldOptions={worldOptions}
-          chooseWorld={(id: string) => {
-            setActiveWorldId(id);
-          }}
-          addWorld={() => {
-            setAllWorlds([...allWorlds, getNextWorld()]);
-          }}
+          chooseWorld={handleChooseWorld}
+          addWorld={handleAddWorld}
         />
       </div>
       <WorldsViewer worlds={worlds} />

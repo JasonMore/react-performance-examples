@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import css from "./WorldInfo.module.css";
 import type { WorldViewerItem } from "./WorldsViewer.tsx";
@@ -8,12 +8,13 @@ type Props = {
 };
 
 export const WorldInfo = memo(({ world }: Props) => {
-  const infoRows = [
+  // Memoize infoRows to prevent recreation and remove unnecessary spread operator
+  const infoRows = useMemo(() => [
     { label: "Type", value: world.type },
     { label: "Distance from Sun", value: world.distanceFromSun },
     { label: "Diameter", value: world.diameter },
     { label: "Orbital Period", value: world.orbitalPeriod },
-  ].map((row) => ({ ...row }));
+  ], [world.type, world.distanceFromSun, world.diameter, world.orbitalPeriod]);
 
   return (
     <div className={css.worldInfo}>
