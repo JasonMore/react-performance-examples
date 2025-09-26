@@ -12,7 +12,6 @@ type Props = {
 
 export const PropDrillingWorldIdButton = memo(({ payload }: Props) => {
   const { id, isActive, onChoose } = payload;
-  const renderLabel = `${id}`;
 
   return (
     <li>
@@ -21,7 +20,7 @@ export const PropDrillingWorldIdButton = memo(({ payload }: Props) => {
         className={`${css.worldButton} ${isActive ? css.selected : ""}`}
         onClick={() => onChoose()}
       >
-        {renderLabel}
+        {id}
         <RenderToken />
       </button>
     </li>

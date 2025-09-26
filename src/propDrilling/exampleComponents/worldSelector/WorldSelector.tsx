@@ -31,15 +31,13 @@ export const PropDrillingWorldSelector = memo(
         <div className={sharedStyles.cardTitle}>
           World Selector <RenderToken />
         </div>
-        <PropDrillingAddWorld
-          configuration={{
-            label: "Add world",
-            onAdd: () => addWorld(),
-          }}
-        />
+        <PropDrillingAddWorld onAdd={addWorld} />
         <ul className={css.worldList}>
           {listItems.map((item) => (
-            <PropDrillingWorldIdButton key={item.button.id} payload={item.button} />
+            <PropDrillingWorldIdButton
+              key={item.button.id}
+              payload={item.button}
+            />
           ))}
         </ul>
       </div>
