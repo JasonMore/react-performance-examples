@@ -5,17 +5,16 @@ import css from "./WorldIdButton.module.css";
 type Props = {
   id: string;
   isActive: boolean;
-  onChoose: () => void;
+  onClick: (id: string) => void;
 };
 
-export const PropDrillingWorldIdButton = memo(({ id, isActive, onChoose }: Props) => {
-
+export const WorldIdButton = memo(({ id, isActive, onClick }: Props) => {
   return (
     <li>
       <button
         type="button"
         className={`${css.worldButton} ${isActive ? css.selected : ""}`}
-        onClick={() => onChoose()}
+        onClick={() => onClick(id)}
       >
         {id}
         <RenderToken />
@@ -24,4 +23,4 @@ export const PropDrillingWorldIdButton = memo(({ id, isActive, onChoose }: Props
   );
 });
 
-PropDrillingWorldIdButton.displayName = "PropDrillingWorldIdButton";
+WorldIdButton.displayName = "WorldIdButton";

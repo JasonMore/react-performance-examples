@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import css from "./PropDrillingRenderDemo.module.css";
 import { RenderToken } from "../../shared/components/RenderToken.tsx";
 import type { World } from "../zustand/data/types.ts";
-import { PropDrillingWorldApp } from "./exampleComponents/WorldApp.tsx";
+import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
 
 type Snapshot = {
@@ -43,7 +43,7 @@ export function PropDrillingRenderDemo() {
         item.
       </p>
 
-      <PropDrillingWorldApp onSnapshotChange={setSnapshot} />
+      <WorldApp onSnapshotChange={setSnapshot} />
       <PropDrillingDebugInfo snapshot={snapshot} />
     </div>
   );
