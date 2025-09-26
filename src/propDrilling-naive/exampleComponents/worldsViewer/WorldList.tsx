@@ -17,10 +17,8 @@ type Payload = {
       listIndex: number;
       isCurrent: boolean;
       annotations: {
-        shoutyName: string;
         fingerprint: string;
       };
-      computedLabel: string;
     };
   }>;
 };
@@ -30,7 +28,7 @@ export const PropDrillingWorldList = memo(({ payload }: { payload: Payload }) =>
     key: `${entry.id}-${index}`,
     item: {
       id: entry.id,
-      display: entry.world.computedLabel,
+      display: `${entry.world.name} (${entry.world.listIndex + 1})`,
       world: { ...entry.world },
       selected: entry.id === payload.selectedId,
     },

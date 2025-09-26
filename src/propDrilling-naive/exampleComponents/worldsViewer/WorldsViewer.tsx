@@ -13,7 +13,6 @@ interface ViewerItem {
   listIndex: number;
   isCurrent: boolean;
   annotations: {
-    shoutyName: string;
     fingerprint: string;
   };
 }
@@ -27,7 +26,6 @@ export const PropDrillingWorldsViewer = memo(({ worlds }: Props) => {
     id: item.id,
     world: {
       ...item,
-      computedLabel: `${item.annotations.shoutyName} (${item.listIndex + 1})`,
     },
   }));
 

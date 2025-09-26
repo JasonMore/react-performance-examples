@@ -17,10 +17,8 @@ type Props = {
       listIndex: number;
       isCurrent: boolean;
       annotations: {
-        shoutyName: string;
         fingerprint: string;
       };
-      computedLabel: string;
     };
     selected: boolean;
   };
