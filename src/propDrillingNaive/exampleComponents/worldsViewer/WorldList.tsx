@@ -1,11 +1,14 @@
 import { memo } from "react";
-import { useWorldStore } from "../../data/WorldStore";
-import css from "./WorldList.module.css";
 import { RenderToken } from "../../../shared/components/RenderToken";
+import css from "./WorldList.module.css";
 import { World } from "./World";
+import type { WorldViewerItem } from "./WorldsViewer.tsx";
 
-export const WorldList = memo(() => {
-  const worlds = useWorldStore((s) => s.hello.worlds);
+type Props = {
+  worlds: WorldViewerItem[];
+};
+
+export const WorldList = memo(({ worlds }: Props) => {
   return (
     <div className={css.worldList}>
       <div className={css.textXsBold}>
@@ -15,9 +18,9 @@ export const WorldList = memo(() => {
         world length: <strong>{worlds.length}</strong>
       </div>
       <ul>
-        {worlds.map(({ id }) => (
-          <li key={id}>
-            <World id={id} />
+        {worlds.map((world) => (
+          <li key={world.id}>
+            <World world={world} />
           </li>
         ))}
       </ul>

@@ -19,6 +19,14 @@ export function Home() {
           </p>
           <span className={styles.demoLink}>View Demo →</span>
         </Link>
+        <Link to="/prop-drilling" className={styles.demoCard}>
+          <h2 className={styles.demoTitle}>Prop Drilling Render Demo</h2>
+          <p className={styles.demoDescription}>
+            A deliberately inefficient clone that keeps state at the top and
+            reshapes props at every level to force re-renders.
+          </p>
+          <span className={styles.demoLink}>View Demo →</span>
+        </Link>
       </div>
     </div>
   );

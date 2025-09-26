@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import css from "./ZustandRenderDemo.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo";
-import { RenderToken } from "./RenderToken";
+import { RenderToken } from "../shared/components/RenderToken";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 
 export function ZustandRenderDemo() {
