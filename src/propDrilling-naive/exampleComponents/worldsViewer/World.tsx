@@ -2,55 +2,31 @@ import { memo, useEffect, useRef } from "react";
 import { RenderToken } from "../../../shared/components/RenderToken";
 import css from "./World.module.css";
 import { PropDrillingWorldInfo } from "./WorldInfo";
+import type { WorldViewerItem } from "./WorldsViewer.tsx";
 
 type Props = {
-  payload: {
-    id: string;
-    display: string;
-    world: {
-      id: string;
-      name: string;
-      distanceFromSun: string;
-      diameter: string;
-      orbitalPeriod: string;
-      type: string;
-      listIndex: number;
-      isCurrent: boolean;
-      annotations: {
-        fingerprint: string;
-      };
-    };
-    selected: boolean;
-  };
+  world: WorldViewerItem;
 };
 
-export const PropDrillingWorld = memo(({ payload }: Props) => {
+export const PropDrillingWorld = memo(({ world }: Props) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!payload.selected) return;
+    if (!world.isCurrent) return;
 
     containerRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
     });
-  }, [payload.selected]);
-
-  const decoratedWorld = {
-    ...payload.world,
-    selectionMeta: {
-      isSelected: payload.selected,
-      token: `${payload.id}-${payload.world.annotations.fingerprint}`,
-    },
-  };
+  }, [world.isCurrent]);
 
   return (
     <div
       ref={containerRef}
-      className={`${css.world} ${payload.selected ? css.selected : ""}`}
+      className={`${css.world} ${world.isCurrent ? css.selected : ""}`}
     >
       <RenderToken className={css.floatOnBoarder} />
-      <PropDrillingWorldInfo data={decoratedWorld} />
+      <PropDrillingWorldInfo world={world} />
     </div>
   );
 });

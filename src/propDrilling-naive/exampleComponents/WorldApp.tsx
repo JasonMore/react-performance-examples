@@ -38,9 +38,6 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
     ...world,
     listIndex: index,
     isCurrent: world.id === activeWorldId,
-    annotations: {
-      fingerprint: `${world.id}-${index}`,
-    },
   }));
 
   return (

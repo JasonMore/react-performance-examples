@@ -3,7 +3,7 @@ import { RenderToken } from "../../../shared/components/RenderToken";
 import sharedStyles from "../shared.module.css";
 import { PropDrillingWorldList } from "./WorldList";
 
-interface ViewerItem {
+export interface WorldViewerItem {
   id: string;
   name: string;
   distanceFromSun: string;
@@ -12,44 +12,19 @@ interface ViewerItem {
   type: string;
   listIndex: number;
   isCurrent: boolean;
-  annotations: {
-    fingerprint: string;
-  };
 }
 
 type Props = {
-  worlds: ViewerItem[];
+  worlds: WorldViewerItem[];
 };
 
 export const PropDrillingWorldsViewer = memo(({ worlds }: Props) => {
-  const listEnvelope = worlds.map((item) => ({
-    id: item.id,
-    world: {
-      ...item,
-    },
-  }));
-
-  const lookup = listEnvelope.reduce<Record<string, typeof listEnvelope[number]["world"]>>(
-    (acc, entry) => ({ ...acc, [entry.id]: entry.world }),
-    {},
-  );
-
-  const selectedId = worlds.find((item) => item.isCurrent)?.id ?? worlds[0]?.id ?? "";
-
-  const worldListPayload = {
-    selectedId,
-    entries: listEnvelope.map((entry) => ({
-      id: entry.id,
-      world: lookup[entry.id],
-    })),
-  };
-
   return (
     <div className={sharedStyles.card}>
       <div className={sharedStyles.cardTitle}>
         Worlds Viewer <RenderToken />
       </div>
-      <PropDrillingWorldList payload={worldListPayload} />
+      <PropDrillingWorldList worlds={worlds} />
     </div>
   );
 });

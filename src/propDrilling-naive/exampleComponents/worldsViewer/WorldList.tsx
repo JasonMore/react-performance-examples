@@ -2,50 +2,25 @@ import { memo } from "react";
 import { RenderToken } from "../../../shared/components/RenderToken";
 import css from "./WorldList.module.css";
 import { PropDrillingWorld } from "./World";
+import type { WorldViewerItem } from "./WorldsViewer.tsx";
 
-type Payload = {
-  selectedId: string;
-  entries: Array<{
-    id: string;
-    world: {
-      id: string;
-      name: string;
-      distanceFromSun: string;
-      diameter: string;
-      orbitalPeriod: string;
-      type: string;
-      listIndex: number;
-      isCurrent: boolean;
-      annotations: {
-        fingerprint: string;
-      };
-    };
-  }>;
+type Props = {
+  worlds: WorldViewerItem[];
 };
 
-export const PropDrillingWorldList = memo(({ payload }: { payload: Payload }) => {
-  const normalizedList = payload.entries.map((entry, index) => ({
-    key: `${entry.id}-${index}`,
-    item: {
-      id: entry.id,
-      display: `${entry.world.name} (${entry.world.listIndex + 1})`,
-      world: { ...entry.world },
-      selected: entry.id === payload.selectedId,
-    },
-  }));
-
+export const PropDrillingWorldList = memo(({ worlds }: Props) => {
   return (
     <div className={css.worldList}>
       <div className={css.textXsBold}>
         World List <RenderToken />
       </div>
       <div className={css.textXs}>
-        world length: <strong>{normalizedList.length}</strong>
+        world length: <strong>{worlds.length}</strong>
       </div>
       <ul>
-        {normalizedList.map((entry) => (
-          <li key={entry.key}>
-            <PropDrillingWorld payload={entry.item} />
+        {worlds.map((world) => (
+          <li key={world.id}>
+            <PropDrillingWorld world={world} />
           </li>
         ))}
       </ul>
