@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Home";
-import { PropDrillingRenderDemo } from "./propDrilling/PropDrillingRenderDemo";
+import { PropDrillingRenderDemo } from "./propDrilling-naive/PropDrillingRenderDemo";
 import { ZustandRenderDemo } from "./zustand/ZustandRenderDemo";
 
 export default function App() {
