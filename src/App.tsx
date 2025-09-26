@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Home";
-import { PropDrillingNaiveRenderDemo } from "./propDrillingNaive/PropDrillingNaiveRenderDemo.tsx";
-import { ZustandRenderDemo } from "./zustand/ZustandRenderDemo";
+import { PropDrillingNaiveRenderDemo } from "./examples/propDrillingNaive/PropDrillingNaiveRenderDemo.tsx";
+import { ZustandRenderDemo } from "./examples/zustand/ZustandRenderDemo";
 
 export default function App() {
   return (
