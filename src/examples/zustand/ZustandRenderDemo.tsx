@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import css from "./ZustandRenderDemo.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo.tsx";
 import { RenderToken } from "../../shared/components/RenderToken.tsx";
@@ -7,11 +6,6 @@ import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 export function ZustandRenderDemo() {
   return (
     <div className={css.app}>
-      <nav className={css.nav}>
-        <Link to="/" className={css.homeLink}>
-          ← Back to Home
-        </Link>
-      </nav>
       <h1>Zustand Render Demo</h1>
       <p>
         This demo shows you can prevent re-rendering without using prop
