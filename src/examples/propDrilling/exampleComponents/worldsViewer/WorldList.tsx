@@ -2,13 +2,14 @@ import { memo } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import css from "./WorldList.module.css";
 import { World } from "./World.tsx";
-import type { WorldViewerItem } from "./WorldsViewer.tsx";
+import type { World as WorldType } from "../../data/types.ts";
 
 type Props = {
-  worlds: WorldViewerItem[];
+  worlds: WorldType[];
+  activeWorldId: string;
 };
 
-export const WorldList = memo(({ worlds }: Props) => {
+export const WorldList = memo(({ worlds, activeWorldId }: Props) => {
   return (
     <div className={css.worldList}>
       <div className={css.textXsBold}>
@@ -20,7 +21,7 @@ export const WorldList = memo(({ worlds }: Props) => {
       <ul>
         {worlds.map((world) => (
           <li key={world.id}>
-            <World world={world} />
+            <World world={world} isActive={world.id === activeWorldId} />
           </li>
         ))}
       </ul>
