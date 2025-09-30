@@ -7,6 +7,10 @@ let currentPassToken: string | undefined;
 let clearHandle: ReturnType<typeof setTimeout> | undefined;
 let passCounter = 0;
 
+export const resetCounter = () => {
+  passCounter = 0;
+};
+
 // Generate (or reuse) a token that is stable for the current JS macrotask.
 // All calls within the same render flush will reuse the token; a new token
 // is created on the next tick after React commits more updates.
