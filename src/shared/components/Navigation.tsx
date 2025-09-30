@@ -19,13 +19,7 @@ export function Navigation() {
 
   return (
     <nav className={styles.navigation}>
-      <div className={styles.container}>
-        <div className={styles.brand}>
-          <Link to="/" className={styles.brandLink}>
-            React Performance
-          </Link>
-        </div>
-        <div className={styles.navLinks}>
+        
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
@@ -39,8 +33,7 @@ export function Navigation() {
               </Link>
             );
           })}
-        </div>
-      </div>
+        
     </nav>
   );
 }
