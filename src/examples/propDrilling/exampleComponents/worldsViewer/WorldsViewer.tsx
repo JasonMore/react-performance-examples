@@ -2,29 +2,20 @@ import { memo } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import sharedStyles from "../shared.module.css";
 import { WorldList } from "./WorldList.tsx";
-
-export interface WorldViewerItem {
-  id: string;
-  name: string;
-  distanceFromSun: string;
-  diameter: string;
-  orbitalPeriod: string;
-  type: string;
-  listIndex: number;
-  isCurrent: boolean;
-}
+import type { World } from "../../data/types.ts";
 
 type Props = {
-  worlds: WorldViewerItem[];
+  worlds: World[];
+  activeWorldId: string;
 };
 
-export const WorldsViewer = memo(({ worlds }: Props) => {
+export const WorldsViewer = memo(({ worlds, activeWorldId }: Props) => {
   return (
     <div className={sharedStyles.card}>
       <div className={sharedStyles.cardTitle}>
         Worlds Viewer <RenderToken />
       </div>
-      <WorldList worlds={worlds} />
+      <WorldList worlds={worlds} activeWorldId={activeWorldId} />
     </div>
   );
 });

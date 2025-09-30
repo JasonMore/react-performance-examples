@@ -1,20 +1,23 @@
 import { memo, useMemo } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import css from "./WorldInfo.module.css";
-import type { WorldViewerItem } from "./WorldsViewer.tsx";
+import type { World } from "../../data/types.ts";
 
 type Props = {
-  world: WorldViewerItem;
+  world: World;
 };
 
 export const WorldInfo = memo(({ world }: Props) => {
   // Memoize infoRows to prevent recreation and remove unnecessary spread operator
-  const infoRows = useMemo(() => [
-    { label: "Type", value: world.type },
-    { label: "Distance from Sun", value: world.distanceFromSun },
-    { label: "Diameter", value: world.diameter },
-    { label: "Orbital Period", value: world.orbitalPeriod },
-  ], [world.type, world.distanceFromSun, world.diameter, world.orbitalPeriod]);
+  const infoRows = useMemo(
+    () => [
+      { label: "Type", value: world.type },
+      { label: "Distance from Sun", value: world.distanceFromSun },
+      { label: "Diameter", value: world.diameter },
+      { label: "Orbital Period", value: world.orbitalPeriod },
+    ],
+    [world.type, world.distanceFromSun, world.diameter, world.orbitalPeriod],
+  );
 
   return (
     <div className={css.worldInfo}>

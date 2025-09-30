@@ -60,7 +60,7 @@ export const WorldApp = memo(({ onSnapshotChange }: Props) => {
           addWorld={addWorld}
         />
       </div>
-      <WorldsViewer worlds={worlds} />
+      <WorldsViewer worlds={worlds} activeWorldId={activeWorldId} />
     </div>
   );
 });

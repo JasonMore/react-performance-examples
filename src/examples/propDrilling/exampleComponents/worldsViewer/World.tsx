@@ -2,28 +2,29 @@ import { memo, useEffect, useRef } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import css from "./World.module.css";
 import { WorldInfo } from "./WorldInfo.tsx";
-import type { WorldViewerItem } from "./WorldsViewer.tsx";
+import type { World as WorldType } from "../../data/types.ts";
 
 type Props = {
-  world: WorldViewerItem;
+  world: WorldType;
+  isActive: boolean;
 };
 
-export const World = memo(({ world }: Props) => {
+export const World = memo(({ world, isActive }: Props) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!world.isCurrent) return;
+    if (!isActive) return;
 
     containerRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
     });
-  }, [world.isCurrent]);
+  }, [isActive]);
 
   return (
     <div
       ref={containerRef}
-      className={`${css.world} ${world.isCurrent ? css.selected : ""}`}
+      className={`${css.world} ${isActive ? css.selected : ""}`}
     >
       <RenderToken className={css.floatOnBoarder} />
       <WorldInfo world={world} />

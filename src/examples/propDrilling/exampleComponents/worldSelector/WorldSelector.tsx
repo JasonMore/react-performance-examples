@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
 import sharedStyles from "../shared.module.css";
 import css from "./WorldSelector.module.css";
@@ -15,6 +15,7 @@ type Props = {
 
 export const WorldSelector = memo(
   ({ activeWorld, worlds, chooseWorld, addWorld }: Props) => {
+    const onClick = useCallback((id: string) => chooseWorld(id), [chooseWorld]);
     return (
       <div className={`${sharedStyles.card} ${css.root}`}>
         <div className={sharedStyles.cardTitle}>
@@ -27,7 +28,7 @@ export const WorldSelector = memo(
               key={world.id}
               id={world.id}
               isActive={world.id === activeWorld}
-              onClick={(id) => chooseWorld(id)}
+              onClick={onClick}
             />
           ))}
         </ul>
