@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import css from "./PropDrillingNaiveRenderDemo.module.css";
 import { RenderToken } from "../../shared/components/RenderToken.tsx";
 import type { World } from "../zustand/data/types.ts";
@@ -16,11 +15,6 @@ export function PropDrillingNaiveRenderDemo() {
 
   return (
     <div className={css.app}>
-      <nav className={css.nav}>
-        <Link to="/" className={css.homeLink}>
-          ← Back to Home
-        </Link>
-      </nav>
       <h1>Prop Drilling Render Demo</h1>
       <p>
         This intentionally clumsy demo uses anit-patterns commonly used with
