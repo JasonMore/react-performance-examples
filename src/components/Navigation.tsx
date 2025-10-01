@@ -1,21 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { routes } from "../routes";
 import css from "./Navigation.module.css";
 
 export function Navigation() {
   return (
     <nav className={css.navigation}>
-      <NavLink to="/" title="Home">
-        Home
-      </NavLink>
-      <NavLink to="/prop-drilling-naive" title="Naive Prop Drilling">
-        🚰 ❌ Prop-Naive
-      </NavLink>
-      <NavLink to="/prop-drilling" title="Optimized Prop Drilling">
-        🚰 ✅ Prop-Optimized
-      </NavLink>
-      <NavLink to="/zustand" title="Zustand Demo">
-        ☁️ Zustand
-      </NavLink>
+      {routes.map(({ id, path, navLabel, navTitle }) => (
+        <NavLink key={id} to={path} title={navTitle}>
+          {navLabel}
+        </NavLink>
+      ))}
     </nav>
   );
 }

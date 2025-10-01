@@ -1,5 +1,6 @@
 import css from "./Home.module.css";
 import { DemoCard } from "./components/DemoCard";
+import { routes } from "./routes";
 
 export function Home() {
   return (
@@ -11,17 +12,13 @@ export function Home() {
       </p>
 
       <div className={css.demoGrid}>
-        <DemoCard to="/zustand" title="Zustand Render">
-          This demo shows you can prevent re-rendering without using prop
-          drilling.
-        </DemoCard>
-        <DemoCard to="/prop-drilling" title="Prop Drilling">
-          A performant implementation of prop drilling.
-        </DemoCard>
-        <DemoCard to="/prop-drilling-naive" title="Prop Drilling Naive">
-          A deliberately inefficient example that keeps state at the top and
-          reshapes props at every level to force re-renders.
-        </DemoCard>
+        {routes.map(({ id, path, demoCardTitle, demoCardDescription }) =>
+          demoCardTitle && demoCardDescription ? (
+            <DemoCard key={id} to={path} title={demoCardTitle}>
+              {demoCardDescription}
+            </DemoCard>
+          ) : null,
+        )}
       </div>
     </div>
   );
