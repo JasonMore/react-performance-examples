@@ -4,8 +4,8 @@ import { Home } from "./Home";
 import { PropDrillingNaiveRenderDemo } from "./examples/propDrillingNaive/PropDrillingNaiveRenderDemo.tsx";
 import { ZustandRenderDemo } from "./examples/zustand/ZustandRenderDemo";
 import { PropDrillingRenderDemo } from "./examples/propDrilling/PropDrillingRenderDemo.tsx";
-import { Navigation } from "./shared/components/Navigation";
-import { resetCounter } from "./shared/components/RenderToken";
+import { Navigation } from "./components/Navigation";
+import { resetCounter } from "./components/RenderToken";
 
 export default function App() {
   const location = useLocation();

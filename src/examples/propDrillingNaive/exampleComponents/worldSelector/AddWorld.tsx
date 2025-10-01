@@ -1,6 +1,6 @@
 import { memo } from "react";
 import css from "./AddWorld.module.css";
-import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/RenderToken.tsx";
 
 type Props = {
   onAdd: () => void;

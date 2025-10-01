@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/RenderToken.tsx";
 import css from "./WorldInfo.module.css";
 import type { WorldViewerItem } from "./WorldsViewer.tsx";
 
