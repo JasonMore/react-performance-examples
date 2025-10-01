@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  background-color: #f1f5f9; /* slate-100 */
+  background-color: var(--color-bg);
   padding: 1.5rem; /* p-6 */
 }
 
@@ -22,7 +22,7 @@
 .description {
   font-size: 0.875rem; /* text-sm */
   line-height: 1.25rem;
-  color: #334155; /* text-slate-700 */
+  color: var(--color-text-secondary);
 }
 
 .actions {
@@ -34,31 +34,35 @@
 .primaryButton {
   padding: 0.5rem 0.75rem; /* py-2 px-3 */
   border-radius: 0.75rem; /* rounded-xl */
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
   border: none;
   cursor: pointer;
+  transition:
+    background-color var(--transition-surface),
+    color var(--transition-surface),
+    transform 0.2s ease;
 }
 
 .secondaryButton {
   padding: 0.5rem 0.75rem; /* py-2 px-3 */
   border-radius: 0.75rem; /* rounded-xl */
-  background-color: #fff;
-  color: inherit;
-  border: none;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.1),
-    0 1px 2px rgba(0, 0, 0, 0.06);
+  background-color: var(--color-button-secondary-bg);
+  color: var(--color-button-secondary-text);
+  border: 1px solid var(--color-button-secondary-border);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
+  transition:
+    background-color var(--transition-surface),
+    color var(--transition-surface),
+    box-shadow var(--transition-surface);
 }
 
 .card {
   padding: 0.75rem; /* p-3 */
   border-radius: 1rem; /* rounded-2xl */
-  background-color: #fff;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.1),
-    0 1px 2px rgba(0, 0, 0, 0.06);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
 }
 
 .cardTitle {
@@ -79,13 +83,14 @@
   font-size: 0.75rem;
   line-height: 1rem;
   opacity: 0.6;
+  color: var(--color-render-token);
 }
 
 .worldList {
   margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.75rem;
-  background-color: #f9fafb; /* gray-50 */
+  background-color: var(--color-surface-muted);
 }
 
 .textXsBold {
@@ -115,12 +120,10 @@
   padding: 0.75rem; /* p-3 */
   font-size: 0.75rem; /* text-xs */
   line-height: 1rem;
-  color: #475569; /* text-slate-600 */
-  background-color: #fff;
+  color: var(--color-text-secondary);
+  background-color: var(--color-elevated);
   border-radius: 1rem; /* rounded-2xl */
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.1),
-    0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 .snapshotTitle {

@@ -1,45 +1,41 @@
 .demoCard {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: var(--color-surface);
   border-radius: 0.5rem;
   padding: 1.5rem;
-  box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-card);
   text-decoration: none;
-  color: inherit;
+  color: var(--color-text-primary);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border);
 }
 
 .demoCard:hover {
-  box-shadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.1),
-    0 4px 6px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-card-strong);
 }
 
 .demoTitle {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-heading);
   margin-bottom: 0.5rem;
 }
 
 .demoDescription {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #64748b;
+  color: var(--color-text-muted);
   margin-bottom: 1rem;
 }
 
 .demoLink {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #3b82f6;
+  color: var(--color-link);
   height: 100%;
   align-content: end;
 }
