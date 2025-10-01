@@ -1,4 +1,6 @@
 .demoCard {
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 0.5rem;
   padding: 1.5rem;
@@ -38,4 +40,6 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: #3b82f6;
+  height: 100%;
+  align-content: end;
 }
