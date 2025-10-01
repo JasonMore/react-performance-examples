@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { routes } from "../routes";
+import { homeRoute, routes } from "../routes";
 import css from "./Navigation.module.css";
 
 export function Navigation() {
   return (
     <nav className={css.navigation}>
-      {routes.map(({ id, path, navLabel, navTitle }) => (
-        <NavLink key={id} to={path} title={navTitle}>
+      <NavLink to={homeRoute.path} title={homeRoute.navTitle}>
+        {homeRoute.navLabel}
+      </NavLink>
+      {routes.map(({ id, path, navLabel, title }) => (
+        <NavLink key={id} to={path} title={title}>
           {navLabel}
         </NavLink>
       ))}

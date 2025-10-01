@@ -12,13 +12,11 @@ export function Home() {
       </p>
 
       <div className={css.demoGrid}>
-        {routes.map(({ id, path, demoCardTitle, demoCardDescription }) =>
-          demoCardTitle && demoCardDescription ? (
-            <DemoCard key={id} to={path} title={demoCardTitle}>
-              {demoCardDescription}
-            </DemoCard>
-          ) : null,
-        )}
+        {routes.map(({ id, path, title, description }) => (
+          <DemoCard key={id} to={path} title={title}>
+            {description}
+          </DemoCard>
+        ))}
       </div>
     </div>
   );
