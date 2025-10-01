@@ -5,14 +5,15 @@ import { PropDrillingNaiveRenderDemo } from "./examples/propDrillingNaive/PropDr
 import { ZustandRenderDemo } from "./examples/zustand/ZustandRenderDemo";
 import { PropDrillingRenderDemo } from "./examples/propDrilling/PropDrillingRenderDemo.tsx";
 import { Navigation } from "./components/Navigation";
-import { resetCounter } from "./components/RenderToken";
+
+import { resetTokenCounter } from "./components/renderToken/renderTokenState.ts";
 
 export default function App() {
   const location = useLocation();
 
   // Reset render pass counter whenever the route path changes
   useEffect(() => {
-    resetCounter();
+    resetTokenCounter();
   }, [location.pathname]);
 
   return (

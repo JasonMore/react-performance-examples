@@ -2,7 +2,7 @@ import css from "./AddWorld.module.css";
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import { getNextWorld } from "../../data/solarSystemWorlds.ts";
 import { memo } from "react";
-import { RenderToken } from "../../../../components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
 
 export const AddWorld = memo(() => {
   const addWorld = useWorldStore((s) => s.addWorld);

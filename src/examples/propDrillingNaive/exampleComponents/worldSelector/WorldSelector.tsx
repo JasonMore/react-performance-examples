@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { RenderToken } from "../../../../components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
 import sharedStyles from "../shared.module.css";
 import css from "./WorldSelector.module.css";
 import { PropDrillingAddWorld } from "./AddWorld.tsx";
