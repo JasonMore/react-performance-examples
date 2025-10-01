@@ -10,8 +10,16 @@ interface NavItem {
 const navItems: NavItem[] = [
   { path: "/", label: "Home", shortName: "Home" },
   { path: "/zustand", label: "Zustand Demo", shortName: "Zustand" },
-  { path: "/prop-drilling", label: "Optimized Prop Drilling", shortName: "Optimized" },
-  { path: "/prop-drilling-naive", label: "Naive Prop Drilling", shortName: "Naive" },
+  {
+    path: "/prop-drilling",
+    label: "Optimized Prop Drilling",
+    shortName: "Optimized",
+  },
+  {
+    path: "/prop-drilling-naive",
+    label: "Naive Prop Drilling",
+    shortName: "Naive",
+  },
 ];
 
 export function Navigation() {
@@ -19,21 +27,19 @@ export function Navigation() {
 
   return (
     <nav className={styles.navigation}>
-        
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`${styles.navLink} ${isActive ? styles.active : ""}`}
-                title={item.label}
-              >
-                {item.shortName}
-              </Link>
-            );
-          })}
-        
+      {navItems.map((item) => {
+        const isActive = location.pathname === item.path;
+        return (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`${styles.navLink} ${isActive ? styles.active : ""}`}
+            title={item.label}
+          >
+            {item.shortName}
+          </Link>
+        );
+      })}
     </nav>
   );
 }

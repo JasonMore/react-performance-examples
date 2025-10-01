@@ -3,28 +3,28 @@ import { worldsApi } from "../api/worldsApi";
 import { useSelectionStore } from "../data/SelectionStore";
 import type { World } from "../data/types";
 
-export const useWorlds  = () =>
-useQuery({
-  queryKey: ["worlds"],
-  queryFn: () => worldsApi.fetchWorlds(),
-  refetchOnWindowFocus: false,
-})
+export const useWorlds = () =>
+  useQuery({
+    queryKey: ["worlds"],
+    queryFn: () => worldsApi.fetchWorlds(),
+    refetchOnWindowFocus: false,
+  });
 
-export const useAddWorldMutation = () =>{
+export const useAddWorldMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: worldsApi.addWorld,
     onMutate: async () => {
       // Cancel any outgoing refetches
       await queryClient.cancelQueries({ queryKey: ["worlds"] });
-  
+
       // Snapshot the previous value
       const previousWorlds = queryClient.getQueryData(["worlds"]);
-  
+
       // Return a context object with the snapshotted value
       return { previousWorlds };
     },
-  
+
     onError: (_err, _newWorld, context) => {
       // If the mutation fails, use the context returned from onMutate to roll back
       if (context?.previousWorlds) {
@@ -36,8 +36,7 @@ export const useAddWorldMutation = () =>{
       queryClient.invalidateQueries({ queryKey: ["worlds"] });
     },
   });
-}
-
+};
 
 export const useWorldData = () => {
   const queryClient = useQueryClient();
@@ -90,16 +89,16 @@ export const useWorldData = () => {
   //   isLoading: worldsQuery.isLoading,
   //   isError: worldsQuery.isError,
   //   error: worldsQuery.error,
-    
+
   //   // Selected world data
   //   // selectedWorld,
   //   // selectedWorldId,
-    
+
   //   // Actions
   //   setWorldId,
   //   isSelectedWorld,
   //   getWorldById,
-    
+
   //   // Add world mutation
   //   addWorld: addWorldMutation.mutate,
   //   isAddingWorld: addWorldMutation.isPending,
