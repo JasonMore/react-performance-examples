@@ -10,6 +10,7 @@
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 
   a {
@@ -27,7 +28,11 @@
   a:hover {
     background: var(--color-nav-link-hover-bg);
     color: var(--color-nav-link-hover-text);
-    border-color: color-mix(in srgb, var(--color-nav-link-hover-text) 15%, transparent);
+    border-color: color-mix(
+      in srgb,
+      var(--color-nav-link-hover-text) 15%,
+      transparent
+    );
   }
 
   a.active {
