@@ -1,6 +1,10 @@
 .navigation {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.15);
+  background: linear-gradient(
+    135deg,
+    var(--color-nav-gradient-start) 0%,
+    var(--color-nav-gradient-end) 100%
+  );
+  box-shadow: var(--shadow-nav);
   max-width: 80rem;
   margin: 0 auto;
   padding: 0.75rem 1.5rem;
@@ -11,7 +15,7 @@
   a {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-nav-link);
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
@@ -21,21 +25,21 @@
   }
 
   a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--color-nav-link-hover-bg);
+    color: var(--color-nav-link-hover-text);
+    border-color: color-mix(in srgb, var(--color-nav-link-hover-text) 15%, transparent);
   }
 
   a.active {
-    background: white;
-    color: #667eea;
+    background: var(--color-nav-link-active-bg);
+    color: var(--color-nav-link-active-text);
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-card);
   }
 
   a.active:hover {
-    background: white;
-    color: #667eea;
+    background: var(--color-nav-link-active-bg);
+    color: var(--color-nav-link-active-text);
     border-color: transparent;
   }
 }
