@@ -19,12 +19,20 @@ The project serves as an educational resource to:
 src/
 ├── App.tsx                    # Main app with routing
 ├── Home.tsx                   # Landing page with demo links
+├── api/                       # API service layer
+│   └── worlds.ts              # Worlds API functions
+├── mocks/                     # MSW mock handlers
+│   ├── handlers.ts            # API mock definitions
+│   └── browser.ts             # MSW browser setup
+├── types/                     # Shared TypeScript types
+│   └── World.ts               # World type definition
 ├── examples/
 │   ├── zustand/              # State management with Zustand (performant)
+│   ├── zustand-query/        # TanStack Query + Zustand with MSW
 │   ├── propDrilling/         # Optimized prop drilling implementation
 │   └── propDrillingNaive/    # Deliberately inefficient prop drilling (anti-patterns)
-└── shared/
-    └── components/           # Shared components like RenderToken
+└── components/
+    └── perf/                 # Performance monitoring components (RenderToken)
 ```
 
 ## Technology Stack
@@ -33,7 +41,9 @@ src/
 - **TypeScript**: Type safety and better developer experience
 - **Vite**: Fast build tool and dev server
 - **Zustand**: Lightweight state management library
+- **TanStack Query (React Query)**: Server state management and data fetching
 - **React Router**: Client-side routing
+- **MSW (Mock Service Worker)**: API mocking for development and testing
 - **ESLint**: Code linting with TypeScript support
 - **Prettier**: Code formatting
 
@@ -109,6 +119,16 @@ src/
 - Shows how Zustand prevents unnecessary re-renders
 - Components only re-render when their selected state slice changes
 - No prop drilling needed for shared state
+
+### Zustand + TanStack Query Example
+
+**Purpose**: Demonstrate separation of server state and client state with realistic async behavior
+
+- Uses TanStack Query for server/API state management
+- Uses Zustand for client/UI state (e.g., selected world)
+- API calls are mocked with MSW to provide deterministic responses
+- Shows loading states, error handling, and cache management
+- Realistic network delays (300ms GET, 200ms POST) simulate production behavior
 
 ### Prop Drilling Example (Optimized)
 
@@ -235,3 +255,13 @@ Performance problems are often invisible. The `RenderToken` makes re-renders obs
 ### Why Vite?
 
 Fast development experience with instant HMR, native ESM support, and optimized production builds without complex configuration.
+
+### Why MSW (Mock Service Worker)?
+
+Provides deterministic API responses for consistent demos and development:
+
+- Intercepts network requests at the service worker level
+- Simulates realistic async behavior with configurable delays
+- No need for a real backend during development
+- Ensures demos work offline and have predictable behavior
+- Only enabled in development mode (not in production builds)
