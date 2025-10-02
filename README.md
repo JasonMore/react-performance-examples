@@ -18,7 +18,7 @@
 
 **Component Architecture**
 - (SRP) Many feature components are too large and complex.
-- (SRP) Render methods are overly long.
+- (SRP) Render methods that are long.
 - (SoC) Components often mix data transformation, state, and conditional rendering into one block.
 - (encap) Multiple components defined in a single file reduce clarity and reusability.
 
@@ -32,7 +32,7 @@
 **useEffect**
 - (SRP) Often very large, doing too many things at once.
 - (SoC) Misused to handle computed data structures or business logic.
-- Should only be used to **sync with external systems** (e.g., subscriptions, browser APIs, logging).
+- Should only be used to **sync with external browser APIs**
 - All other use cases are better served by `useMemo`, `useCallback`, or custom hooks.
 - 🚨 Overuse of `eslint-disable-next-line react-hooks/exhaustive-deps` indicates broken patterns.
 
@@ -51,5 +51,4 @@
     ```
     
 - If passing non-primitives (arrays, objects, functions), **memoize** them with `useMemo` / `useCallback`.
-- Avoid inline literals in JSX.
 - Hooks that derive/transform data should always **memoize computed results**.
