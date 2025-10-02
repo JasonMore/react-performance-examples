@@ -1,28 +1,22 @@
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  type UseQueryOptions,
-} from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import type { World } from "./types.ts";
 import { getNextWorld } from "./solarSystemWorlds.ts";
 
 let currentWorlds: World[] = [getNextWorld(), getNextWorld(), getNextWorld()];
 
-export const useGetWorlds = (options: UseQueryOptions) =>
-  useQuery({
-    ...options,
-    queryKey: ["worlds"],
-    queryFn: async () => ({ worlds: currentWorlds }),
-    refetchOnWindowFocus: false,
-  });
+const getWorldsQueryOptions = () => ({
+  queryKey: ["worlds"] as const,
+  queryFn: async () => ({ worlds: currentWorlds }),
+  refetchOnWindowFocus: false,
+});
+
+export const useGetWorlds = () => useQuery(getWorldsQueryOptions());
 
 export const useGetWorld = (id: string) => {
-  const { data } = useGetWorlds({
+  return useQuery({
+    ...getWorldsQueryOptions(),
     select: ({ worlds }) => worlds.find((w) => w.id === id),
-  });
-
-  return data;
+  }).data;
 };
 
 export const useAddWorld = () => {
