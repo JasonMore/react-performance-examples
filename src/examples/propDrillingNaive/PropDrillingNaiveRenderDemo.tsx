@@ -18,12 +18,13 @@ export function PropDrillingNaiveRenderDemo() {
       <h1>Prop Drilling Render Demo</h1>
       <p>
         This intentionally clumsy demo uses anit-patterns commonly used with
-        prop drilling. All state at the top level and threads it through deeply
-        nested props.
+        prop drilling. All state is at the top of the component tree, and
+        travels to children through prop drilling.
       </p>
       <p>
-        The <code>RenderToken</code> <RenderToken /> shows render counts. It
-        will be much higher than a well implemented example.
+        The <code>RenderToken</code> <RenderToken /> shows render counts. When
+        that value increases, the component just re-rendered. It will be much
+        higher than a well implemented example.
       </p>
 
       <h2>Instructions:</h2>

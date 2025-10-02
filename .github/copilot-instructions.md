@@ -167,10 +167,37 @@ Sibling components that demonstrate different data access patterns:
 4. Verify optimization by confirming reduced render counts
 
 ### Styling
-- Use CSS Modules for component-specific styles
-- Follow existing naming patterns for CSS classes
-- Use descriptive class names that match the component hierarchy
-- Consider reusable styles in shared modules
+- Stick with CSS Modules for component-specific styles and keep class names aligned with the component hierarchy.
+- Global design tokens (colors, typography, radii, spacing, transitions) live in `src/index.css`. Update or extend these variables instead of hard-coding values in component styles.
+- `src/components/css/DemoLayout.module.css` wraps every demo page, providing consistent spacing, max-width, and background treatment.
+- Shared card surface styles live in `src/components/css/shared.module.css`; use these classes to keep panels visually consistent across demos.
+
+#### World app layout
+- `src/components/css/WorldApp.module.css` drives the two-column grid used by all demos. It applies the atmosphere gradient background, card border, and sticky selector pane above `768px` via CSS variables (`--selector-top-offset`, `--selector-bottom-gap`).
+- Keep new layouts compatible with this module so selectors remain sticky and responsive.
+
+#### World selector styles
+- Selector shells import from `src/components/css/worldSelector/WorldSelector.module.css`, which sets the column stack and scroll bounds.
+- Action buttons use `worldSelector/AddWorld.module.css` (`.primaryButton` accent button) and `worldSelector/WorldIdButton.module.css` (selected state styling with accent background and hover transitions).
+- Combine these with `shared.module.css.card` to retain the consistent card chrome in every demo.
+
+#### Worlds viewer styles
+- List containers come from `src/components/css/worldsViewer/WorldList.module.css`, which handles the muted surface background and label typography.
+- Individual world rows use `worldsViewer/World.module.css`, providing the glassy gradient, elevation shadows, and `selected` highlight state shared by all demos.
+- Detail grids live in `worldsViewer/WorldInfo.module.css`, giving the two-column fact layout with uppercase labels.
+
+#### Debug panels & performance instruments
+- Debug snapshots across demos rely on `src/components/css/DebugInfo.module.css` layered on top of the shared card styles.
+- `src/components/perf/RenderToken.module.css` animates the render count badge; respect its reduced-motion fallback when introducing new indicators.
+
+#### Demo styling quick reference
+| Demo | Layout wrapper | Selector styles | Worlds viewer styles | Debug panel |
+| --- | --- | --- | --- | --- |
+| Zustand | `components/css/DemoLayout.module.css` + `components/css/WorldApp.module.css` | `components/css/worldSelector/WorldSelector.module.css`, `components/css/worldSelector/AddWorld.module.css`, `components/css/worldSelector/WorldIdButton.module.css` | `components/css/worldsViewer/WorldList.module.css`, `components/css/worldsViewer/World.module.css`, `components/css/worldsViewer/WorldInfo.module.css` | `components/css/DebugInfo.module.css` |
+| Optimized Prop Drilling | Same as Zustand | Same as Zustand | Same as Zustand | `components/css/DebugInfo.module.css` |
+| Prop Drilling Naive | Same as Zustand | Same as Zustand | Same as Zustand | `components/css/DebugInfo.module.css` |
+
+- Navigation and home views pull styling from `components/Navigation.module.css`, `components/DemoCard.module.css`, `Home.module.css`, and `App.module.css`. Reuse these when adding new surface-level UI so the demos feel cohesive.
 
 ## Architecture Decisions
 

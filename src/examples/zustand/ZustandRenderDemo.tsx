@@ -13,11 +13,6 @@ export function ZustandRenderDemo() {
         which counts each render. When that value increases, the component just
         re-rendered.
       </p>
-      <p>
-        The <code>WorldsSelector</code> and <code>WorldsViewer</code> components
-        are siblings. The <code>WorldsViewer</code> component has a child
-        component <code>WorldList</code>.
-      </p>
 
       <h2>Instructions:</h2>
       <p>
