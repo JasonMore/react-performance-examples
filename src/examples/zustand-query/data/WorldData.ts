@@ -1,13 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import type { World } from "./types.ts";
-import { getNextWorld } from "./solarSystemWorlds.ts";
-
-let currentWorlds: World[] = [getNextWorld(), getNextWorld(), getNextWorld()];
+import { fetchWorlds, addWorld } from "../../../api/worlds.ts";
 
 // TODO: This is used for typescript, look up a better way?
 const getWorldsQueryOptions = () => ({
   queryKey: ["worlds"] as const,
-  queryFn: async () => ({ worlds: currentWorlds }),
+  queryFn: fetchWorlds,
   refetchOnWindowFocus: false,
 });
 
@@ -23,11 +20,7 @@ export const useGetWorld = (id: string) => {
 export const useAddWorld = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async () => {
-      const newWorld = getNextWorld();
-      currentWorlds = [...currentWorlds, newWorld];
-      return newWorld;
-    },
+    mutationFn: addWorld,
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["worlds"] });
     },

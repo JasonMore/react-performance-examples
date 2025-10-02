@@ -19,10 +19,10 @@ export function PropDrillingRenderDemo() {
       <p>
         This demo highlights an optimized prop drilling flow: state still lives
         at the top, but children receive stable data and callbacks via
-        <code>React.memo</code>, <code>useMemo</code>, and <code>useCallback</code>.
-        Keeping shapes consistent across layers prevents prop churn and keeps
-        memoized children from re-rendering unnecessarily—even if a dedicated
-        state store would still be leaner.
+        <code>React.memo</code>, <code>useMemo</code>, and{" "}
+        <code>useCallback</code>. Keeping shapes consistent across layers
+        prevents prop churn and keeps memoized children from re-rendering
+        unnecessarily—even if a dedicated state store would still be leaner.
       </p>
       <p>
         The <code>RenderToken</code> <RenderToken /> shows render counts. When

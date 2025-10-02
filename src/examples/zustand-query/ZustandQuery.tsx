@@ -10,9 +10,7 @@ export const ZustandQuery = memo(() => (
   <QueryClientProvider client={queryClient}>
     <div className={css.app}>
       <h1>🌤 Zustand + tanstack-query/react</h1>
-      <p>
-       Puts API state in tanstack/react-query and client state in Zustand.
-      </p>
+      <p>Puts API state in tanstack/react-query and client state in Zustand.</p>
       <p>
         The <code>WorldsSelector</code> and <code>WorldsViewer</code> components
         are siblings. The <code>WorldsViewer</code> component has a child
