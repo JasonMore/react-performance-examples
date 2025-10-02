@@ -1,18 +1,15 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import css from "../../components/css/DemoLayout.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo";
 import { WorldApp } from "./components/WorldApp";
 import { memo } from "react";
-
-const queryClient = new QueryClient();
+import { queryClient } from "./data/WorldData.ts";
 
 export const ZustandQuery = memo(() => (
   <QueryClientProvider client={queryClient}>
     <div className={css.app}>
       <h1>🌤 Zustand + tanstack-query/react</h1>
-      <p>
-       Puts API state in tanstack/react-query and client state in Zustand.
-      </p>
+      <p>Puts API state in tanstack/react-query and client state in Zustand.</p>
       <p>
         The <code>WorldsSelector</code> and <code>WorldsViewer</code> components
         are siblings. The <code>WorldsViewer</code> component has a child

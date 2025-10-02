@@ -1,35 +1,39 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import type { World } from "./types.ts";
-import { getNextWorld } from "./solarSystemWorlds.ts";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+} from "@tanstack/react-query";
+import { fetchWorlds, addWorld } from "../../../api/worlds.ts";
+export const queryClient = new QueryClient();
 
-let currentWorlds: World[] = [getNextWorld(), getNextWorld(), getNextWorld()];
+const queryKey = ["worlds"] as const;
 
 // TODO: This is used for typescript, look up a better way?
 const getWorldsQueryOptions = () => ({
-  queryKey: ["worlds"] as const,
-  queryFn: async () => ({ worlds: currentWorlds }),
+  queryKey,
+  queryFn: fetchWorlds,
   refetchOnWindowFocus: false,
 });
 
+export const worldsLoader = async () => {
+  await queryClient.prefetchQuery({ queryKey, queryFn: fetchWorlds });
+};
+
 export const useGetWorlds = () => useQuery(getWorldsQueryOptions());
 
-export const useGetWorld = (id: string) => {
-  return useQuery({
+export const useGetWorld = (id: string) =>
+  useQuery({
     ...getWorldsQueryOptions(),
     select: ({ worlds }) => worlds.find((w) => w.id === id),
-  }).data;
-};
+  });
 
 export const useAddWorld = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async () => {
-      const newWorld = getNextWorld();
-      currentWorlds = [...currentWorlds, newWorld];
-      return newWorld;
-    },
+    mutationFn: addWorld,
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["worlds"] });
+      queryClient.invalidateQueries({ queryKey });
     },
   });
 };

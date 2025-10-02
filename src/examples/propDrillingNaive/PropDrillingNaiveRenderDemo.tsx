@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import css from "../../components/css/DemoLayout.module.css";
 import { RenderToken } from "../../components/perf/RenderToken.tsx";
-import type { World } from "../zustand/data/types.ts";
+import type { World } from "../../types/World.ts";
 import { PropDrillingWorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
+import { fetchWorlds } from "../../api/worlds.ts";
 
 type Snapshot = {
   selectedWorldId: string;
@@ -12,6 +13,14 @@ type Snapshot = {
 
 export function PropDrillingNaiveRenderDemo() {
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
+  const [worlds, setWorlds] = useState<World[]>([]);
+
+  // Fetch data with useEffect
+  useEffect(() => {
+    fetchWorlds().then((data) => {
+      setWorlds(data.worlds);
+    });
+  }, []);
 
   return (
     <div className={css.app}>
@@ -36,7 +45,11 @@ export function PropDrillingNaiveRenderDemo() {
         item.
       </p>
 
-      <PropDrillingWorldApp onSnapshotChange={setSnapshot} />
+      <PropDrillingWorldApp
+        worlds={worlds}
+        setWorlds={setWorlds}
+        onSnapshotChange={setSnapshot}
+      />
       <PropDrillingDebugInfo snapshot={snapshot} />
     </div>
   );

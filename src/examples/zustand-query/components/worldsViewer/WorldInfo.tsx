@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const WorldInfo = memo(({ id }: Props) => {
-  const world = useGetWorld(id);
+  const { data: world } = useGetWorld(id);
 
   if (!world) return null;
 
