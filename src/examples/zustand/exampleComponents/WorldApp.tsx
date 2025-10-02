@@ -1,4 +1,4 @@
-import css from "./WorldApp.module.css";
+import css from "../../../components/css/WorldApp.module.css";
 import { WorldSelector } from "./worldSelector/WorldSelector.tsx";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";
 

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
-import css from "./WorldInfo.module.css";
+import css from "../../../../components/css/worldsViewer/WorldInfo.module.css";
 import type { WorldViewerItem } from "./WorldsViewer.tsx";
 
 type Props = {

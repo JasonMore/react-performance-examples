@@ -1,5 +1,5 @@
-import css from "./DebugInfo.module.css";
-import sharedStyles from "../exampleComponents/shared.module.css";
+import css from "../../../components/css/DebugInfo.module.css";
+import sharedStyles from "../../../components/css/shared.module.css";
 import { useWorldStore } from "../data/WorldStore.tsx";
 
 export function DebugInfo() {

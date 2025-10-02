@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from "react";
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
-import css from "./World.module.css";
+import css from "../../../../components/css/worldsViewer/World.module.css";
 import { WorldInfo } from "./WorldInfo.tsx";
 
 type Props = { id: string };

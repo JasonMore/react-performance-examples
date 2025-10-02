@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore.tsx";
-import css from "./WorldList.module.css";
+import css from "../../../../components/css/worldsViewer/WorldList.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 import { World } from "./World.tsx";
 

@@ -1,4 +1,4 @@
-import css from "./AddWorld.module.css";
+import css from "../../../../components/css/worldSelector/AddWorld.module.css";
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import { getNextWorld } from "../../data/solarSystemWorlds.ts";
 import { memo } from "react";

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore.tsx";
-import css from "./WorldIdButton.module.css";
+import css from "../../../../components/css/worldSelector/WorldIdButton.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 
 export const WorldIdButton = memo(function WorldIdItem({ id }: { id: string }) {
