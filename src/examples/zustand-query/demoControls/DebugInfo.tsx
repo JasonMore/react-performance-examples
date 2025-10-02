@@ -1,9 +1,10 @@
+import { memo } from "react";
 import css from "./DebugInfo.module.css";
 import sharedStyles from "../components/shared.module.css";
 import { useWorldData } from "../hooks/useWorldData";
 import { useSelectionStore } from "../data/SelectionStore";
 
-export function DebugInfo() {
+export const DebugInfo = memo(() => {
   const { worlds, isLoading, isError } = useWorldData();
   const selectedWorldId = useSelectionStore((s) => s.selectedWorldId);
 
@@ -23,4 +24,6 @@ export function DebugInfo() {
       <pre className={css.pre}>{JSON.stringify(snapshot, null, 2)}</pre>
     </div>
   );
-}
+});
+
+DebugInfo.displayName = "DebugInfo";

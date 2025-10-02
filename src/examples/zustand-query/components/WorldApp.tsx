@@ -1,8 +1,9 @@
+import { memo } from "react";
 import css from "./WorldApp.module.css";
 import { WorldSelector } from "./worldSelector/WorldSelector";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer";
 
-export function WorldApp() {
+export const WorldApp = memo(() => {
   return (
     <div className={css.grid}>
       <div className={css.selectorPane}>
@@ -11,4 +12,6 @@ export function WorldApp() {
       <WorldsViewer />
     </div>
   );
-}
+});
+
+WorldApp.displayName = "WorldApp";
