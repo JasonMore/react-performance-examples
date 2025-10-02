@@ -4,7 +4,7 @@ import css from "../../components/css/DemoLayout.module.css";
 import { RenderToken } from "../../components/perf/RenderToken.tsx";
 import type { World } from "../../types/World.ts";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
-import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
+import { DebugInfo } from "../../components/DebugInfo.tsx";
 import type { WorldsResponse } from "../../api/worlds.ts";
 
 type Snapshot = {
@@ -47,7 +47,7 @@ export function PropDrillingRenderDemo() {
         onSnapshotChange={setSnapshot}
         revalidate={revalidator.revalidate}
       />
-      <PropDrillingDebugInfo snapshot={snapshot} />
+      <DebugInfo snapshot={snapshot} title="Top level state snapshot" />
     </div>
   );
 }
