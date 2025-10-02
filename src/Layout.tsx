@@ -12,7 +12,9 @@ export const Layout = () => {
     resetTokenCounter();
 
     // Update page title based on current route
-    const currentRoute = routes.find((route) => route.path === location.pathname);
+    const currentRoute = routes.find(
+      (route) => route.path === location.pathname,
+    );
     if (currentRoute) {
       document.title = currentRoute.title;
     } else if (location.pathname === homeRoute.path) {
