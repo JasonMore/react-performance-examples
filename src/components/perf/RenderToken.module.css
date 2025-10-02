@@ -13,11 +13,8 @@
 @keyframes tokenChange {
   0% {
     filter: blur(20px);
-    text-shadow: 0 0 3px color-mix(
-      in srgb,
-      var(--color-render-token) 65%,
-      transparent
-    );
+    text-shadow: 0 0 3px
+      color-mix(in srgb, var(--color-render-token) 65%, transparent);
   }
   100% {
     filter: none;

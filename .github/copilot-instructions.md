@@ -120,6 +120,7 @@ src/
 - `npm run dev` - Start development server
 - `npm run build` - Build for production (runs TypeScript check first)
 - `npm run lint` - Run ESLint
+- `npm run style` - Format the codebase with Prettier (use before committing any file)
 - `npm run preview` - Preview production build locally
 
 ## Testing Guidelines

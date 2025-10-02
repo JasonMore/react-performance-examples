@@ -8,7 +8,8 @@
     "scan": "vite & react-scan localhost:5173",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "style": "prettier --write ."
   },
   "dependencies": {
     "react": "^19.1.1",

@@ -1,41 +1,41 @@
 .demoCard {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-surface);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-    color: var(--color-text-primary);
-    transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border: 1px solid var(--color-border);
 }
 
 .demoCard:hover {
-    box-shadow: var(--shadow-card-strong);
+  box-shadow: var(--shadow-card-strong);
 }
 
 .demoTitle {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-    color: var(--color-heading);
-    margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-top: 0;
 }
 
 .demoDescription {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
 }
 
 .demoLink {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-link);
-    height: 100%;
-    align-content: end;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-link);
+  height: 100%;
+  align-content: end;
 }
