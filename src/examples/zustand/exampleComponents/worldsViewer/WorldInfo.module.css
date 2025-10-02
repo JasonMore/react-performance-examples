@@ -1,0 +1,40 @@
+.worldInfo {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.25rem 0;
+  color: inherit;
+  width: 100%;
+}
+
+.worldId {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-family: monospace;
+}
+
+.worldDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  margin-top: var(--space-2);
+}
+
+.factItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.factLabel {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.factValue {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
