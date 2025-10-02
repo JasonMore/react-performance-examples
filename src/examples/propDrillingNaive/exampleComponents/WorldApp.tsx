@@ -58,3 +58,5 @@ export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
     </div>
   );
 });
+
+PropDrillingWorldApp.displayName = "PropDrillingWorldApp";

@@ -6,7 +6,7 @@ type Store = {
   enableReactScan: () => void;
 };
 
-export const useScanStore = create<Store>((set, get) => ({
+export const useScanStore = create<Store>((set) => ({
   enabled: false,
   enableReactScan: () => {
     scan({ enabled: true });

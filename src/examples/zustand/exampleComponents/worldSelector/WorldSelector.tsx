@@ -24,4 +24,4 @@ export const WorldSelector = memo(() => {
   );
 });
 
-WorldSelector.displayName = "WorldsSelector";
+WorldSelector.displayName = "WorldSelector";
