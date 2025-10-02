@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import css from "../../components/css/DemoLayout.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo";
-import { RenderToken } from "../../components/perf/RenderToken";
 import { WorldApp } from "./components/WorldApp";
 import { memo } from "react";
 
@@ -10,13 +9,9 @@ const queryClient = new QueryClient();
 export const ZustandQuery = memo(() => (
   <QueryClientProvider client={queryClient}>
     <div className={css.app}>
-      <h1>🌤 Zustand + Query Worlds Demo</h1>
+      <h1>🌤 Zustand + tanstack-query/react</h1>
       <p>
-        Same worlds demo, but worlds come from TanStack Query (with add-world
-        mutation + loading states) while selection lives in a tiny Zustand
-        store—shows how to cleanly bridge the two with a custom hook. The{" "}
-        <code>RenderToken</code> <RenderToken /> is a counter which counts each
-        render. When that value increases, the component just re-rendered.
+       Puts API state in tanstack/react-query and client state in Zustand.
       </p>
       <p>
         The <code>WorldsSelector</code> and <code>WorldsViewer</code> components

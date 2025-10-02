@@ -17,18 +17,18 @@ export function PropDrillingRenderDemo() {
     <div className={css.app}>
       <h1>Optimized Prop Drilling Demo</h1>
       <p>
-        This demo shows an optimized version of prop drilling. State is kept at
-        the top level and passed to children through prop drilling. By not
-        transforming data through layers, when combined with memoization, you
-        can prevent unnecessary re-renders. Unfortunately it will not be as
-        efficient as not prop drilling demos.
+        This demo highlights an optimized prop drilling flow: state still lives
+        at the top, but children receive stable data and callbacks via
+        <code>React.memo</code>, <code>useMemo</code>, and <code>useCallback</code>.
+        Keeping shapes consistent across layers prevents prop churn and keeps
+        memoized children from re-rendering unnecessarily—even if a dedicated
+        state store would still be leaner.
       </p>
       <p>
         The <code>RenderToken</code> <RenderToken /> shows render counts. When
-        that value increases, the component just re-rendered. This demo has
-        shows significantly reduced render counts compared to the naive version.
-        Proper optimization techniques can make prop drilling performant when
-        used correctly.
+        that value increases, the component just re-rendered. This demo shows
+        noticeably lower counts across the tree than the naive version, making
+        it easier to see how the optimizations pay off in practice.
       </p>
 
       <h2>Instructions:</h2>

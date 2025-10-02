@@ -2,6 +2,7 @@ import css from "./Home.module.css";
 import { DemoCard } from "./components/DemoCard";
 import { routes } from "./routes";
 import { WorldAppSkeleton } from "./components/WorldAppSkeleton/WorldAppSkeleton.tsx";
+import { RenderToken } from "./components/perf/RenderToken.tsx";
 
 export function Home() {
   return (
@@ -10,6 +11,16 @@ export function Home() {
       <p className={css.description}>
         A collection of React performance examples and demos to help you
         understand various optimization techniques and patterns.
+      </p>
+      <p>
+        The <code>RenderToken</code> <RenderToken /> shows render counts. When
+        that value increases, the component just re-rendered. It will be much
+        higher than a well implemented example.
+      </p>
+      <p>
+        Enable <code>react-scan</code> to see performance differences with DOM
+        render times. It will disable <code>RenderToken</code>. Refresh the page
+        to turn off <code>react-scan</code>
       </p>
 
       <div className={css.demoGrid}>

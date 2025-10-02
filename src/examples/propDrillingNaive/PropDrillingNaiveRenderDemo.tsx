@@ -17,14 +17,16 @@ export function PropDrillingNaiveRenderDemo() {
     <div className={css.app}>
       <h1>Prop Drilling Render Demo</h1>
       <p>
-        This intentionally clumsy demo uses anit-patterns commonly used with
-        prop drilling. All state is at the top of the component tree, and
-        travels to children through prop drilling.
+        This intentionally clumsy demo uses anti-patterns commonly seen with
+        prop drilling. All state sits at the top of the tree, forcing every
+        child to receive new prop objects each render—causing relentless prop
+        churn, broken memoization, and a cascade of unnecessary updates.
       </p>
       <p>
         The <code>RenderToken</code> <RenderToken /> shows render counts. When
-        that value increases, the component just re-rendered. It will be much
-        higher than a well implemented example.
+        that value increases, the component just re-rendered. Expect the counter
+        to spike across multiple components compared to healthier patterns, so
+        use it to spot how far the churn propagates.
       </p>
 
       <h2>Instructions:</h2>
