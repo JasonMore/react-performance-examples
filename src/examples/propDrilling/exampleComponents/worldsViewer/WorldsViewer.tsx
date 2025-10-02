@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
-import sharedStyles from "../shared.module.css";
+import sharedStyles from "../../../../components/css/shared.module.css";
 import { WorldList } from "./WorldList.tsx";
 import type { World } from "../../data/types.ts";
 

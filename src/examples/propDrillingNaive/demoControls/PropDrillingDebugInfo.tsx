@@ -1,5 +1,5 @@
-import css from "./PropDrillingDebugInfo.module.css";
-import sharedStyles from "../exampleComponents/shared.module.css";
+import css from "../../../components/css/DebugInfo.module.css";
+import sharedStyles from "../../../components/css/shared.module.css";
 import type { World } from "../../zustand/data/types.ts";
 
 type Props = {
