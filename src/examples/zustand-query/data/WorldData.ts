@@ -4,6 +4,7 @@ import { getNextWorld } from "./solarSystemWorlds.ts";
 
 let currentWorlds: World[] = [getNextWorld(), getNextWorld(), getNextWorld()];
 
+// TODO: This is used for typescript, look up a better way?
 const getWorldsQueryOptions = () => ({
   queryKey: ["worlds"] as const,
   queryFn: async () => ({ worlds: currentWorlds }),
