@@ -3,9 +3,9 @@ import { useId } from "react";
 import { getRenderPassToken } from "./renderTokenState.ts";
 import { useScanStore } from "./useScanStore.ts";
 
-type Props = { className?: string };
+type Props = { className?: string; note?: string };
 
-export const RenderToken = ({ className }: Props) => {
+export const RenderToken = ({ className, note }: Props) => {
   const enabled = useScanStore((s) => s.enabled);
   const token = getRenderPassToken();
   const instanceId = useId();
@@ -18,6 +18,7 @@ export const RenderToken = ({ className }: Props) => {
       className={`${css.renderToken} ${className || ""}`}
     >
       {token}
+      {note}
     </span>
   );
 };
