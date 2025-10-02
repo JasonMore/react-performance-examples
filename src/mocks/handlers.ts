@@ -1,5 +1,5 @@
 import { http, HttpResponse, delay } from "msw";
-import type { World } from "../examples/zustand/data/types";
+import type { World } from "../types/World";
 import { getNextWorld } from "../examples/zustand/data/solarSystemWorlds";
 
 // In-memory store for worlds data

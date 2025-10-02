@@ -1,4 +1,4 @@
-import type { World } from "../examples/zustand/data/types";
+import type { World } from "../types/World";
 
 export type WorldsResponse = {
   worlds: World[];
