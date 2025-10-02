@@ -6,7 +6,7 @@ import { ZustandRenderDemo } from "./examples/zustand/ZustandRenderDemo";
 import { PropDrillingRenderDemo } from "./examples/propDrilling/PropDrillingRenderDemo.tsx";
 import { Navigation } from "./components/Navigation";
 
-import { resetTokenCounter } from "./components/renderToken/renderTokenState.ts";
+import { resetTokenCounter } from "./components/perf/renderTokenState.ts";
 
 export default function App() {
   const location = useLocation();

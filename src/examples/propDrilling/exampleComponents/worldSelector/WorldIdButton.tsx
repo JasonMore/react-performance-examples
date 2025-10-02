@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
+import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 import css from "./WorldIdButton.module.css";
 
 type Props = {

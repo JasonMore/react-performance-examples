@@ -1,7 +1,7 @@
 import css from "./RenderToken.module.css";
 import { useId } from "react";
 import { getRenderPassToken } from "./renderTokenState.ts";
-import { useScanStore } from "../useScanStore.ts";
+import { useScanStore } from "./useScanStore.ts";
 
 type Props = { className?: string };
 

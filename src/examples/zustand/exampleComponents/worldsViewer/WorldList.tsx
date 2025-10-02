@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import css from "./WorldList.module.css";
-import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
+import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 import { World } from "./World.tsx";
 
 export const WorldList = memo(() => {

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { homeRoute, routes } from "../routes";
 import css from "./Navigation.module.css";
-import { ReactScanToggle } from "./ReactScanToggle.tsx";
+import { ReactScanToggle } from "./perf/ReactScanToggle.tsx";
 
 export function Navigation() {
   return (
