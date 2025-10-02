@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
-import sharedStyles from "../shared.module.css";
-import css from "./WorldSelector.module.css";
+import sharedStyles from "../../../../components/css/shared.module.css";
+import css from "../../../../components/css/worldSelector/WorldSelector.module.css";
 import { AddWorldButton } from "./AddWorld.tsx";
 import { WorldIdButton } from "./WorldIdButton.tsx";
 import type { World } from "../../data/types.ts";

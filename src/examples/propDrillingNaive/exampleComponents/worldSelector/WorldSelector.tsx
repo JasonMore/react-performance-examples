@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
-import sharedStyles from "../shared.module.css";
-import css from "./WorldSelector.module.css";
+import sharedStyles from "../../../../components/css/shared.module.css";
+import css from "../../../../components/css/worldSelector/WorldSelector.module.css";
 import { PropDrillingAddWorld } from "./AddWorld.tsx";
 import { PropDrillingWorldIdButton } from "./WorldIdButton.tsx";
 
