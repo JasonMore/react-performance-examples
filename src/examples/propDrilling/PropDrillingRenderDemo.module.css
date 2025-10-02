@@ -15,7 +15,7 @@
 }
 
 .homeLink {
-  color: #3b82f6;
+  color: var(--color-link);
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
@@ -23,6 +23,6 @@
 }
 
 .homeLink:hover {
-  color: #1d4ed8;
+  color: var(--color-link-hover);
   text-decoration: underline;
 }

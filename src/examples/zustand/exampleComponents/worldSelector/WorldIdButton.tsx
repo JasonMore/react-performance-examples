@@ -19,3 +19,5 @@ export const WorldIdButton = memo(function WorldIdItem({ id }: { id: string }) {
     </li>
   );
 });
+
+WorldIdButton.displayName = "WorldIdButton";

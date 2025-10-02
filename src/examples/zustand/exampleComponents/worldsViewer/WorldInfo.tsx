@@ -37,3 +37,5 @@ export const WorldInfo = memo(({ id }: Props) => {
     </div>
   );
 });
+
+WorldInfo.displayName = "WorldInfo";
