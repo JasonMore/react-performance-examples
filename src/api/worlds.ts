@@ -1,34 +1,35 @@
 import type { World } from "../types/World";
+import { getNextWorld } from "../examples/zustand/data/solarSystemWorlds";
 
 export type WorldsResponse = {
   worlds: World[];
 };
 
+// In-memory store for worlds data
+let worldsStore: World[] = [getNextWorld(), getNextWorld(), getNextWorld()];
+
 /**
- * Fetches all worlds from the API.
- * This endpoint is mocked by MSW in development.
+ * Fetches all worlds from the mock API.
+ * Simulates network delay with setTimeout.
  */
 export async function fetchWorlds(): Promise<WorldsResponse> {
-  const response = await fetch("/api/worlds");
-  if (!response.ok) {
-    throw new Error(`Failed to fetch worlds: ${response.statusText}`);
-  }
-  return response.json();
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ worlds: worldsStore });
+    }, 300); // Simulate network delay
+  });
 }
 
 /**
- * Adds a new world via the API.
- * This endpoint is mocked by MSW in development.
+ * Adds a new world via the mock API.
+ * Simulates network delay with setTimeout.
  */
 export async function addWorld(): Promise<World> {
-  const response = await fetch("/api/worlds", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const newWorld = getNextWorld();
+      worldsStore = [...worldsStore, newWorld];
+      resolve(newWorld);
+    }, 200); // Simulate network delay
   });
-  if (!response.ok) {
-    throw new Error(`Failed to add world: ${response.statusText}`);
-  }
-  return response.json();
 }

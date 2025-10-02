@@ -1,10 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import css from "../../components/css/DemoLayout.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo";
 import { WorldApp } from "./components/WorldApp";
 import { memo } from "react";
-
-const queryClient = new QueryClient();
+import { queryClient } from "./data/WorldData.ts";
 
 export const ZustandQuery = memo(() => (
   <QueryClientProvider client={queryClient}>

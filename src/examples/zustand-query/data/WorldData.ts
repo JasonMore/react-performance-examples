@@ -1,5 +1,11 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+} from "@tanstack/react-query";
 import { fetchWorlds, addWorld } from "../../../api/worlds.ts";
+export const queryClient = new QueryClient();
 
 const queryKey = ["worlds"] as const;
 
@@ -9,6 +15,10 @@ const getWorldsQueryOptions = () => ({
   queryFn: fetchWorlds,
   refetchOnWindowFocus: false,
 });
+
+export const worldsLoader = async () => {
+  await queryClient.prefetchQuery({ queryKey, queryFn: fetchWorlds });
+};
 
 export const useGetWorlds = () => useQuery(getWorldsQueryOptions());
 

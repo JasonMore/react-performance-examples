@@ -20,15 +20,12 @@ src/
 ├── App.tsx                    # Main app with routing
 ├── Home.tsx                   # Landing page with demo links
 ├── api/                       # API service layer
-│   └── worlds.ts              # Worlds API functions
-├── mocks/                     # MSW mock handlers
-│   ├── handlers.ts            # API mock definitions
-│   └── browser.ts             # MSW browser setup
+│   └── worlds.ts              # Mock API functions using setTimeout
 ├── types/                     # Shared TypeScript types
 │   └── World.ts               # World type definition
 ├── examples/
 │   ├── zustand/              # State management with Zustand (performant)
-│   ├── zustand-query/        # TanStack Query + Zustand with MSW
+│   ├── zustand-query/        # TanStack Query + Zustand
 │   ├── propDrilling/         # Optimized prop drilling implementation
 │   └── propDrillingNaive/    # Deliberately inefficient prop drilling (anti-patterns)
 └── components/
@@ -43,7 +40,6 @@ src/
 - **Zustand**: Lightweight state management library
 - **TanStack Query (React Query)**: Server state management and data fetching
 - **React Router**: Client-side routing
-- **MSW (Mock Service Worker)**: API mocking for development and testing
 - **ESLint**: Code linting with TypeScript support
 - **Prettier**: Code formatting
 
@@ -126,7 +122,7 @@ src/
 
 - Uses TanStack Query for server/API state management
 - Uses Zustand for client/UI state (e.g., selected world)
-- API calls are mocked with MSW to provide deterministic responses
+- API calls use mock functions with setTimeout to simulate network delays
 - Shows loading states, error handling, and cache management
 - Realistic network delays (300ms GET, 200ms POST) simulate production behavior
 
@@ -255,13 +251,3 @@ Performance problems are often invisible. The `RenderToken` makes re-renders obs
 ### Why Vite?
 
 Fast development experience with instant HMR, native ESM support, and optimized production builds without complex configuration.
-
-### Why MSW (Mock Service Worker)?
-
-Provides deterministic API responses for consistent demos and development:
-
-- Intercepts network requests at the service worker level
-- Simulates realistic async behavior with configurable delays
-- No need for a real backend during development
-- Ensures demos work offline and have predictable behavior
-- Only enabled in development mode (not in production builds)

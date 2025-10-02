@@ -6,6 +6,7 @@ import { ZustandQuery } from "./examples/zustand-query/ZustandQuery.tsx";
 import { PropDrillingRenderDemo } from "./examples/propDrilling/PropDrillingRenderDemo.tsx";
 import { PropDrillingNaiveRenderDemo } from "./examples/propDrillingNaive/PropDrillingNaiveRenderDemo.tsx";
 import { Layout } from "./Layout.tsx";
+import { worldsLoader } from "./examples/zustand-query/data/WorldData.ts";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,16 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+
+      {
+        path: "prop-drilling-naive",
+        element: <PropDrillingNaiveRenderDemo />,
+      },
+      {
+        path: "prop-drilling",
+        element: <PropDrillingRenderDemo />,
+        loader: fetchWorlds,
+      },
       {
         path: "zustand",
         element: <ZustandRenderDemo />,
@@ -24,15 +35,7 @@ export const router = createBrowserRouter([
       {
         path: "zustand-query",
         element: <ZustandQuery />,
-      },
-      {
-        path: "prop-drilling",
-        element: <PropDrillingRenderDemo />,
-        loader: fetchWorlds,
-      },
-      {
-        path: "prop-drilling-naive",
-        element: <PropDrillingNaiveRenderDemo />,
+        loader: worldsLoader,
       },
     ],
   },
