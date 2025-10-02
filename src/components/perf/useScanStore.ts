@@ -3,12 +3,16 @@ import { scan } from "react-scan";
 
 type Store = {
   enabled: boolean;
-  enableReactScan: () => void;
+  toggleReactScan: () => void;
 };
 
-export const useScanStore = create<Store>((set) => ({
+export const useScanStore = create<Store>((set, get) => ({
   enabled: false,
-  enableReactScan: () => {
+  toggleReactScan: () => {
+    const { enabled } = get();
+    if (enabled) {
+      return location.reload();
+    }
     scan({ enabled: true });
     return set({ enabled: true });
   },
