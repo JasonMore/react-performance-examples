@@ -1,23 +1,21 @@
 import { memo } from "react";
-import { useWorldData } from "../../hooks/useWorldData";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import css from "./WorldIdButton.module.css";
+import { useSelectionStore } from "../../data/SelectionStore.ts";
 
 interface Props {
   id: string;
 }
 
 export const WorldIdButton = memo(({ id }: Props) => {
-  const { setWorldId, isSelectedWorld } = useWorldData();
-  const isSelected = isSelectedWorld(id);
+  const isSelected = useSelectionStore((s) => s.isSelectedWorld(id));
+  const setEditId = useSelectionStore((s) => s.setWorldId);
 
   return (
     <li>
       <button
-        className={`${css.worldButton} ${
-          isSelected ? css.selected : ""
-        }`}
-        onClick={() => setWorldId(id)}
+        className={`${css.worldButton} ${isSelected ? css.selected : ""}`}
+        onClick={() => setEditId(id)}
       >
         {id} <RenderToken />
       </button>

@@ -1,22 +1,14 @@
 import { memo } from "react";
 import css from "./DebugInfo.module.css";
 import sharedStyles from "../components/shared.module.css";
-import { useWorldData } from "../hooks/useWorldData";
-import { useSelectionStore } from "../data/SelectionStore";
+import { useGetWorlds } from "../data/WorldData.ts";
+import { useWorldStore } from "../../zustand/data/WorldStore.tsx";
 
 export const DebugInfo = memo(() => {
-  const { worlds, isLoading, isError } = useWorldData();
-  const selectedWorldId = useSelectionStore((s) => s.selectedWorldId);
+  const selectedWorldId = useWorldStore((s) => s.selectedWorldId);
+  const { data } = useGetWorlds();
 
-  const snapshot = {
-    selectedWorldId,
-    query: {
-      isLoading,
-      isError,
-      worldsCount: worlds.length,
-    },
-    hello: { worlds }, // Keep same structure as original for consistency
-  };
+  const snapshot = { selectedWorldId, hello: { worlds: data?.worlds } };
 
   return (
     <div className={`${sharedStyles.card} ${css.snapshot}`}>

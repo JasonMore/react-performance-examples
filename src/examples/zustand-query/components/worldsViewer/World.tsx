@@ -1,16 +1,15 @@
 import { memo, useEffect, useRef } from "react";
-import { useWorldData } from "../../hooks/useWorldData";
 import css from "./World.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import { WorldInfo } from "./WorldInfo";
+import { useSelectionStore } from "../../data/SelectionStore.ts";
 
 interface Props {
   id: string;
 }
 
 export const World = memo(({ id }: Props) => {
-  const { isSelectedWorld } = useWorldData();
-  const isSelected = isSelectedWorld(id);
+  const isSelected = useSelectionStore((s) => s.isSelectedWorld(id));
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

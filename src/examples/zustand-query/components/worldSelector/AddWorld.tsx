@@ -1,24 +1,19 @@
 import css from "./AddWorld.module.css";
-import { useWorldData } from "../../hooks/useWorldData";
 import { memo } from "react";
+import { useAddWorld } from "../../data/WorldData.ts";
 
 export const AddWorld = memo(() => {
-  const { addWorld, isAddingWorld, addWorldError } = useWorldData();
+  const { mutate, isPending } = useAddWorld();
 
   return (
     <div>
       <button
         className={css.primaryButton}
-        onClick={() => addWorld()}
-        disabled={isAddingWorld}
+        onClick={() => mutate()}
+        disabled={isPending}
       >
-        {isAddingWorld ? "Adding..." : "Add world"}
+        Add World
       </button>
-      {addWorldError && (
-        <div style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem' }}>
-          Error: {addWorldError.message}
-        </div>
-      )}
     </div>
   );
 });

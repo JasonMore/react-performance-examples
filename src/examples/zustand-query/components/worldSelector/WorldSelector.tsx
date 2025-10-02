@@ -1,37 +1,13 @@
 import { memo } from "react";
-import { useWorldData } from "../../hooks/useWorldData";
 import css from "./WorldSelector.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import { WorldIdButton } from "./WorldIdButton";
 import sharedStyles from "../shared.module.css";
 import { AddWorld } from "./AddWorld";
+import { useGetWorlds } from "../../data/WorldData.ts";
 
 export const WorldSelector = memo(() => {
-  const { worlds, isLoading, isError, error } = useWorldData();
-
-  if (isLoading) {
-    return (
-      <div className={`${sharedStyles.card} ${css.root}`}>
-        <div className={sharedStyles.cardTitle}>
-          World Selector <RenderToken />
-        </div>
-        <div>Loading worlds...</div>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className={`${sharedStyles.card} ${css.root}`}>
-        <div className={sharedStyles.cardTitle}>
-          World Selector <RenderToken />
-        </div>
-        <div style={{ color: 'red' }}>
-          Error loading worlds: {error?.message || 'Unknown error'}
-        </div>
-      </div>
-    );
-  }
+  const { data } = useGetWorlds();
 
   return (
     <div className={`${sharedStyles.card} ${css.root}`}>
@@ -40,7 +16,7 @@ export const WorldSelector = memo(() => {
       </div>
       <AddWorld />
       <ul className={css.worldList}>
-        {worlds.map((w) => (
+        {data?.worlds.map((w) => (
           <WorldIdButton key={w.id} id={w.id} />
         ))}
       </ul>

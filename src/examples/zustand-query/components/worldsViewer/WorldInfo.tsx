@@ -1,15 +1,14 @@
 import { memo } from "react";
-import { useWorldData } from "../../hooks/useWorldData";
 import css from "./WorldInfo.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
+import { useGetWorld } from "../../data/WorldData.ts";
 
 interface Props {
   id: string;
 }
 
 export const WorldInfo = memo(({ id }: Props) => {
-  const { getWorldById } = useWorldData();
-  const world = getWorldById(id);
+  const world = useGetWorld(id);
 
   if (!world) return null;
 
