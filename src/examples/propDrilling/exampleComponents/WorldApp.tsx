@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import css from "./WorldApp.module.css";
 import { WorldSelector } from "./worldSelector/WorldSelector.tsx";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";

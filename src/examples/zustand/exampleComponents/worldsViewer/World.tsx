@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from "react";
 import { useWorldStore } from "../../data/WorldStore.tsx";
-import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
 import css from "./World.module.css";
 import { WorldInfo } from "./WorldInfo.tsx";
 

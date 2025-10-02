@@ -4,7 +4,7 @@
   font-size: 0.5rem;
   line-height: 1rem;
   padding: 0.25rem;
-  color: #ff4343;
+  color: var(--color-render-token);
   font-weight: 500;
   animation: tokenChange 500ms cubic-bezier(0.2, 0, 0, 1);
   will-change: filter, text-shadow;
@@ -13,7 +13,11 @@
 @keyframes tokenChange {
   0% {
     filter: blur(20px);
-    text-shadow: 0 0 3px rgba(255, 70, 70, 0.55);
+    text-shadow: 0 0 3px color-mix(
+      in srgb,
+      var(--color-render-token) 65%,
+      transparent
+    );
   }
   100% {
     filter: none;

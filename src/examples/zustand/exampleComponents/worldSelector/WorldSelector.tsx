@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import css from "./WorldSelector.module.css";
-import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
 import { WorldIdButton } from "./WorldIdButton.tsx";
 import sharedStyles from "../shared.module.css";
 import { AddWorld } from "./AddWorld.tsx";
@@ -24,4 +24,4 @@ export const WorldSelector = memo(() => {
   );
 });
 
-WorldSelector.displayName = "WorldsSelector";
+WorldSelector.displayName = "WorldSelector";

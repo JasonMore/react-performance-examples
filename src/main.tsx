@@ -4,14 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-import { scan, Store } from "react-scan";
-
-Store.isInIframe.value = false;
-scan({
-  enabled: true,
-  dangerouslyForceRunInProduction: true,
-});
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>

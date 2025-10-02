@@ -1,6 +1,6 @@
 import { useWorldStore } from "../../data/WorldStore.tsx";
 import { memo } from "react";
-import { RenderToken } from "../../../../shared/components/RenderToken.tsx";
+import { RenderToken } from "../../../../components/renderToken/RenderToken.tsx";
 import css from "./WorldInfo.module.css";
 
 type Props = { id: string };
@@ -37,3 +37,5 @@ export const WorldInfo = memo(({ id }: Props) => {
     </div>
   );
 });
+
+WorldInfo.displayName = "WorldInfo";

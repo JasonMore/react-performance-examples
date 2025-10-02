@@ -1,6 +1,6 @@
 import { useState } from "react";
 import css from "./PropDrillingNaiveRenderDemo.module.css";
-import { RenderToken } from "../../shared/components/RenderToken.tsx";
+import { RenderToken } from "../../components/renderToken/RenderToken.tsx";
 import type { World } from "../zustand/data/types.ts";
 import { PropDrillingWorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
