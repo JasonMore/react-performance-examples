@@ -23,7 +23,7 @@ export const DebugInfo = memo(({ snapshot, title }: Props) => {
   const displayTitle = title || "Store snapshot";
 
   const pretty =
-    snapshot !== null && snapshot !== undefined
+    snapshot != null
       ? JSON.stringify(
           {
             selectedWorldId: snapshot.selectedWorldId,
