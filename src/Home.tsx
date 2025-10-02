@@ -1,6 +1,7 @@
 import css from "./Home.module.css";
 import { DemoCard } from "./components/DemoCard";
 import { routes } from "./routes";
+import { WorldAppSkeleton } from "./components/WorldAppSkeleton/WorldAppSkeleton.tsx";
 
 export function Home() {
   return (
@@ -18,6 +19,13 @@ export function Home() {
           </DemoCard>
         ))}
       </div>
+
+      <h2>Demo App layout</h2>
+      <p>
+        Here is what the app looks like in each example. Each component is named
+        below
+      </p>
+      <WorldAppSkeleton />
     </div>
   );
 }

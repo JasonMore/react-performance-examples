@@ -10,9 +10,6 @@
   margin-right: auto;
 }
 
-.home > * + * {
-  margin-top: 1rem;
-}
 
 .title {
   font-size: 2rem;
