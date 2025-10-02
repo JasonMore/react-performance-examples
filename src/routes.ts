@@ -11,6 +11,7 @@ export const homeRoute = {
   path: "/",
   navLabel: "Home",
   navTitle: "Home",
+  title: "React Performance Examples",
 };
 
 export const routes: Route[] = [

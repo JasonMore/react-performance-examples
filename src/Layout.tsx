@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { resetTokenCounter } from "./components/perf/renderTokenState.ts";
 import { Navigation } from "./components/Navigation.tsx";
-import { routes } from "./routes.ts";
+import { homeRoute, routes } from "./routes.ts";
 
 export const Layout = () => {
   const location = useLocation();
@@ -15,8 +15,8 @@ export const Layout = () => {
     const currentRoute = routes.find((route) => route.path === location.pathname);
     if (currentRoute) {
       document.title = currentRoute.title;
-    } else if (location.pathname === "/") {
-      document.title = "React Performance Examples";
+    } else if (location.pathname === homeRoute.path) {
+      document.title = homeRoute.title;
     }
   }, [location.pathname]);
 
