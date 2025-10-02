@@ -1,5 +1,5 @@
 import { memo } from "react";
-import css from "./WorldApp.module.css";
+import css from "../../../components/css/WorldApp.module.css";
 import { WorldSelector } from "./worldSelector/WorldSelector";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer";
 

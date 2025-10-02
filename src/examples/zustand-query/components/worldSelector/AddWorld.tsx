@@ -1,4 +1,4 @@
-import css from "./AddWorld.module.css";
+import css from "../../../../components/css/worldSelector/AddWorld.module.css";
 import { memo } from "react";
 import { useAddWorld } from "../../data/WorldData.ts";
 

@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef } from "react";
-import css from "./World.module.css";
+import css from "../../../../components/css/worldsViewer/World.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import { WorldInfo } from "./WorldInfo";
 import { useSelectionStore } from "../../data/SelectionStore.ts";

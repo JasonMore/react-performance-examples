@@ -1,8 +1,8 @@
 import { memo } from "react";
-import css from "./WorldSelector.module.css";
+import css from "../../../../components/css/worldSelector/WorldSelector.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import { WorldIdButton } from "./WorldIdButton";
-import sharedStyles from "../shared.module.css";
+import sharedStyles from "../../../../components/css/shared.module.css";
 import { AddWorld } from "./AddWorld";
 import { useGetWorlds } from "../../data/WorldData.ts";
 

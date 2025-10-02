@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import css from "./ZustandQuery.module.css";
+import css from "../../components/css/DemoLayout.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo";
 import { RenderToken } from "../../components/perf/RenderToken";
 import { WorldApp } from "./components/WorldApp";

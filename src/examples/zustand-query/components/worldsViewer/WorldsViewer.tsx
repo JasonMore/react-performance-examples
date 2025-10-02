@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { WorldList } from "./WorldList";
 import { RenderToken } from "../../../../components/perf/RenderToken";
-import sharedStyles from "../shared.module.css";
+import sharedStyles from "../../../../components/css/shared.module.css";
 
 export const WorldsViewer = memo(() => {
   return (

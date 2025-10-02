@@ -1,6 +1,6 @@
 import { memo } from "react";
-import css from "./DebugInfo.module.css";
-import sharedStyles from "../components/shared.module.css";
+import css from "../../../components/css/DebugInfo.module.css";
+import sharedStyles from "../../../components/css/shared.module.css";
 import { useGetWorlds } from "../data/WorldData.ts";
 import { useWorldStore } from "../../zustand/data/WorldStore.tsx";
 

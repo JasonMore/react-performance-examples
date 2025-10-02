@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken";
-import css from "./WorldIdButton.module.css";
+import css from "../../../../components/css/worldSelector/WorldIdButton.module.css";
 import { useSelectionStore } from "../../data/SelectionStore.ts";
 
 interface Props {

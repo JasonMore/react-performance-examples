@@ -1,5 +1,5 @@
 import { memo } from "react";
-import css from "./WorldInfo.module.css";
+import css from "../../../../components/css/worldsViewer/WorldInfo.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import { useGetWorld } from "../../data/WorldData.ts";
 
