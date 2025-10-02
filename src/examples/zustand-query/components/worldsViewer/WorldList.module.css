@@ -1,3 +1,4 @@
+
 .worldList {
   margin-top: var(--space-2);
   padding: var(--space-2);
@@ -5,13 +6,15 @@
   background-color: var(--color-surface-muted);
 }
 
+
 .textXsBold {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 600;
+  font-size: var(--font-size-xs, 0.75rem);
+  line-height: var(--line-height-xs, 1rem);
+  font-weight: var(--font-weight-bold, 600);
 }
 
+
 .textXs {
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: var(--font-size-xs, 0.75rem);
+  line-height: var(--line-height-xs, 1rem);
 }
