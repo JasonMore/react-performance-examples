@@ -6,7 +6,11 @@ import { WorldIdButton } from "./WorldIdButton.tsx";
 import sharedStyles from "../../../../components/css/shared.module.css";
 import { AddWorld } from "./AddWorld.tsx";
 
-export const WorldSelector = memo(() => {
+type Props = {
+  revalidate: () => void;
+};
+
+export const WorldSelector = memo(({ revalidate }: Props) => {
   const worlds = useWorldStore((s) => s.hello.worlds);
 
   return (
@@ -14,7 +18,7 @@ export const WorldSelector = memo(() => {
       <div className={sharedStyles.cardTitle}>
         World Selector <RenderToken />
       </div>
-      <AddWorld />
+      <AddWorld revalidate={revalidate} />
       <ul className={css.worldList}>
         {worlds.map((w) => (
           <WorldIdButton key={w.id} id={w.id} />

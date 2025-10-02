@@ -1,11 +1,11 @@
 import { create } from "zustand";
-import { getNextWorld } from "./solarSystemWorlds.ts";
-import type { World } from "./types.ts";
+import type { World } from "../../../types/World.ts";
 
 interface Store {
   selectedWorldId: string;
   hello: { worlds: World[] };
   setWorldId: (id: string) => void;
+  setWorlds: (worlds: World[]) => void;
   addWorld: (world: World) => void;
   getWorldById: (id: string) => World | undefined;
   isSelectedWorld(id: string): boolean;
@@ -14,9 +14,10 @@ interface Store {
 export const useWorldStore = create<Store>((set, get) => ({
   selectedWorldId: "ven002",
   hello: {
-    worlds: [getNextWorld(), getNextWorld(), getNextWorld()],
+    worlds: [],
   },
   setWorldId: (id) => set({ selectedWorldId: id }),
+  setWorlds: (worlds) => set({ hello: { worlds } }),
   addWorld: (world) =>
     set((state) => ({ hello: { worlds: [...state.hello.worlds, world] } })),
 

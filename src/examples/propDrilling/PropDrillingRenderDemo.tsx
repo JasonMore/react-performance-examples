@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useLoaderData, useRevalidator } from "react-router-dom";
 import css from "../../components/css/DemoLayout.module.css";
 import { RenderToken } from "../../components/perf/RenderToken.tsx";
-import type { World } from "../zustand/data/types.ts";
+import type { World } from "../../types/World.ts";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
+import type { WorldsResponse } from "../../api/worlds.ts";
 
 type Snapshot = {
   selectedWorldId: string;
@@ -11,6 +13,8 @@ type Snapshot = {
 };
 
 export function PropDrillingRenderDemo() {
+  const data = useLoaderData() as WorldsResponse;
+  const revalidator = useRevalidator();
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
 
   return (
@@ -38,7 +42,11 @@ export function PropDrillingRenderDemo() {
         item.
       </p>
 
-      <WorldApp onSnapshotChange={setSnapshot} />
+      <WorldApp
+        worlds={data?.worlds || []}
+        onSnapshotChange={setSnapshot}
+        revalidate={revalidator.revalidate}
+      />
       <PropDrillingDebugInfo snapshot={snapshot} />
     </div>
   );

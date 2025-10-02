@@ -2,61 +2,66 @@ import { useEffect, useState } from "react";
 import css from "../../../components/css/WorldApp.module.css";
 import { PropDrillingWorldSelector } from "./worldSelector/WorldSelector.tsx";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";
-import { getNextWorld } from "../data/solarSystemWorlds.ts";
-import type { World } from "../data/types.ts";
+import type { World } from "../../../types/World.ts";
 import { memo } from "react";
+import { addWorld as apiAddWorld } from "../../../api/worlds.ts";
+import { fetchWorlds } from "../../../api/worlds.ts";
 
 type Props = {
+  worlds: World[];
+  setWorlds: React.Dispatch<React.SetStateAction<World[]>>;
   onSnapshotChange?: (snapshot: {
     selectedWorldId: string;
     hello: { worlds: World[] };
   }) => void;
 };
 
-// components render twice in dev mode so pulling this out for consistency
-const starterWorlds = [getNextWorld(), getNextWorld(), getNextWorld()];
-
 // memo this component as it receives onSnapshotChange from the debug panel
-export const PropDrillingWorldApp = memo(({ onSnapshotChange }: Props) => {
-  const [allWorlds, setAllWorlds] = useState<World[]>(starterWorlds);
-  const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
+export const PropDrillingWorldApp = memo(
+  ({ worlds, setWorlds, onSnapshotChange }: Props) => {
+    const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
 
-  // used to update the debug window
-  useEffect(() => {
-    if (!onSnapshotChange) return;
-    onSnapshotChange({
-      selectedWorldId: activeWorldId,
-      hello: { worlds: allWorlds },
-    });
-  }, [allWorlds, activeWorldId, onSnapshotChange]);
+    // used to update the debug window
+    useEffect(() => {
+      if (!onSnapshotChange) return;
+      onSnapshotChange({
+        selectedWorldId: activeWorldId,
+        hello: { worlds },
+      });
+    }, [worlds, activeWorldId, onSnapshotChange]);
 
-  const worldOptions = allWorlds.map((world) => ({
-    id: world.id,
-  }));
+    const worldOptions = worlds.map((world) => ({
+      id: world.id,
+    }));
 
-  const worlds = allWorlds.map((world, index) => ({
-    ...world,
-    listIndex: index,
-    isCurrent: world.id === activeWorldId,
-  }));
+    const worldsWithCurrent = worlds.map((world, index) => ({
+      ...world,
+      listIndex: index,
+      isCurrent: world.id === activeWorldId,
+    }));
 
-  return (
-    <div className={css.grid}>
-      <div className={css.selectorPane}>
-        <PropDrillingWorldSelector
-          activeWorld={activeWorldId}
-          worldOptions={worldOptions}
-          chooseWorld={(id: string) => {
-            setActiveWorldId(id);
-          }}
-          addWorld={() => {
-            setAllWorlds([...allWorlds, getNextWorld()]);
-          }}
-        />
+    const handleAddWorld = async () => {
+      await apiAddWorld();
+      const data = await fetchWorlds();
+      setWorlds(data.worlds);
+    };
+
+    return (
+      <div className={css.grid}>
+        <div className={css.selectorPane}>
+          <PropDrillingWorldSelector
+            activeWorld={activeWorldId}
+            worldOptions={worldOptions}
+            chooseWorld={(id: string) => {
+              setActiveWorldId(id);
+            }}
+            addWorld={handleAddWorld}
+          />
+        </div>
+        <WorldsViewer worlds={worldsWithCurrent} />
       </div>
-      <WorldsViewer worlds={worlds} />
-    </div>
-  );
-});
+    );
+  },
+);
 
 PropDrillingWorldApp.displayName = "PropDrillingWorldApp";

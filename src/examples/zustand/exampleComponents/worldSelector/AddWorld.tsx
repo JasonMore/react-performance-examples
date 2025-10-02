@@ -1,22 +1,19 @@
 import css from "../../../../components/css/worldSelector/AddWorld.module.css";
-import { useWorldStore } from "../../data/WorldStore.tsx";
-import { getNextWorld } from "../../data/solarSystemWorlds.ts";
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
+import { addWorld as apiAddWorld } from "../../../../api/worlds.ts";
 
-export const AddWorld = memo(() => {
-  const addWorld = useWorldStore((s) => s.addWorld);
+type Props = {
+  revalidate: () => void;
+};
 
+export const AddWorld = memo(({ revalidate }: Props) => {
   return (
     <button
       className={css.primaryButton}
-      onClick={() => {
-        const worldData = getNextWorld();
-        if (worldData) {
-          addWorld({
-            ...worldData,
-          });
-        }
+      onClick={async () => {
+        await apiAddWorld();
+        revalidate();
       }}
     >
       Add world
