@@ -36,14 +36,14 @@ export const routes: Route[] = [
     navLabel: "🌤️ Zustand",
     title: "🌤️ Zustand",
     description:
-      "Both API and client state are in zustand. Optimized to prevent re-rendering. Props are passed only as lookup keys",
+      "Both API and client state are in zustand. Optimized to prevent re-rendering. Props are passed only as lookup keys.",
   },
   {
     id: "zustand-query",
     path: "/zustand-query",
-    navLabel: "🌤 RQ+Zustand",
-    title: "🌤 tanstack-query/react + Zustand",
+    navLabel: "🌤 Zustand+tanstack",
+    title: "🌤 Zustand + tanstack-query/react",
     description:
-      "API state in tanstack-query/react, client state in zustand. Shows how you can combine state management",
+      "API state in tanstack-query/react, client state in zustand. Shows how you can combine state from multiple libraries.",
   },
 ];
