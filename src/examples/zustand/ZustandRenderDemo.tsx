@@ -24,16 +24,8 @@ export function ZustandRenderDemo() {
       <h1>Zustand Render Demo</h1>
       <p>
         This demo shows you can prevent re-rendering without using prop
-        drilling. The <code>RenderToken</code> <RenderToken /> is a counter
-        which counts each render. When that value increases, the component just
-        re-rendered.
-      </p>
-
-      <h2>Instructions:</h2>
-      <p>
-        Simulate API data changing by clicking <strong>Add world</strong>.
-        Simulate client state changing by clicking a different world in the{" "}
-        <strong>World Selector</strong>.
+        drilling. Because a zustand is used, its internal data pub/sub is more
+        efficient than React memoization.
       </p>
 
       <WorldApp revalidate={revalidator.revalidate} />

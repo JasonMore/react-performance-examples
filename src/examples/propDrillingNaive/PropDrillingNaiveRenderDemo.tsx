@@ -26,22 +26,8 @@ export function PropDrillingNaiveRenderDemo() {
       <h1>Prop Drilling Render Demo</h1>
       <p>
         This intentionally clumsy demo uses anti-patterns commonly seen with
-        prop drilling. All state sits at the top of the tree, forcing every
-        child to receive new prop objects each render—causing relentless prop
-        churn, broken memoization, and a cascade of unnecessary updates.
-      </p>
-      <p>
-        The <code>RenderToken</code> <RenderToken /> shows render counts. When
-        that value increases, the component just re-rendered. Expect the counter
-        to spike across multiple components compared to healthier patterns, so
-        use it to spot how far the churn propagates.
-      </p>
-
-      <h2>Instructions:</h2>
-      <p>
-        Click <strong>Add world</strong> to simulate changing data. Select a
-        world from the <strong>World Selector</strong> to change the highlighted
-        item.
+        prop drilling. Prop churn, broken memoization, and a cascade of
+        unnecessary updates.
       </p>
 
       <PropDrillingWorldApp
