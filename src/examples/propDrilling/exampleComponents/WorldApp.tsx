@@ -2,9 +2,8 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import css from "../../../components/css/WorldApp.module.css";
 import { WorldSelector } from "./worldSelector/WorldSelector.tsx";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";
-import type { World } from "../../../types/World.ts";
 import { memo } from "react";
-import { addWorld as apiAddWorld } from "../../../api/worlds.ts";
+import { addWorld as apiAddWorld, type World } from "../../../api/worlds.ts";
 
 type Props = {
   worlds: World[];

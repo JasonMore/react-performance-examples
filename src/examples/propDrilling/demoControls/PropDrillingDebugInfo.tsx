@@ -1,6 +1,6 @@
 import css from "../../../components/css/DebugInfo.module.css";
 import sharedStyles from "../../../components/css/shared.module.css";
-import type { World } from "../../zustand/data/types.ts";
+import type { World } from "../../../api/worlds";
 
 type Props = {
   snapshot: {

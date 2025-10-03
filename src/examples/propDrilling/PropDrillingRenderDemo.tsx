@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useLoaderData, useRevalidator } from "react-router-dom";
 import css from "../../components/css/DemoLayout.module.css";
 import { RenderToken } from "../../components/perf/RenderToken.tsx";
-import type { World } from "../../types/World.ts";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
-import type { WorldsResponse } from "../../api/worlds.ts";
+import type { World, WorldsResponse } from "../../api/worlds.ts";
 
 type Snapshot = {
   selectedWorldId: string;

@@ -1,4 +1,4 @@
-import type { World } from "./types";
+import type { World } from "../../../api/worlds";
 
 export const SOLAR_SYSTEM_WORLDS: World[] = [
   {

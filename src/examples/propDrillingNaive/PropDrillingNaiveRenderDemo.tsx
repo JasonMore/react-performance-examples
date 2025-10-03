@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import css from "../../components/css/DemoLayout.module.css";
 import { RenderToken } from "../../components/perf/RenderToken.tsx";
-import type { World } from "../../types/World.ts";
 import { PropDrillingWorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
-import { fetchWorlds } from "../../api/worlds.ts";
+import { fetchWorlds, type World } from "../../api/worlds.ts";
 
 type Snapshot = {
   selectedWorldId: string;
