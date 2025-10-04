@@ -21,7 +21,11 @@ export const WorldApp = memo(
 
     // Use ref to stabilize onSnapshotChange callback and prevent unnecessary effect runs
     const onSnapshotChangeRef = useRef(onSnapshotChange);
-    onSnapshotChangeRef.current = onSnapshotChange;
+
+    // Update ref in useEffect to comply with React 19 rules
+    useEffect(() => {
+      onSnapshotChangeRef.current = onSnapshotChange;
+    }, [onSnapshotChange]);
 
     const stableOnSnapshotChange = useCallback(
       (snapshot: { selectedWorldId: string; hello: { worlds: World[] } }) => {
