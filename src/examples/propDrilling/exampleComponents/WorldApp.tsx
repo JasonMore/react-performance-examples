@@ -22,7 +22,9 @@ export const WorldApp = memo(
     // Use ref to stabilize onSnapshotChange callback and prevent unnecessary effect runs
     const onSnapshotChangeRef = useRef(onSnapshotChange);
 
-    // Update ref in useEffect to comply with React 19 rules
+    // React 19 compatibility: Update ref in useEffect instead of during render
+    // This complies with stricter eslint-plugin-react-hooks@6+ rules that prevent
+    // ref mutations during render to avoid subtle bugs with concurrent features
     useEffect(() => {
       onSnapshotChangeRef.current = onSnapshotChange;
     }, [onSnapshotChange]);
