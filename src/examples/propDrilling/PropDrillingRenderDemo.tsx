@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useRevalidator } from "react-router-dom";
 import css from "../../components/css/DemoLayout.module.css";
-import { RenderToken } from "../../components/perf/RenderToken.tsx";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
 import type { World, WorldsResponse } from "../../api/worlds.ts";

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLoaderData, useRevalidator } from "react-router-dom";
 import css from "../../components/css/DemoLayout.module.css";
 import { DebugInfo } from "./demoControls/DebugInfo.tsx";
-import { RenderToken } from "../../components/perf/RenderToken.tsx";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 import { useWorldStore } from "./data/WorldStore.tsx";
 import type { WorldsResponse } from "../../api/worlds.ts";
