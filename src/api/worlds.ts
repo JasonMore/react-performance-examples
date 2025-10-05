@@ -1,5 +1,13 @@
-import type { World } from "../types/World";
 import { getNextWorld } from "../examples/zustand/data/solarSystemWorlds";
+
+export type World = {
+  id: string;
+  name: string;
+  distanceFromSun: string;
+  diameter: string;
+  orbitalPeriod: string;
+  type: string;
+};
 
 export type WorldsResponse = {
   worlds: World[];

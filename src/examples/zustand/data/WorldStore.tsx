@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import type { World } from "../../../types/World.ts";
+
+import type { World } from "../../../api/worlds.ts";
 
 interface Store {
   selectedWorldId: string;

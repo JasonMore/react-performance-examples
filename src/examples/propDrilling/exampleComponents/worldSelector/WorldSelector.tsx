@@ -4,7 +4,7 @@ import sharedStyles from "../../../../components/css/shared.module.css";
 import css from "../../../../components/css/worldSelector/WorldSelector.module.css";
 import { AddWorldButton } from "./AddWorld.tsx";
 import { WorldIdButton } from "./WorldIdButton.tsx";
-import type { World } from "../../data/types.ts";
+import type { World } from "../../../../api/worlds";
 
 type Props = {
   activeWorld: string;

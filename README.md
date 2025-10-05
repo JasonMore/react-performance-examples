@@ -1,4 +1,4 @@
-# React Performance Examples
+# React Performance Examples ([Live Demo](https://stackblitz.com/~/github.com/JasonMore/react-performance-examples))
 
 Hands-on demos that contrast common React state patterns with their
 performance-minded counterparts. Each example surfaces rerender behavior through `RenderToken` counters.

@@ -12,16 +12,6 @@ export function Home() {
         A collection of React performance examples and demos to help you
         understand various optimization techniques and patterns.
       </p>
-      <p>
-        The <code>RenderToken</code> <RenderToken /> shows render counts. When
-        that value increases, the component just re-rendered. It will be much
-        higher than a well implemented example.
-      </p>
-      <p>
-        Enable <code>react-scan</code> to see performance differences with DOM
-        render times. It will disable <code>RenderToken</code>. Refresh the page
-        to turn off <code>react-scan</code>
-      </p>
 
       <div className={css.demoGrid}>
         {routes.map(({ id, path, title, description }) => (
@@ -34,7 +24,15 @@ export function Home() {
       <h2>Demo App layout</h2>
       <p>
         Here is what the app looks like in each example. Each component is named
-        below
+        below.
+      </p>
+      <p>
+        The <code>RenderToken</code> <RenderToken /> shows render counts. When
+        that value increases, the component just re-rendered.
+      </p>
+      <p>
+        Enable <code>react-scan</code> to see performance differences with DOM
+        render times. It will disable <code>RenderToken</code>.
       </p>
       <WorldAppSkeleton />
     </div>

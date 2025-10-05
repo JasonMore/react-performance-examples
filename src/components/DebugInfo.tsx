@@ -1,7 +1,7 @@
 import { memo } from "react";
 import css from "./css/DebugInfo.module.css";
 import sharedStyles from "./css/shared.module.css";
-import type { World } from "../types/World.ts";
+import type { World } from "../api/worlds.ts";
 
 type Snapshot = {
   selectedWorldId: string;

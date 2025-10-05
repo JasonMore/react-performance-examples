@@ -2,7 +2,7 @@ import { memo, useEffect, useRef } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 import css from "../../../../components/css/worldsViewer/World.module.css";
 import { WorldInfo } from "./WorldInfo.tsx";
-import type { World as WorldType } from "../../data/types.ts";
+import type { World as WorldType } from "../../../../api/worlds";
 
 type Props = {
   world: WorldType;

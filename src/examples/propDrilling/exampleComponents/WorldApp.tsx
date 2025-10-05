@@ -2,9 +2,8 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import css from "../../../components/css/WorldApp.module.css";
 import { WorldSelector } from "./worldSelector/WorldSelector.tsx";
 import { WorldsViewer } from "./worldsViewer/WorldsViewer.tsx";
-import type { World } from "../../../types/World.ts";
 import { memo } from "react";
-import { addWorld as apiAddWorld } from "../../../api/worlds.ts";
+import { addWorld as apiAddWorld, type World } from "../../../api/worlds.ts";
 
 type Props = {
   worlds: World[];
@@ -22,7 +21,13 @@ export const WorldApp = memo(
 
     // Use ref to stabilize onSnapshotChange callback and prevent unnecessary effect runs
     const onSnapshotChangeRef = useRef(onSnapshotChange);
-    onSnapshotChangeRef.current = onSnapshotChange;
+
+    // React 19 compatibility: Update ref in useEffect instead of during render
+    // This complies with stricter eslint-plugin-react-hooks@6+ rules that prevent
+    // ref mutations during render to avoid subtle bugs with concurrent features
+    useEffect(() => {
+      onSnapshotChangeRef.current = onSnapshotChange;
+    }, [onSnapshotChange]);
 
     const stableOnSnapshotChange = useCallback(
       (snapshot: { selectedWorldId: string; hello: { worlds: World[] } }) => {
