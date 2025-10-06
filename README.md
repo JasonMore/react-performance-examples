@@ -5,7 +5,12 @@ performance-minded counterparts. Each example surfaces rerender behavior through
 
 ## Core Software Engineering Patterns & Principles
 
-- **Separation of Concerns (SoC):** Keep UI, state, and side effects separate. Example: [Zustand Render Demo](src/examples/zustand/ZustandRenderDemo.tsx) loads data via a React Router loader while delegating state management to a dedicated [Zustand store](src/examples/zustand/data/WorldStore.tsx).
+###  Separation of Concerns (SoC) 
+Keep UI, state, and side effects separate. 
+> [!TIP example]
+> [Zustand Render Demo](src/examples/zustand/ZustandRenderDemo.tsx) loads data via a React Router loader while delegating state management to a dedicated [Zustand store](src/examples/zustand/data/WorldStore.tsx).
+
+
 - **Single Responsibility Principle (SRP):** Do one thing really well — both at the component and hook level. Example: the [WorldSelector](src/examples/propDrilling/exampleComponents/worldSelector/WorldSelector.tsx) focuses solely on rendering selector UI and leaves data orchestration to parent hooks.
 - **Composition (comp):** Organize code into smaller, composable, and isolated pieces. Example: the [WorldApp shell](src/examples/zustand/exampleComponents/WorldApp.tsx) composes selector and viewer panes without sharing their internal concerns.
 - **Encapsulation (encap):** Build small, idempotent, reusable pieces of code. Example: [useWorldStore](src/examples/zustand/data/WorldStore.tsx) exposes a minimal API that hides mutation details from consuming components.
