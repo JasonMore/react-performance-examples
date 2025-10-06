@@ -7,7 +7,7 @@ performance-minded counterparts. Each example surfaces rerender behavior through
 
 ###  Separation of Concerns (SoC) 
 Keep UI, state, and side effects separate. 
-> [!TIP example]
+> [!TIP]
 > [Zustand Render Demo](src/examples/zustand/ZustandRenderDemo.tsx) loads data via a React Router loader while delegating state management to a dedicated [Zustand store](src/examples/zustand/data/WorldStore.tsx).
 
 
