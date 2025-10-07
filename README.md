@@ -39,9 +39,10 @@ Use memoization correctly to ensure performance and predictable rendering.
 
 **Prop Drilling**
 
-- (comp) Creates tight coupling between components. Makes components less composable and harder to reuse.
+### (comp) Creates tight coupling between components. Makes components less composable and harder to reuse.
+> [Prop Drilling Naive - WorldsViewer.tsx](src/examples/propDrillingNaive/exampleComponents/worldsViewer/WorldsViewer.tsx) does not do anything with `worlds` prop and just passes it along.
 - (cache) Breaks memoization when passing computed arrays or objects.
-  > [Prop Drilling Naive Render Demo](src/examples/propDrillingNaive/PropDrillingNaiveRenderDemo.tsx) intentionally passes unstable props to demonstrate cascading re-renders.
+  > [Prop Drilling Naive - WorldApp.tsx](src/examples/propDrillingNaive/exampleComponents/WorldApp.tsx) intentionally passes unstable props to demonstrate cascading re-renders.
 
 **Component Architecture**
 
