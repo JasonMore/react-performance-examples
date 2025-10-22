@@ -12,6 +12,15 @@ export function Home() {
         A collection of React performance examples and demos to help you
         understand various optimization techniques and patterns.
       </p>
+      <div className={css.haiku}>
+        <p>
+          Crimson skin so bright,
+          <br />
+          Sweet crisp flesh beneath the tree—
+          <br />
+          Autumn's perfect gift.
+        </p>
+      </div>
 
       <div className={css.demoGrid}>
         {routes.map(({ id, path, title, description }) => (

@@ -25,6 +25,26 @@
   margin-bottom: 2rem;
 }
 
+.haiku {
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.1),
+    rgba(255, 177, 66, 0.1)
+  );
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-text);
+}
+
+.haiku p {
+  margin: 0;
+  line-height: 1.8;
+}
+
 .demoGrid {
   display: grid;
   gap: 1rem;
