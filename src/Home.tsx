@@ -13,6 +13,16 @@ export function Home() {
         understand various optimization techniques and patterns.
       </p>
 
+      <div className={css.joke}>
+        <p className={css.jokeText}>
+          <strong>Q:</strong> Why did the React component go to therapy?
+        </p>
+        <p className={css.jokeText}>
+          <strong>A:</strong> Because it had too many unnecessary re-renders and
+          couldn't handle the emotional setState! 😅
+        </p>
+      </div>
+
       <div className={css.demoGrid}>
         {routes.map(({ id, path, title, description }) => (
           <DemoCard key={id} to={path} title={title}>

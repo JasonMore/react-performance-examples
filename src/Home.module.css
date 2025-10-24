@@ -25,6 +25,33 @@
   margin-bottom: 2rem;
 }
 
+.joke {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(168, 85, 247, 0.1) 100%
+  );
+  border-left: 4px solid var(--color-accent);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.jokeText {
+  font-size: 0.95rem;
+  line-height: 1.6rem;
+  color: var(--color-text);
+  margin: 0.5rem 0;
+}
+
+.jokeText:first-child {
+  margin-top: 0;
+}
+
+.jokeText:last-child {
+  margin-bottom: 0;
+}
+
 .demoGrid {
   display: grid;
   gap: 1rem;
