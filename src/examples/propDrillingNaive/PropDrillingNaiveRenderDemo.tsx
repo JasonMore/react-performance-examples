@@ -38,3 +38,5 @@ export function PropDrillingNaiveRenderDemo() {
     </div>
   );
 }
+
+export default PropDrillingNaiveRenderDemo;

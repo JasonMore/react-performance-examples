@@ -36,3 +36,5 @@ export function PropDrillingRenderDemo() {
     </div>
   );
 }
+
+export default PropDrillingRenderDemo;

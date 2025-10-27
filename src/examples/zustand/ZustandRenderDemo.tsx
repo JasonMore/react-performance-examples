@@ -32,3 +32,5 @@ export function ZustandRenderDemo() {
     </div>
   );
 }
+
+export default ZustandRenderDemo;

@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { scan } from "react-scan";
 
 type Store = {
   enabled: boolean;
@@ -8,11 +7,13 @@ type Store = {
 
 export const useScanStore = create<Store>((set, get) => ({
   enabled: false,
-  toggleReactScan: () => {
+  toggleReactScan: async () => {
     const { enabled } = get();
     if (enabled) {
       return location.reload();
     }
+    // Lazy load react-scan only when user enables it
+    const { scan } = await import("react-scan");
     scan({ enabled: true });
     return set({ enabled: true });
   },

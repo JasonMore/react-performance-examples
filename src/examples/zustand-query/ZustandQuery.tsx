@@ -19,3 +19,5 @@ export const ZustandQuery = memo(() => (
     </div>
   </QueryClientProvider>
 ));
+
+export default ZustandQuery;
