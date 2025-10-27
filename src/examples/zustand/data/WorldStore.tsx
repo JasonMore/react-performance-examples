@@ -22,6 +22,9 @@ export const useWorldStore = create<Store>((set) => ({
 }));
 
 // Helper hooks for efficient component access
+// Note: While this could potentially re-render when any world changes,
+// in practice the World objects are stable references in this app,
+// so this optimization is still beneficial compared to calling a function on every render
 export const useWorldById = (id: string) =>
   useWorldStore((state) => state.hello.worlds.find((w) => w.id === id));
 
