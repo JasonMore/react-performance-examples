@@ -1,4 +1,4 @@
-import { useWorldStore } from "../../data/WorldStore.tsx";
+import { useWorldById } from "../../data/WorldStore.tsx";
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 import css from "../../../../components/css/worldsViewer/WorldInfo.module.css";
@@ -6,7 +6,7 @@ import css from "../../../../components/css/worldsViewer/WorldInfo.module.css";
 type Props = { id: string };
 
 export const WorldInfo = memo(({ id }: Props) => {
-  const world = useWorldStore((s) => s.getWorldById(id));
+  const world = useWorldById(id);
   if (!world) return null;
 
   return (

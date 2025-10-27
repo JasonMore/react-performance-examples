@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef } from "react";
-import { useWorldStore } from "../../data/WorldStore.tsx";
+import { useIsSelectedWorld } from "../../data/WorldStore.tsx";
 import { RenderToken } from "../../../../components/perf/RenderToken.tsx";
 import css from "../../../../components/css/worldsViewer/World.module.css";
 import { WorldInfo } from "./WorldInfo.tsx";
@@ -7,7 +7,7 @@ import { WorldInfo } from "./WorldInfo.tsx";
 type Props = { id: string };
 
 export const World = memo(({ id }: Props) => {
-  const selected = useWorldStore((s) => s.isSelectedWorld(id));
+  const selected = useIsSelectedWorld(id);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
