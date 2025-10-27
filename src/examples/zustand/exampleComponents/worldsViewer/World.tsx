@@ -20,15 +20,13 @@ export const World = memo(({ id }: Props) => {
   }, [selected]);
 
   return (
-    <>
-      <div
-        ref={containerRef}
-        className={`${css.world} ${selected ? css.selected : ""}`}
-      >
-        <RenderToken className={css.floatOnBoarder} />
-        <WorldInfo id={id} />
-      </div>
-    </>
+    <div
+      ref={containerRef}
+      className={`${css.world} ${selected ? css.selected : ""}`}
+    >
+      <RenderToken className={css.floatOnBoarder} />
+      <WorldInfo id={id} />
+    </div>
   );
 });
 

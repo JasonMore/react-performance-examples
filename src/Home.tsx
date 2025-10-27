@@ -1,10 +1,11 @@
+import { memo } from "react";
 import css from "./Home.module.css";
 import { DemoCard } from "./components/DemoCard";
 import { routes } from "./routes";
 import { WorldAppSkeleton } from "./components/WorldAppSkeleton/WorldAppSkeleton.tsx";
 import { RenderToken } from "./components/perf/RenderToken.tsx";
 
-export function Home() {
+export const Home = memo(function Home() {
   return (
     <div className={css.home}>
       <h1 className={css.title}>React Performance Examples</h1>
@@ -37,4 +38,4 @@ export function Home() {
       <WorldAppSkeleton />
     </div>
   );
-}
+});

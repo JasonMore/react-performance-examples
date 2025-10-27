@@ -1,10 +1,11 @@
+import { memo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { resetTokenCounter } from "./components/perf/renderTokenState.ts";
 import { Navigation } from "./components/Navigation.tsx";
 import { homeRoute, routes } from "./routes.ts";
 
-export const Layout = () => {
+export const Layout = memo(function Layout() {
   const location = useLocation();
 
   // Reset render pass counter whenever the route path changes
@@ -28,4 +29,4 @@ export const Layout = () => {
       <Outlet />
     </>
   );
-};
+});
