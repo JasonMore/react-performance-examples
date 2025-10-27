@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { memo } from "react";
 import { homeRoute, routes } from "../routes";
 import css from "./Navigation.module.css";
 import { ReactScanToggle } from "./perf/ReactScanToggle.tsx";
 
-export function Navigation() {
+export const Navigation = memo(() => {
   return (
     <nav className={css.navigation}>
       <span>
@@ -19,4 +20,6 @@ export function Navigation() {
       <ReactScanToggle />
     </nav>
   );
-}
+});
+
+Navigation.displayName = "Navigation";
