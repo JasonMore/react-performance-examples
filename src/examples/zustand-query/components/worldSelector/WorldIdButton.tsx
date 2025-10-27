@@ -1,14 +1,17 @@
 import { memo } from "react";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import css from "../../../../components/css/worldSelector/WorldIdButton.module.css";
-import { useSelectionStore } from "../../data/SelectionStore.ts";
+import {
+  useIsSelectedWorld,
+  useSelectionStore,
+} from "../../data/SelectionStore.ts";
 
 interface Props {
   id: string;
 }
 
 export const WorldIdButton = memo(({ id }: Props) => {
-  const isSelected = useSelectionStore((s) => s.isSelectedWorld(id));
+  const isSelected = useIsSelectedWorld(id);
   const setEditId = useSelectionStore((s) => s.setWorldId);
 
   return (

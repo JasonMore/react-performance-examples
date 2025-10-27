@@ -2,14 +2,14 @@ import { memo, useEffect, useRef } from "react";
 import css from "../../../../components/css/worldsViewer/World.module.css";
 import { RenderToken } from "../../../../components/perf/RenderToken";
 import { WorldInfo } from "./WorldInfo";
-import { useSelectionStore } from "../../data/SelectionStore.ts";
+import { useIsSelectedWorld } from "../../data/SelectionStore.ts";
 
 interface Props {
   id: string;
 }
 
 export const World = memo(({ id }: Props) => {
-  const isSelected = useSelectionStore((s) => s.isSelectedWorld(id));
+  const isSelected = useIsSelectedWorld(id);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
