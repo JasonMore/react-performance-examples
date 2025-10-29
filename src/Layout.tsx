@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { resetTokenCounter } from "./components/perf/renderTokenState.ts";
 import { Navigation } from "./components/Navigation.tsx";
 import { homeRoute, routes } from "./routes.ts";
@@ -25,7 +25,9 @@ export const Layout = () => {
   return (
     <>
       <Navigation />
-      <Outlet />
+      <Suspense fallback={<div style={{ padding: "2rem" }}>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

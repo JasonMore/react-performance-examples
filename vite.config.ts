@@ -10,4 +10,16 @@ export default defineConfig({
     setupFiles: "./src/test/setup.ts",
     css: true,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separate vendor chunks for better caching
+          "react-vendor": ["react", "react-dom", "react/jsx-runtime"],
+          "router-vendor": ["react-router-dom"],
+          "state-vendor": ["zustand", "@tanstack/react-query"],
+        },
+      },
+    },
+  },
 });
