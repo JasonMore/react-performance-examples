@@ -3,8 +3,46 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { PropDrillingNaiveRenderDemo } from "./PropDrillingNaiveRenderDemo";
 import * as worldsApi from "../../api/worlds";
+import type { World } from "../../api/worlds";
 
-// Mock the worlds API
+// Test data fixtures
+const TEST_WORLDS: World[] = [
+  {
+    id: "mer001",
+    name: "mercury",
+    distanceFromSun: "58 million km",
+    diameter: "4,879 km",
+    orbitalPeriod: "88 days",
+    type: "terrestrial planet",
+  },
+  {
+    id: "ven002",
+    name: "venus",
+    distanceFromSun: "108 million km",
+    diameter: "12,104 km",
+    orbitalPeriod: "225 days",
+    type: "terrestrial planet",
+  },
+  {
+    id: "ear003",
+    name: "earth",
+    distanceFromSun: "150 million km",
+    diameter: "12,756 km",
+    orbitalPeriod: "365 days",
+    type: "terrestrial planet",
+  },
+];
+
+const NEW_WORLD: World = {
+  id: "mar004",
+  name: "mars",
+  distanceFromSun: "228 million km",
+  diameter: "6,792 km",
+  orbitalPeriod: "687 days",
+  type: "terrestrial planet",
+};
+
+// Mock the worlds API with predictable test data
 vi.mock("../../api/worlds", async () => {
   const actual = await vi.importActual<typeof import("../../api/worlds")>(
     "../../api/worlds"
@@ -13,44 +51,10 @@ vi.mock("../../api/worlds", async () => {
     ...actual,
     fetchWorlds: vi.fn(() =>
       Promise.resolve({
-        worlds: [
-          {
-            id: "mer001",
-            name: "mercury",
-            distanceFromSun: "58 million km",
-            diameter: "4,879 km",
-            orbitalPeriod: "88 days",
-            type: "terrestrial planet",
-          },
-          {
-            id: "ven002",
-            name: "venus",
-            distanceFromSun: "108 million km",
-            diameter: "12,104 km",
-            orbitalPeriod: "225 days",
-            type: "terrestrial planet",
-          },
-          {
-            id: "ear003",
-            name: "earth",
-            distanceFromSun: "150 million km",
-            diameter: "12,756 km",
-            orbitalPeriod: "365 days",
-            type: "terrestrial planet",
-          },
-        ],
+        worlds: TEST_WORLDS,
       })
     ),
-    addWorld: vi.fn(() =>
-      Promise.resolve({
-        id: "mar004",
-        name: "mars",
-        distanceFromSun: "228 million km",
-        diameter: "6,792 km",
-        orbitalPeriod: "687 days",
-        type: "terrestrial planet",
-      })
-    ),
+    addWorld: vi.fn(() => Promise.resolve(NEW_WORLD)),
   };
 });
 
@@ -97,30 +101,40 @@ describe("PropDrillingNaiveRenderDemo", () => {
     });
   });
 
-  it("should show render tokens reflecting the naive implementation's extra renders", async () => {
+  it("should show render tokens demonstrating naive implementation behavior", async () => {
     const user = userEvent.setup();
 
     render(<PropDrillingNaiveRenderDemo />);
 
+    // Wait for data to load and world buttons to appear
     await waitFor(() => {
-      expect(screen.getByText(/World Selector/)).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
     });
 
-    // In the naive implementation, initial data load triggers multiple renders
-    // The button may already be at «002 or higher due to prop churn
+    // Get the initial render count from the button
     const worldButton = screen.getByRole("button", { name: /mer001/i });
-    const initialToken = worldButton.textContent?.match(/«\d{3}/)?.[0];
-    expect(initialToken).toMatch(/«\d{3}/);
+    const initialTokenMatch = worldButton.textContent?.match(/«(\d{3})/);
+    expect(initialTokenMatch).toBeDefined();
+    const initialRenderCount = parseInt(initialTokenMatch![1], 10);
+    
+    // The naive implementation may show «001 or «002 depending on test isolation
+    // What's important is that it increments after interaction
+    expect(initialRenderCount).toBeGreaterThanOrEqual(1);
+    expect(initialRenderCount).toBeLessThanOrEqual(2);
 
     await user.click(worldButton);
 
-    // After click, the token should increment further due to all components re-rendering
+    // After click, the naive implementation causes components to re-render
+    // The render count should increment by at least 1
     await waitFor(() => {
       const updatedButton = screen.getByRole("button", { name: /mer001/i });
-      const newToken = updatedButton.textContent?.match(/«\d{3}/)?.[0];
-      expect(newToken).toBeDefined();
-      // Token should be different (higher) than initial
-      expect(newToken).not.toBe(initialToken);
+      const newTokenMatch = updatedButton.textContent?.match(/«(\d{3})/);
+      expect(newTokenMatch).toBeDefined();
+      const newRenderCount = parseInt(newTokenMatch![1], 10);
+      
+      // Verify the render count increased after the click
+      expect(newRenderCount).toBeGreaterThan(initialRenderCount);
+      expect(newRenderCount).toBe(initialRenderCount + 1);
     });
   });
 
