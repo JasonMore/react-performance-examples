@@ -1,17 +1,10 @@
 import { useEffect } from "react";
 import { useLoaderData, useRevalidator } from "react-router-dom";
 import css from "../../components/css/DemoLayout.module.css";
-import { DebugInfo } from "../../components/DebugInfo.tsx";
 import { WorldApp } from "./exampleComponents/WorldApp.tsx";
 import { useWorldStore } from "./data/WorldStore.tsx";
 import type { WorldsResponse } from "../../api/worlds.ts";
-
-function ZustandDebugInfo() {
-  const selectedWorldId = useWorldStore((s) => s.selectedWorldId);
-  const worlds = useWorldStore((s) => s.hello.worlds);
-
-  return <DebugInfo snapshot={{ selectedWorldId, hello: { worlds } }} />;
-}
+import { ZustandDebugInfo } from "./demoControls/ZustandDebugInfo.tsx";
 
 export function ZustandRenderDemo() {
   const data = useLoaderData() as WorldsResponse;
