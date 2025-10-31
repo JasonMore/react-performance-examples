@@ -1,9 +1,9 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import css from "../../components/css/DemoLayout.module.css";
-import { DebugInfo } from "./demoControls/DebugInfo";
 import { WorldApp } from "./components/WorldApp";
 import { memo } from "react";
 import { queryClient } from "./data/WorldData.ts";
+import { ZustandQueryDebugInfo } from "./demoControls/ZustandQueryDebugInfo.tsx";
 
 export const ZustandQuery = memo(() => (
   <QueryClientProvider client={queryClient}>
@@ -15,7 +15,7 @@ export const ZustandQuery = memo(() => (
         more fully featured for handling data specific needs.
       </p>
       <WorldApp />
-      <DebugInfo />
+      <ZustandQueryDebugInfo />
     </div>
   </QueryClientProvider>
 ));

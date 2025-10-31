@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import css from "../../components/css/DemoLayout.module.css";
 import { PropDrillingWorldApp } from "./exampleComponents/WorldApp.tsx";
-import { PropDrillingDebugInfo } from "./demoControls/PropDrillingDebugInfo.tsx";
+import { DebugInfo } from "../../components/DebugInfo.tsx";
 import { fetchWorlds, type World } from "../../api/worlds.ts";
 
 type Snapshot = {
@@ -34,7 +34,7 @@ export function PropDrillingNaiveRenderDemo() {
         setWorlds={setWorlds}
         onSnapshotChange={setSnapshot}
       />
-      <PropDrillingDebugInfo snapshot={snapshot} />
+      <DebugInfo snapshot={snapshot} title="Top level state snapshot" />
     </div>
   );
 }
