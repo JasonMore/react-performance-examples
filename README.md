@@ -3,6 +3,27 @@
 Hands-on demos that contrast common React state patterns with their
 performance-minded counterparts. Each example surfaces rerender behavior through `RenderToken` counters.
 
+## Examples
+
+### Prop Drilling Examples
+- **🌪️ ❌ Prop Drilling Naive**: Deliberately inefficient prop drilling with anti-patterns
+- **🌪️ ✅ Prop Drilling Optimized**: Performant prop drilling with manual memoization
+- **⚡ 🌪️ Prop Drilling Naive + React Compiler**: Naive implementation automatically optimized by React Compiler
+- **⚡ 🌪️ Prop Drilling Optimized + React Compiler**: Optimized implementation with React Compiler
+
+### State Management Examples
+- **🌤️ Zustand**: State management with Zustand preventing unnecessary re-renders
+- **🌤 Zustand + tanstack-query**: Combining Zustand (client state) with React Query (server state)
+
+## React Compiler
+
+The React Compiler (⚡) examples demonstrate **automatic optimization** without manual memoization. The compiler:
+- Automatically memoizes components (no need for `React.memo`)
+- Automatically memoizes callbacks (no need for `useCallback`)
+- Automatically memoizes computed values (no need for `useMemo`)
+
+This shows how future React applications can achieve optimal performance without the cognitive overhead of manual optimization.
+
 ## Core Software Engineering Patterns & Principles
 
 - **Separation of Concerns (SoC):** Keep UI, state, and side effects separate.

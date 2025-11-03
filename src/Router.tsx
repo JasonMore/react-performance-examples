@@ -26,6 +26,16 @@ const PropDrillingNaiveRenderDemo = lazy(() =>
     (m) => ({ default: m.PropDrillingNaiveRenderDemo }),
   ),
 );
+const PropDrillingCompiledRenderDemo = lazy(() =>
+  import("./examples/propDrillingCompiled/PropDrillingRenderDemo.tsx").then(
+    (m) => ({ default: m.PropDrillingCompiledRenderDemo }),
+  ),
+);
+const PropDrillingNaiveCompiledRenderDemo = lazy(() =>
+  import("./examples/propDrillingNaiveCompiled/PropDrillingNaiveRenderDemo.tsx").then(
+    (m) => ({ default: m.PropDrillingNaiveCompiledRenderDemo }),
+  ),
+);
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +54,15 @@ export const router = createBrowserRouter([
       {
         path: "prop-drilling",
         element: <PropDrillingRenderDemo />,
+        loader: fetchWorlds,
+      },
+      {
+        path: "prop-drilling-naive-compiled",
+        element: <PropDrillingNaiveCompiledRenderDemo />,
+      },
+      {
+        path: "prop-drilling-compiled",
+        element: <PropDrillingCompiledRenderDemo />,
         loader: fetchWorlds,
       },
       {

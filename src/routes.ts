@@ -31,6 +31,22 @@ export const routes: Route[] = [
     description: "Performant implementation of prop drilling.",
   },
   {
+    id: "prop-drilling-naive-compiled",
+    path: "/prop-drilling-naive-compiled",
+    navLabel: "⚡ 🌪️ Prop-Naive+Compiler",
+    title: "⚡ 🌪️ Prop Drilling Naive + React Compiler",
+    description:
+      "Naive prop drilling pattern automatically optimized by React Compiler. No manual memoization needed.",
+  },
+  {
+    id: "prop-drilling-compiled",
+    path: "/prop-drilling-compiled",
+    navLabel: "⚡ 🌪️ Prop-Optimized+Compiler",
+    title: "⚡ 🌪️ Prop Drilling Optimized + React Compiler",
+    description:
+      "Optimized prop drilling pattern with React Compiler. Shows compiler benefits on already-clean code.",
+  },
+  {
     id: "zustand",
     path: "/zustand",
     navLabel: "🌤️ Zustand",

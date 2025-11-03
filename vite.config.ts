@@ -3,7 +3,26 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          [
+            "babel-plugin-react-compiler",
+            {
+              // Directory-based adoption: only compile these specific directories
+              sources: (filename: string) => {
+                return (
+                  filename.includes("src/examples/propDrillingCompiled") ||
+                  filename.includes("src/examples/propDrillingNaiveCompiled")
+                );
+              },
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   test: {
     globals: true,
     environment: "jsdom",
