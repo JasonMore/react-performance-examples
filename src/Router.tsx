@@ -32,9 +32,9 @@ const PropDrillingCompiledRenderDemo = lazy(() =>
   ),
 );
 const PropDrillingNaiveCompiledRenderDemo = lazy(() =>
-  import("./examples/propDrillingNaiveCompiled/PropDrillingNaiveRenderDemo.tsx").then(
-    (m) => ({ default: m.PropDrillingNaiveCompiledRenderDemo }),
-  ),
+  import(
+    "./examples/propDrillingNaiveCompiled/PropDrillingNaiveRenderDemo.tsx"
+  ).then((m) => ({ default: m.PropDrillingNaiveCompiledRenderDemo })),
 );
 
 export const router = createBrowserRouter([

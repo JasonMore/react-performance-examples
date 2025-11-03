@@ -6,18 +6,21 @@ performance-minded counterparts. Each example surfaces rerender behavior through
 ## Examples
 
 ### Prop Drilling Examples
+
 - **🌪️ ❌ Prop Drilling Naive**: Deliberately inefficient prop drilling with anti-patterns
 - **🌪️ ✅ Prop Drilling Optimized**: Performant prop drilling with manual memoization
 - **⚡ 🌪️ Prop Drilling Naive + React Compiler**: Naive implementation automatically optimized by React Compiler
 - **⚡ 🌪️ Prop Drilling Optimized + React Compiler**: Optimized implementation with React Compiler
 
 ### State Management Examples
+
 - **🌤️ Zustand**: State management with Zustand preventing unnecessary re-renders
 - **🌤 Zustand + tanstack-query**: Combining Zustand (client state) with React Query (server state)
 
 ## React Compiler
 
 The React Compiler (⚡) examples demonstrate **automatic optimization** without manual memoization. The compiler:
+
 - Automatically memoizes components (no need for `React.memo`)
 - Automatically memoizes callbacks (no need for `useCallback`)
 - Automatically memoizes computed values (no need for `useMemo`)

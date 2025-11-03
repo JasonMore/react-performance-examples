@@ -24,11 +24,12 @@ export function PropDrillingNaiveCompiledRenderDemo() {
     <div className={css.app}>
       <h1>React Compiler Naive Prop Drilling Demo</h1>
       <p>
-        This demo shows the <strong>React Compiler</strong> optimizing a naive 
-        prop drilling implementation. The original naive version had anti-patterns 
-        like prop churn and broken memoization. The compiler automatically handles 
-        these issues without requiring manual <code>React.memo</code>, <code>useMemo</code>,
-        or <code>useCallback</code>.
+        This demo shows the <strong>React Compiler</strong> optimizing a naive
+        prop drilling implementation. The original naive version had
+        anti-patterns like prop churn and broken memoization. The compiler
+        automatically handles these issues without requiring manual{" "}
+        <code>React.memo</code>, <code>useMemo</code>, or{" "}
+        <code>useCallback</code>.
       </p>
 
       <PropDrillingWorldApp

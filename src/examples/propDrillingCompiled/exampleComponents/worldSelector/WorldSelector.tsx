@@ -13,7 +13,12 @@ type Props = {
 };
 
 // React Compiler will automatically optimize this component
-export function WorldSelector({ activeWorld, worlds, chooseWorld, addWorld }: Props) {
+export function WorldSelector({
+  activeWorld,
+  worlds,
+  chooseWorld,
+  addWorld,
+}: Props) {
   const onClick = (id: string) => chooseWorld(id);
   return (
     <div className={`${sharedStyles.card} ${css.root}`}>

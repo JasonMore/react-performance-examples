@@ -15,7 +15,11 @@ type Props = {
 };
 
 // React Compiler will automatically optimize this component
-export function PropDrillingWorldApp({ worlds, setWorlds, onSnapshotChange }: Props) {
+export function PropDrillingWorldApp({
+  worlds,
+  setWorlds,
+  onSnapshotChange,
+}: Props) {
   const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
 
   // used to update the debug window

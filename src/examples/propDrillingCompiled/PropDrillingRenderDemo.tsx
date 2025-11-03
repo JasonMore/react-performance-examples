@@ -19,11 +19,12 @@ export function PropDrillingCompiledRenderDemo() {
     <div className={css.app}>
       <h1>React Compiler Prop Drilling Demo</h1>
       <p>
-        This demo uses the <strong>React Compiler</strong> to automatically optimize
-        prop drilling without manual memoization. The compiler automatically memoizes
-        components and callbacks, providing similar performance to the manually
-        optimized version but without <code>React.memo</code>, <code>useMemo</code>,
-        or <code>useCallback</code>.
+        This demo uses the <strong>React Compiler</strong> to automatically
+        optimize prop drilling without manual memoization. The compiler
+        automatically memoizes components and callbacks, providing similar
+        performance to the manually optimized version but without{" "}
+        <code>React.memo</code>, <code>useMemo</code>, or{" "}
+        <code>useCallback</code>.
       </p>
 
       <WorldApp

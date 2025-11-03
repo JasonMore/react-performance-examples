@@ -16,7 +16,12 @@ type Props = {
 };
 
 // React Compiler will automatically optimize this component
-export function PropDrillingWorldSelector({ activeWorld, worldOptions, chooseWorld, addWorld }: Props) {
+export function PropDrillingWorldSelector({
+  activeWorld,
+  worldOptions,
+  chooseWorld,
+  addWorld,
+}: Props) {
   const listItems = worldOptions.map((option) => ({
     button: {
       id: option.id,

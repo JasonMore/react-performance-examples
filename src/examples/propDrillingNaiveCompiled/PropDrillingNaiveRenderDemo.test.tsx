@@ -44,15 +44,16 @@ const NEW_WORLD: World = {
 
 // Mock the worlds API with predictable test data
 vi.mock("../../api/worlds", async () => {
-  const actual = await vi.importActual<typeof import("../../api/worlds")>(
-    "../../api/worlds"
-  );
+  const actual =
+    await vi.importActual<typeof import("../../api/worlds")>(
+      "../../api/worlds",
+    );
   return {
     ...actual,
     fetchWorlds: vi.fn(() =>
       Promise.resolve({
         worlds: TEST_WORLDS,
-      })
+      }),
     ),
     addWorld: vi.fn(() => Promise.resolve(NEW_WORLD)),
   };
@@ -95,9 +96,15 @@ describe("PropDrillingNaiveCompiledRenderDemo", () => {
     render(<PropDrillingNaiveCompiledRenderDemo />);
 
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ven002/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ear003/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /mer001/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ven002/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ear003/i }),
+      ).toBeInTheDocument();
     });
   });
 
@@ -108,7 +115,9 @@ describe("PropDrillingNaiveCompiledRenderDemo", () => {
 
     // Wait for data to load and world buttons to appear
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /mer001/i }),
+      ).toBeInTheDocument();
     });
 
     // Get the initial render count from the button
@@ -116,7 +125,7 @@ describe("PropDrillingNaiveCompiledRenderDemo", () => {
     const initialTokenMatch = worldButton.textContent?.match(/«(\d{3})/);
     expect(initialTokenMatch).toBeDefined();
     const initialRenderCount = parseInt(initialTokenMatch![1], 10);
-    
+
     // The compiled implementation shows initial render state
     expect(initialRenderCount).toBeGreaterThanOrEqual(1);
     expect(initialRenderCount).toBeLessThanOrEqual(2);
@@ -132,7 +141,7 @@ describe("PropDrillingNaiveCompiledRenderDemo", () => {
       const newTokenMatch = updatedButton.textContent?.match(/«(\d{3})/);
       expect(newTokenMatch).toBeDefined();
       const newRenderCount = parseInt(newTokenMatch![1], 10);
-      
+
       // The compiler may optimize away unnecessary re-renders
       expect(newRenderCount).toBeGreaterThanOrEqual(initialRenderCount);
       expect(newRenderCount).toBeLessThanOrEqual(initialRenderCount + 1);
@@ -150,7 +159,7 @@ describe("PropDrillingNaiveCompiledRenderDemo", () => {
         const worldTexts = screen.queryAllByText(/venus/i);
         expect(worldTexts.length).toBeGreaterThan(0);
       },
-      { timeout: 3000 }
+      { timeout: 3000 },
     );
 
     // Click on mercury button
@@ -163,7 +172,7 @@ describe("PropDrillingNaiveCompiledRenderDemo", () => {
         const worldTexts = screen.queryAllByText(/mercury/i);
         expect(worldTexts.length).toBeGreaterThan(0);
       },
-      { timeout: 3000 }
+      { timeout: 3000 },
     );
   });
 });
