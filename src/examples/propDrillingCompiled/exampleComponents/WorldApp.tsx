@@ -32,7 +32,7 @@ export function WorldApp({ worlds, revalidate, onSnapshotChange }: Props) {
     if (!onSnapshotChange) return;
     onSnapshotChange({
       selectedWorldId: activeWorldId,
-      hello: { worlds: worlds },
+      hello: { worlds },
     });
   }, [worlds, activeWorldId, onSnapshotChange]);
 

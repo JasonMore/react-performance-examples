@@ -41,6 +41,10 @@ export function PropDrillingWorldApp({
     isCurrent: world.id === activeWorldId,
   }));
 
+  const chooseWorld = (id: string) => {
+    setActiveWorldId(id);
+  };
+
   const handleAddWorld = async () => {
     await apiAddWorld();
     const data = await fetchWorlds();
@@ -53,9 +57,7 @@ export function PropDrillingWorldApp({
         <PropDrillingWorldSelector
           activeWorld={activeWorldId}
           worldOptions={worldOptions}
-          chooseWorld={(id: string) => {
-            setActiveWorldId(id);
-          }}
+          chooseWorld={chooseWorld}
           addWorld={handleAddWorld}
         />
       </div>

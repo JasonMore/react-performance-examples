@@ -13,7 +13,7 @@ export function WorldInfo({ world }: Props) {
     { label: "Distance from Sun", value: world.distanceFromSun },
     { label: "Diameter", value: world.diameter },
     { label: "Orbital Period", value: world.orbitalPeriod },
-  ].map((row) => ({ ...row }));
+  ];
 
   return (
     <div className={css.worldInfo}>
