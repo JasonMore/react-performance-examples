@@ -12,17 +12,13 @@ type Props = {
   chooseWorld: (id: string) => void;
 };
 
-export function WorldSelector({
-  activeWorld,
-  worlds,
-  chooseWorld,
-  addWorld,
-}: Props) {
+export function WorldSelector(props: Props) {
+  const { activeWorld, worlds, chooseWorld, addWorld } = props;
   const onClick = (id: string) => chooseWorld(id);
   return (
     <div className={`${sharedStyles.card} ${css.root}`}>
       <div className={sharedStyles.cardTitle}>
-        World Selector <RenderToken />
+        World Selector <RenderToken forceRender={props} />
       </div>
       <AddWorldButton onClick={addWorld} />
       <ul className={css.worldList}>

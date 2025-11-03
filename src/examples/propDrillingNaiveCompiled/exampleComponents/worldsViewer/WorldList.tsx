@@ -7,11 +7,12 @@ type Props = {
   worlds: WorldViewerItem[];
 };
 
-export function WorldList({ worlds }: Props) {
+export function WorldList(props: Props) {
+  const { worlds } = props;
   return (
     <div className={css.worldList}>
       <div className={css.textXsBold}>
-        World List <RenderToken />
+        World List <RenderToken forceRender={props} />
       </div>
       <div className={css.textXs}>
         world length: <strong>{worlds.length}</strong>

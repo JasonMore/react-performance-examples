@@ -6,8 +6,8 @@ type Props = {
   world: World;
 };
 
- and memoize infoRows
-export function WorldInfo({ world }: Props) {
+export function WorldInfo(props: Props) {
+  const { world } = props;
   const infoRows = [
     { label: "Type", value: world.type },
     { label: "Distance from Sun", value: world.distanceFromSun },
@@ -20,7 +20,7 @@ export function WorldInfo({ world }: Props) {
       <div>
         <strong>{world.name}</strong>
         <span className={css.worldId}>({world.id})</span>
-        <RenderToken />
+        <RenderToken forceRender={props} />
       </div>
       <div className={css.worldDetails}>
         {infoRows.map((row) => (

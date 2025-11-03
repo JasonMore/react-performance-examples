@@ -5,11 +5,12 @@ type Props = {
   onClick: () => void;
 };
 
-export function AddWorldButton({ onClick }: Props) {
+export function AddWorldButton(props: Props) {
+  const { onClick } = props;
   return (
     <button className={css.primaryButton} onClick={onClick}>
       Add World
-      <RenderToken />
+      <RenderToken forceRender={props} />
     </button>
   );
 }

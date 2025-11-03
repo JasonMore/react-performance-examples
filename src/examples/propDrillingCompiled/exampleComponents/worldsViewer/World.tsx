@@ -9,7 +9,8 @@ type Props = {
   isActive: boolean;
 };
 
-export function World({ world, isActive }: Props) {
+export function World(props: Props) {
+  const { world, isActive } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export function World({ world, isActive }: Props) {
       ref={containerRef}
       className={`${css.world} ${isActive ? css.selected : ""}`}
     >
-      <RenderToken className={css.floatOnBoarder} />
+      <RenderToken className={css.floatOnBoarder} forceRender={props} />
       <WorldInfo world={world} />
     </div>
   );

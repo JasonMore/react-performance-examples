@@ -15,12 +15,8 @@ type Props = {
   addWorld: () => void;
 };
 
-export function PropDrillingWorldSelector({
-  activeWorld,
-  worldOptions,
-  chooseWorld,
-  addWorld,
-}: Props) {
+export function PropDrillingWorldSelector(props: Props) {
+  const { activeWorld, worldOptions, chooseWorld, addWorld } = props;
   const listItems = worldOptions.map((option) => ({
     button: {
       id: option.id,
@@ -32,7 +28,8 @@ export function PropDrillingWorldSelector({
   return (
     <div className={`${sharedStyles.card} ${css.root}`}>
       <div className={sharedStyles.cardTitle}>
-        World Selector <RenderToken className={activeWorld} />
+        World Selector{" "}
+        <RenderToken className={activeWorld} forceRender={props} />
       </div>
       <PropDrillingAddWorld onAdd={addWorld} />
       <ul className={css.worldList}>

@@ -7,7 +7,8 @@ type Props = {
   onClick: (id: string) => void;
 };
 
-export function WorldIdButton({ id, isActive, onClick }: Props) {
+export function WorldIdButton(props: Props) {
+  const { id, isActive, onClick } = props;
   return (
     <li>
       <button
@@ -16,7 +17,7 @@ export function WorldIdButton({ id, isActive, onClick }: Props) {
         onClick={() => onClick(id)}
       >
         {id}
-        <RenderToken />
+        <RenderToken forceRender={props} />
       </button>
     </li>
   );

@@ -8,7 +8,8 @@ type Props = {
   world: WorldViewerItem;
 };
 
-export function World({ world }: Props) {
+export function World(props: Props) {
+  const { world } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export function World({ world }: Props) {
       ref={containerRef}
       className={`${css.world} ${world.isCurrent ? css.selected : ""}`}
     >
-      <RenderToken className={css.floatOnBoarder} />
+      <RenderToken className={css.floatOnBoarder} forceRender={props} />
       <WorldInfo world={world} />
     </div>
   );

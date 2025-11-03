@@ -9,7 +9,8 @@ type Props = {
   };
 };
 
-export function PropDrillingWorldIdButton({ payload }: Props) {
+export function PropDrillingWorldIdButton(props: Props) {
+  const { payload } = props;
   const { id, isActive, onChoose } = payload;
 
   return (
@@ -20,7 +21,7 @@ export function PropDrillingWorldIdButton({ payload }: Props) {
         onClick={() => onChoose()}
       >
         {id}
-        <RenderToken />
+        <RenderToken forceRender={props} />
       </button>
     </li>
   );

@@ -8,11 +8,12 @@ type Props = {
   activeWorldId: string;
 };
 
-export function WorldsViewer({ worlds, activeWorldId }: Props) {
+export function WorldsViewer(props: Props) {
+  const { worlds, activeWorldId } = props;
   return (
     <div className={sharedStyles.card}>
       <div className={sharedStyles.cardTitle}>
-        Worlds Viewer <RenderToken />
+        Worlds Viewer <RenderToken forceRender={props} />
       </div>
       <WorldList worlds={worlds} activeWorldId={activeWorldId} />
     </div>
