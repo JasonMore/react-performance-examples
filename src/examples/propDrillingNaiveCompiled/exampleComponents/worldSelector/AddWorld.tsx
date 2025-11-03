@@ -5,7 +5,6 @@ type Props = {
   onAdd: () => void;
 };
 
-// React Compiler will automatically optimize this component
 export function PropDrillingAddWorld({ onAdd }: Props) {
   return (
     <button className={css.primaryButton} onClick={() => onAdd()}>

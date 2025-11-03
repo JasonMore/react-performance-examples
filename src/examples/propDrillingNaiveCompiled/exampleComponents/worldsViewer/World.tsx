@@ -8,7 +8,6 @@ type Props = {
   world: WorldViewerItem;
 };
 
-// React Compiler will automatically optimize this component
 export function World({ world }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 

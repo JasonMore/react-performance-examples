@@ -8,7 +8,6 @@ type Props = {
   activeWorldId: string;
 };
 
-// React Compiler will automatically optimize this component
 export function WorldList({ worlds, activeWorldId }: Props) {
   return (
     <div className={css.worldList}>

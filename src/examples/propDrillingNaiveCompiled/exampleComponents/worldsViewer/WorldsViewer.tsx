@@ -17,7 +17,6 @@ type Props = {
   worlds: WorldViewerItem[];
 };
 
-// React Compiler will automatically optimize this component
 export function WorldsViewer({ worlds }: Props) {
   return (
     <div className={sharedStyles.card}>

@@ -8,7 +8,6 @@ type Props = {
   activeWorldId: string;
 };
 
-// React Compiler will automatically optimize this component
 export function WorldsViewer({ worlds, activeWorldId }: Props) {
   return (
     <div className={sharedStyles.card}>

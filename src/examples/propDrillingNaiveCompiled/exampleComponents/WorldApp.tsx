@@ -14,7 +14,6 @@ type Props = {
   }) => void;
 };
 
-// React Compiler will automatically optimize this component
 export function PropDrillingWorldApp({
   worlds,
   setWorlds,

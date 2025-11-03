@@ -6,7 +6,6 @@ type Props = {
   world: WorldViewerItem;
 };
 
-// React Compiler will automatically optimize this component
 export function WorldInfo({ world }: Props) {
   const infoRows = [
     { label: "Type", value: world.type },

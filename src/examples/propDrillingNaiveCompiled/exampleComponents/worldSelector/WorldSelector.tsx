@@ -15,7 +15,6 @@ type Props = {
   addWorld: () => void;
 };
 
-// React Compiler will automatically optimize this component
 export function PropDrillingWorldSelector({
   activeWorld,
   worldOptions,

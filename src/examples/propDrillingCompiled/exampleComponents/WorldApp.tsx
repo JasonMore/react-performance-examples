@@ -13,7 +13,6 @@ type Props = {
   }) => void;
 };
 
-// React Compiler will automatically optimize this component
 export function WorldApp({ worlds, revalidate, onSnapshotChange }: Props) {
   const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
 

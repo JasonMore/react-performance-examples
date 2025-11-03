@@ -7,7 +7,6 @@ type Props = {
   onClick: (id: string) => void;
 };
 
-// React Compiler will automatically optimize this component
 export function WorldIdButton({ id, isActive, onClick }: Props) {
   return (
     <li>

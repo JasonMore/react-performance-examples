@@ -9,7 +9,6 @@ type Props = {
   isActive: boolean;
 };
 
-// React Compiler will automatically optimize this component
 export function World({ world, isActive }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 

@@ -7,7 +7,6 @@ type Props = {
   worlds: WorldViewerItem[];
 };
 
-// React Compiler will automatically optimize this component
 export function WorldList({ worlds }: Props) {
   return (
     <div className={css.worldList}>

@@ -6,7 +6,7 @@ type Props = {
   world: World;
 };
 
-// React Compiler will automatically optimize this component and memoize infoRows
+ and memoize infoRows
 export function WorldInfo({ world }: Props) {
   const infoRows = [
     { label: "Type", value: world.type },

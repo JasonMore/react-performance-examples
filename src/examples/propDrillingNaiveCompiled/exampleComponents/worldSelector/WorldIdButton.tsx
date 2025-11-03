@@ -9,7 +9,6 @@ type Props = {
   };
 };
 
-// React Compiler will automatically optimize this component
 export function PropDrillingWorldIdButton({ payload }: Props) {
   const { id, isActive, onChoose } = payload;
 

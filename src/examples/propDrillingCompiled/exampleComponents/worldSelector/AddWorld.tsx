@@ -5,7 +5,6 @@ type Props = {
   onClick: () => void;
 };
 
-// React Compiler will automatically optimize this component
 export function AddWorldButton({ onClick }: Props) {
   return (
     <button className={css.primaryButton} onClick={onClick}>

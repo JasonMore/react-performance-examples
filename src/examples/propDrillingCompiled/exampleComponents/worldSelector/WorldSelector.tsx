@@ -12,7 +12,6 @@ type Props = {
   chooseWorld: (id: string) => void;
 };
 
-// React Compiler will automatically optimize this component
 export function WorldSelector({
   activeWorld,
   worlds,
