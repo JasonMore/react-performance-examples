@@ -1,5 +1,5 @@
 import css from "./RenderToken.module.css";
-import { useId, useEffect, useRef, useState } from "react";
+import { useId } from "react";
 import { getRenderPassToken } from "./renderTokenState.ts";
 import { useScanStore } from "./useScanStore.ts";
 
@@ -11,24 +11,16 @@ type Props = {
 
 export const RenderToken = ({ className, forceRender }: Props) => {
   const enabled = useScanStore((s) => s.enabled);
-  const [token, setToken] = useState(getRenderPassToken());
-  const lastForceRenderRef = useRef(forceRender);
   const instanceId = useId();
 
-  // Detect when forceRender prop changes (indicating a React Compiler update)
-  useEffect(() => {
-    if (lastForceRenderRef.current !== forceRender) {
-      lastForceRenderRef.current = forceRender;
-      setToken(getRenderPassToken());
-    }
-  }, [forceRender]);
-
   if (enabled) return null;
+
+  const token = getRenderPassToken();
 
   return (
     // key forces remount so the CSS animation runs every time the shared token changes
     <span
-      key={`${token}:${instanceId}`}
+      key={`${token}:${instanceId}:${JSON.stringify(forceRender)}`}
       className={`${css.renderToken} ${className || ""}`}
     >
       {token}

@@ -22,9 +22,17 @@ export function PropDrillingCompiledRenderDemo() {
         This demo uses the <strong>React Compiler</strong> to automatically
         optimize prop drilling without manual memoization. The compiler
         automatically memoizes components and callbacks, providing similar
-        performance to the manually optimized version but without{" "}
-        <code>React.memo</code>, <code>useMemo</code>, or{" "}
+        performance to the manually optimized version but without
+        <code>React.memo</code>, <code>useMemo</code>, or
         <code>useCallback</code>.
+      </p>
+
+      <p>
+        NOTE: React Compiler is very good at not re-rendering children that
+        shouldn't. While this is awesome, it breaks <code>RenderToken</code>
+        automatically re-rendering. To solve this, I pass all props from the
+        parent to <code>RenderToken</code>. To verify, run the examples with
+        React Dev Tools Profiler.
       </p>
 
       <WorldApp

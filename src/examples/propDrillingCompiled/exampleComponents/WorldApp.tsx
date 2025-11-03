@@ -13,7 +13,8 @@ type Props = {
   }) => void;
 };
 
-export function WorldApp({ worlds, revalidate, onSnapshotChange }: Props) {
+export function WorldApp(props: Props) {
+  const { worlds, revalidate, onSnapshotChange } = props;
   const [activeWorldId, setActiveWorldId] = useState<string>("ven002");
 
   // Event handlers - React Compiler will memoize these automatically

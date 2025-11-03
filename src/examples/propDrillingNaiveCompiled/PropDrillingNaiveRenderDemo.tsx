@@ -24,14 +24,20 @@ export function PropDrillingNaiveCompiledRenderDemo() {
     <div className={css.app}>
       <h1>React Compiler Naive Prop Drilling Demo</h1>
       <p>
-        This demo shows the <strong>React Compiler</strong> optimizing a naive
-        prop drilling implementation. The original naive version had
-        anti-patterns like prop churn and broken memoization. The compiler
-        automatically handles these issues without requiring manual{" "}
-        <code>React.memo</code>, <code>useMemo</code>, or{" "}
-        <code>useCallback</code>.
+        This intentionally clumsy demo uses anti-patterns commonly seen with
+        prop drilling. Prop churn, broken memoization, and a cascade of
+        unnecessary updates. Even with <strong>React Compiler</strong>,
+        components still re-render due to how the application changes data as
+        data flows through props.
       </p>
 
+      <p>
+        NOTE: React Compiler is very good at not re-rendering children that
+        shouldn't. While this is awesome, it breaks <code>RenderToken</code>
+        automatically re-rendering. To solve this, I pass all props from the
+        parent to <code>RenderToken</code>. To verify, run the examples with
+        React Dev Tools Profiler.
+      </p>
       <PropDrillingWorldApp
         worlds={worlds}
         setWorlds={setWorlds}
