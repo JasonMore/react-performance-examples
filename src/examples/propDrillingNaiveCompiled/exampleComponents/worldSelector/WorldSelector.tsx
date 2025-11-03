@@ -32,7 +32,7 @@ export function PropDrillingWorldSelector({
   return (
     <div className={`${sharedStyles.card} ${css.root}`}>
       <div className={sharedStyles.cardTitle}>
-        World Selector <RenderToken />
+        World Selector <RenderToken className={activeWorld} />
       </div>
       <PropDrillingAddWorld onAdd={addWorld} />
       <ul className={css.worldList}>
