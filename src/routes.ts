@@ -18,33 +18,33 @@ export const routes: Route[] = [
   {
     id: "prop-drilling-naive",
     path: "/prop-drilling-naive",
-    navLabel: "🌪️ ❌ Prop-Naive",
-    title: "🌪️ ❌ Prop Drilling Naive",
+    navLabel: "⬇️ ❌ Prop-Naive",
+    title: "⬇️ ❌ Prop Drilling Naive",
     description:
       "Deliberately inefficient example that keeps state at the top and reshapes props at every level to force re-renders.",
   },
   {
     id: "prop-drilling",
     path: "/prop-drilling",
-    navLabel: "🌪️ ✅ Prop-Optimized",
-    title: "🌪️ ✅ Prop Drilling Optimized",
+    navLabel: "⬇️ ✅ Prop-Optimized",
+    title: "⬇️ ✅ Prop Drilling Fast",
     description: "Performant implementation of prop drilling.",
   },
   {
     id: "prop-drilling-naive-compiled",
     path: "/prop-drilling-naive-compiled",
-    navLabel: "⚡ 🌪️ Prop-Naive+Compiler",
-    title: "⚡ 🌪️ Prop Drilling Naive + React Compiler",
+    navLabel: "📠 ❌ Compiled-Prop-Naive",
+    title: "📠 ❌ Prop Drilling Naive (Compiled)",
     description:
-      "Naive prop drilling pattern automatically optimized by React Compiler. No manual memoization needed.",
+      "Deliberately inefficient example that keeps state at the top and reshapes props at every level to force re-renders. Even with React Compilier its still slow.",
   },
   {
     id: "prop-drilling-compiled",
     path: "/prop-drilling-compiled",
-    navLabel: "⚡ 🌪️ Prop-Optimized+Compiler",
-    title: "⚡ 🌪️ Prop Drilling Optimized + React Compiler",
+    navLabel: "📠 ✅ Compiled-Prop-Optimized",
+    title: "📠 ✅ Prop Drilling Fast (Compiled)",
     description:
-      "Optimized prop drilling pattern with React Compiler. Shows compiler benefits on already-clean code.",
+      "Performant implementation of prop drilling without manual memoization.",
   },
   {
     id: "zustand",
@@ -63,3 +63,4 @@ export const routes: Route[] = [
       "API state in tanstack-query/react, client state in zustand. Shows how you can combine state from multiple libraries.",
   },
 ];
+
