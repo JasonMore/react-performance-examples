@@ -5,8 +5,8 @@ import { useScanStore } from "./useScanStore.ts";
 
 type Props = {
   className?: string;
-  // the parent is rendering, but react compilier is so smart we have to pass junk in to the props to force a child to render :eyepop:
-  forceRender?: any;
+  // the parent is rendering, but react compiler is so smart we have to pass junk in to the props to force a child to render :eyepop:
+  forceRender?: Record<string, unknown>;
 };
 
 export const RenderToken = ({ className, forceRender }: Props) => {
