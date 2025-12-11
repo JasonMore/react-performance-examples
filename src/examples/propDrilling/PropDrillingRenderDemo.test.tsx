@@ -92,9 +92,15 @@ describe("PropDrillingRenderDemo", () => {
     render(<PropDrillingRenderDemo />);
 
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ven002/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ear003/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /mer001/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ven002/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ear003/i }),
+      ).toBeInTheDocument();
     });
   });
 

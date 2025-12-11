@@ -3,6 +3,14 @@
 Hands-on demos that contrast common React state patterns with their
 performance-minded counterparts. Each example surfaces rerender behavior through `RenderToken` counters.
 
+## Haiku
+
+```
+Renders cascade down
+Memoize with careful thought
+Components now still
+```
+
 ## Core Software Engineering Patterns & Principles
 
 - **Separation of Concerns (SoC):** Keep UI, state, and side effects separate.

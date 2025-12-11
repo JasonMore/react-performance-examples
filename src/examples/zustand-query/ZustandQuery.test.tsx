@@ -7,9 +7,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Mock the worlds API
 vi.mock("../../api/worlds", async () => {
-  const actual = await vi.importActual<typeof import("../../api/worlds")>(
-    "../../api/worlds"
-  );
+  const actual =
+    await vi.importActual<typeof import("../../api/worlds")>(
+      "../../api/worlds",
+    );
   return {
     ...actual,
     fetchWorlds: vi.fn(() =>
@@ -40,7 +41,7 @@ vi.mock("../../api/worlds", async () => {
             type: "terrestrial planet",
           },
         ],
-      })
+      }),
     ),
     addWorld: vi.fn(() =>
       Promise.resolve({
@@ -50,7 +51,7 @@ vi.mock("../../api/worlds", async () => {
         diameter: "6,792 km",
         orbitalPeriod: "687 days",
         type: "terrestrial planet",
-      })
+      }),
     ),
   };
 });
@@ -74,7 +75,7 @@ describe("ZustandQuery", () => {
     return render(
       <QueryClientProvider client={queryClient}>
         {component}
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
   };
 
@@ -110,9 +111,15 @@ describe("ZustandQuery", () => {
     renderWithQueryClient(<ZustandQuery />);
 
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ven002/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ear003/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /mer001/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ven002/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ear003/i }),
+      ).toBeInTheDocument();
     });
   });
 

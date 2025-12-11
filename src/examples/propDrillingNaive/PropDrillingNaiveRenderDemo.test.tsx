@@ -44,15 +44,16 @@ const NEW_WORLD: World = {
 
 // Mock the worlds API with predictable test data
 vi.mock("../../api/worlds", async () => {
-  const actual = await vi.importActual<typeof import("../../api/worlds")>(
-    "../../api/worlds"
-  );
+  const actual =
+    await vi.importActual<typeof import("../../api/worlds")>(
+      "../../api/worlds",
+    );
   return {
     ...actual,
     fetchWorlds: vi.fn(() =>
       Promise.resolve({
         worlds: TEST_WORLDS,
-      })
+      }),
     ),
     addWorld: vi.fn(() => Promise.resolve(NEW_WORLD)),
   };
@@ -95,9 +96,15 @@ describe("PropDrillingNaiveRenderDemo", () => {
     render(<PropDrillingNaiveRenderDemo />);
 
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ven002/i })).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /ear003/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /mer001/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ven002/i }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /ear003/i }),
+      ).toBeInTheDocument();
     });
   });
 
@@ -108,7 +115,9 @@ describe("PropDrillingNaiveRenderDemo", () => {
 
     // Wait for data to load and world buttons to appear
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /mer001/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /mer001/i }),
+      ).toBeInTheDocument();
     });
 
     // Get the initial render count from the button
@@ -116,7 +125,7 @@ describe("PropDrillingNaiveRenderDemo", () => {
     const initialTokenMatch = worldButton.textContent?.match(/«(\d{3})/);
     expect(initialTokenMatch).toBeDefined();
     const initialRenderCount = parseInt(initialTokenMatch![1], 10);
-    
+
     // The naive implementation may show «001 or «002 depending on test isolation
     // What's important is that it increments after interaction
     expect(initialRenderCount).toBeGreaterThanOrEqual(1);
@@ -131,7 +140,7 @@ describe("PropDrillingNaiveRenderDemo", () => {
       const newTokenMatch = updatedButton.textContent?.match(/«(\d{3})/);
       expect(newTokenMatch).toBeDefined();
       const newRenderCount = parseInt(newTokenMatch![1], 10);
-      
+
       // Verify the render count increased after the click
       expect(newRenderCount).toBeGreaterThan(initialRenderCount);
       expect(newRenderCount).toBe(initialRenderCount + 1);
@@ -149,7 +158,7 @@ describe("PropDrillingNaiveRenderDemo", () => {
         const worldTexts = screen.queryAllByText(/venus/i);
         expect(worldTexts.length).toBeGreaterThan(0);
       },
-      { timeout: 3000 }
+      { timeout: 3000 },
     );
 
     // Click on mercury button
@@ -162,7 +171,7 @@ describe("PropDrillingNaiveRenderDemo", () => {
         const worldTexts = screen.queryAllByText(/mercury/i);
         expect(worldTexts.length).toBeGreaterThan(0);
       },
-      { timeout: 3000 }
+      { timeout: 3000 },
     );
   });
 });
