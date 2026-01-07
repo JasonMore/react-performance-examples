@@ -5,6 +5,9 @@ let passCounter = 0;
 export const resetTokenCounter = () => {
   passCounter = 0;
   currentPassToken = undefined;
+  if (clearHandle) {
+    clearTimeout(clearHandle);
+  }
 };
 
 export function getRenderPassToken(): string {
