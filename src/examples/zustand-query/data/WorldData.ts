@@ -4,7 +4,7 @@ import {
   useQueryClient,
   QueryClient,
 } from "@tanstack/react-query";
-import { fetchWorlds, addWorld } from "../../../api/worlds.ts";
+import { fetchWorlds, addWorld, type World, type WorldsResponse } from "../../../api/worlds.ts";
 import { useCallback } from "react";
 export const queryClient = new QueryClient();
 
@@ -25,9 +25,9 @@ export const useGetWorlds = () => useQuery(getWorldsQueryOptions());
 
 export const useGetWorld = (id: string) => useQuery({
   ...getWorldsQueryOptions(),
-  select: useCallback(({ worlds }) => {
+  select: useCallback(({ worlds }: WorldsResponse) => {
     console.count(`>>> useGetWorld ${id}`)
-    return worlds.find((w) => w.id === id)
+    return worlds.find((w: World) => w.id === id)
   }, []),
 })
 
